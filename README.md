@@ -1,6 +1,7 @@
 # What3Words API
 
-TODO: Write a project description
+Unofficial Java wrapper for [what3words.com][] API
+to convert 3 word addresses to coordinates and vice versa.
 
 ## Installation
 
@@ -12,7 +13,8 @@ TODO: Write usage instructions
 
 ## Contributing
 
-Please read [CONTRIBUTING](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read [CONTRIBUTING](CONTRIBUTING.md) for details on our
+code of conduct, and the process for submitting pull requests to us.
 
 ## History
 
@@ -26,3 +28,5 @@ TODO: Write credits
 
 [Apache License v2.0](LICENSE)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html)
+
+[what3words.com]: https://what3words.com/ "It’s the easiest way to find and share exact locations."
