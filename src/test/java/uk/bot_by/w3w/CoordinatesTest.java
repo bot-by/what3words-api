@@ -41,7 +41,7 @@ class CoordinatesTest {
 
 	@DisplayName("Builder")
 	@Test
-	void builder() {
+	public void builder() {
 		// given
 		BigDecimal latitude = BigDecimal.valueOf(51.381051d);
 		BigDecimal longitude = BigDecimal.valueOf(-2.359591d);
@@ -57,7 +57,7 @@ class CoordinatesTest {
 
 	@DisplayName("To string")
 	@Test
-	void string() {
+	public void string() {
 		// given
 		Coordinates coordinates = Coordinates.builder().latitude(51.381051d).longitude(-2.359591d).build();
 

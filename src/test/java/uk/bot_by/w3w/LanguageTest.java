@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 @Tag("fast")
 class LanguageTest {
 
-	@DisplayName("Language code")
+	@DisplayName("Language code is missing")
 	@Test
 	public void code() {
 		// when
@@ -21,7 +21,7 @@ class LanguageTest {
 		assertEquals("language code is null", exception.getMessage(), "exception message");
 	}
 
-	@DisplayName("Language name")
+	@DisplayName("Language name is missing")
 	@Test
 	public void name() {
 		// when
@@ -31,7 +31,7 @@ class LanguageTest {
 		assertEquals("language name is null", exception.getMessage(), "exception message");
 	}
 
-	@DisplayName("Language native name")
+	@DisplayName("Language native name is missing")
 	@Test
 	public void nativeName() {
 		// when
@@ -56,7 +56,7 @@ class LanguageTest {
 
 	@DisplayName("To string")
 	@Test
-	void testToString() {
+	public void testToString() {
 		// given
 		Language language = Language.builder().code("aa").name("Name").nativeName("Native name").build();
 

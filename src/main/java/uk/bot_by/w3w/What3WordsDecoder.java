@@ -69,7 +69,9 @@ public class What3WordsDecoder implements Decoder {
 	}
 
 	private Object getThreeWordAddress(String words) {
-		return new ThreeWordAddress(words.split("\\."));
+		return ThreeWordAddress.builder()
+				.words(words.split("\\."))
+				.build();
 	}
 
 }

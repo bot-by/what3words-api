@@ -57,7 +57,6 @@ public class Language {
 		private String nativeName;
 
 		private LanguageBuilder() {
-			;
 		}
 
 		public Language build() {

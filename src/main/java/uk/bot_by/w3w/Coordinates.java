@@ -42,7 +42,6 @@ public class Coordinates {
 		private BigDecimal longitude;
 
 		private CoordinatesBuilder() {
-			;
 		}
 
 		public Coordinates build() {
