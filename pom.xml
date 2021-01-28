@@ -42,6 +42,7 @@
 		<resources-plugin.version>3.2.0</resources-plugin.version>
 		<surefire-plugin.version>2.22.2</surefire-plugin.version>
 		<jar-plugin.version>3.2.0</jar-plugin.version>
+		<mockserver-plugin.version>5.11.2</mockserver-plugin.version>
 		<failsafe-plugin.version>2.22.2</failsafe-plugin.version>
 		<clean-plugin.version>3.1.0</clean-plugin.version>
 		<jacoco-plugin.version>0.8.6</jacoco-plugin.version>
@@ -175,6 +176,32 @@
 				</configuration>
 			</plugin>
 			<plugin>
+				<groupId>org.mock-server</groupId>
+				<artifactId>mockserver-maven-plugin</artifactId>
+				<version>${mockserver-plugin.version}</version>
+				<configuration>
+					<serverPort>9876</serverPort>
+					<logLevel>DEBUG</logLevel>
+					<initializationJson>w3w-initializer.json</initializationJson>
+				</configuration>
+				<executions>
+					<execution>
+						<id>pre-integration-test</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>runForked</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>post-integration-test</id>
+						<phase>post-integration-test</phase>
+						<goals>
+							<goal>stopForked</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>${failsafe-plugin.version}</version>
@@ -192,6 +219,7 @@
 					</includes>
 					<properties>
 						<groups>slow</groups>
+						<listener>org.mockserver.maven.StopMockServerTestListener</listener>
 					</properties>
 				</configuration>
 			</plugin>

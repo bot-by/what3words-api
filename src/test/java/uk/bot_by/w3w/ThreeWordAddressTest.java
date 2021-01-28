@@ -60,7 +60,7 @@ class ThreeWordAddressTest {
 		assertEquals("second word is null", exception.getMessage(), "exception message");
 	}
 
-	@DisplayName("Second word is missing")
+	@DisplayName("Third word is missing")
 	@Test
 	public void third() {
 		// when

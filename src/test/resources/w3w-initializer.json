@@ -1,0 +1,149 @@
+[
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v3/available-languages",
+      "headers": {
+        "Accept": [
+          "application/json"
+        ],
+        "X-Api-Key": [
+          "abc-api-key"
+        ]
+      }
+    },
+    "httpResponse": {
+      "body": "{\"languages\":[{\"nativeName\":\"Deutsch\",\"code\":\"de\",\"name\":\"German\"},{\"nativeName\":\"Norsk\",\"code\":\"no\",\"name\":\"Norwegian\"}]}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v3/available-languages",
+      "headers": {
+        "Accept": [
+          "application/json"
+        ],
+        "X-Api-Key": [
+          "xyz-api-key"
+        ]
+      }
+    },
+    "httpResponse": {
+      "body": "{\"languages\":[{\"nativeName\":\"العربية\",\"code\":\"ar\",\"name\":\"Arabic\"},{\"nativeName\":\"Ελληνικά\",\"code\":\"el\",\"name\":\"Greek\"},{\"nativeName\":\"Türkçe\",\"code\":\"tr\",\"name\":\"Turkish\"}]}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v3/convert-to-3wa",
+      "headers": {
+        "Accept": [
+          "application/json"
+        ],
+        "X-Api-Key": [
+          "abc-api-key"
+        ]
+      },
+      "queryStringParameters": {
+        "coordinates": [
+          "51.381051,-2.359591"
+        ]
+      }
+    },
+    "httpResponse": {
+      "body": "{\"coordinates\":{\"lng\":-2.359591,\"lat\":51.381051},\"words\":\"spring.tops.issued\",\"language\":\"en\"}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v3/convert-to-3wa",
+      "headers": {
+        "Accept": [
+          "application/json"
+        ],
+        "X-Api-Key": [
+          "xyz-api-key"
+        ]
+      },
+      "queryStringParameters": {
+        "coordinates": [
+          "51.521251,-0.203586"
+        ]
+      }
+    },
+    "httpResponse": {
+      "body": "{\"coordinates\":{\"lng\":-0.203586,\"lat\":51.521251},\"words\":\"filled.count.soap\",\"language\":\"en\"}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v3/convert-to-3wa",
+      "headers": {
+        "Accept": [
+          "application/json"
+        ],
+        "X-Api-Key": [
+          "abc-api-key"
+        ]
+      },
+      "queryStringParameters": {
+        "coordinates": [
+          "51.841621,16.571912"
+        ],
+        "language": [
+          "pl"
+        ]
+      }
+    },
+    "httpResponse": {
+      "body": "{\"coordinates\":{\"lng\":16.571912,\"lat\":51.841621},\"words\":\"brodaty.anteny.kwota\",\"language\":\"pl\"}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v3/convert-to-coordinates",
+      "headers": {
+        "Accept": [
+          "application/json"
+        ],
+        "X-Api-Key": [
+          "abc-api-key"
+        ]
+      },
+      "queryStringParameters": {
+        "words": [
+          "spring.tops.issued"
+        ]
+      }
+    },
+    "httpResponse": {
+      "body": "{\"coordinates\":{\"lng\":-2.359591,\"lat\":51.381051},\"words\":\"spring.tops.issued\",\"language\":\"en\"}"
+    }
+  },
+  {
+    "httpRequest": {
+      "method": "GET",
+      "path": "/v3/convert-to-coordinates",
+      "headers": {
+        "Accept": [
+          "application/json"
+        ],
+        "X-Api-Key": [
+          "xyz-api-key"
+        ]
+      },
+      "queryStringParameters": {
+        "words": [
+          "filled.count.soap"
+        ]
+      }
+    },
+    "httpResponse": {
+      "body": "{\"coordinates\":{\"lng\":-0.203586,\"lat\":51.521251},\"words\":\"filled.count.soap\",\"language\":\"en\"}"
+    }
+  }
+]

@@ -4,8 +4,6 @@ import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Collections;
-
 public class KeyInterceptor implements RequestInterceptor {
 
 	private final String key;
@@ -16,7 +14,9 @@ public class KeyInterceptor implements RequestInterceptor {
 
 	@Override
 	public void apply(RequestTemplate template) {
-		template.headers().putIfAbsent("X-Api-Key", Collections.singleton(key));
+		if (!template.headers().containsKey("X-Api-Key")) {
+			template.header("X-Api-Key", key);
+		}
 	}
 
 	@Override
