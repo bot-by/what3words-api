@@ -24,7 +24,7 @@ class ThreeWordAddressTest {
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> ThreeWordAddress.builder().words(words).build());
 
 		// then
-		assertEquals("three words is required", exception.getMessage(), "exception message");
+		assertEquals("3 words is required", exception.getMessage(), "exception message");
 	}
 
 	@DisplayName("List is too small")
@@ -37,7 +37,7 @@ class ThreeWordAddressTest {
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> ThreeWordAddress.builder().words(words).build());
 
 		// then
-		assertEquals("three words is required", exception.getMessage(), "exception message");
+		assertEquals("3 words is required", exception.getMessage(), "exception message");
 	}
 
 	@DisplayName("First word is missing")
@@ -74,7 +74,7 @@ class ThreeWordAddressTest {
 	@Test
 	public void builder() {
 		// when
-		ThreeWordAddress threeWordAddress = ThreeWordAddress.builder().words(new String[]{"spring", "tops", "issued"}).build();
+		ThreeWordAddress threeWordAddress = ThreeWordAddress.builder().words("spring", "tops", "issued").build();
 
 		// then
 		assertAll("Three word address",
@@ -87,7 +87,7 @@ class ThreeWordAddressTest {
 	@Test
 	public void testToString() {
 		// given
-		ThreeWordAddress threeWordAddress = ThreeWordAddress.builder().words(new String[]{"spring", "tops", "issued"}).build();
+		ThreeWordAddress threeWordAddress = ThreeWordAddress.builder().words("spring", "tops", "issued").build();
 
 		// when and then
 		assertEquals("spring.tops.issued", threeWordAddress.toString());

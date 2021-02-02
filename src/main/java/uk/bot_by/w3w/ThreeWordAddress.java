@@ -60,28 +60,37 @@ public class ThreeWordAddress {
 		}
 
 		public ThreeWordAddressBuilder first(@NotNull String first) {
-			this.first = first;
+			if (first.isBlank()) {
+				throw new IllegalArgumentException("empty first word");
+			}
+			this.first = first.strip();
 			return this;
 		}
 
 		public ThreeWordAddressBuilder second(@NotNull String second) {
-			this.second = second;
+			if (second.isBlank()) {
+				throw new IllegalArgumentException("empty second word");
+			}
+			this.second = second.strip();
 			return this;
 		}
 
 		public ThreeWordAddressBuilder third(@NotNull String third) {
-			this.third = third;
+			if (third.isBlank()) {
+				throw new IllegalArgumentException("empty third word");
+			}
+			this.third = third.strip();
 			return this;
 		}
 
-		public ThreeWordAddressBuilder words(@NotNull String[] words) {
+		public ThreeWordAddressBuilder words(String... words) {
 			if (3 > words.length) {
-				throw new IllegalArgumentException("three words is required");
+				throw new IllegalArgumentException("3 words is required");
 			}
 
-			first = words[0];
-			second = words[1];
-			third = words[2];
+			first(words[0]);
+			second(words[1]);
+			third(words[2]);
 
 			return this;
 		}
@@ -91,4 +100,5 @@ public class ThreeWordAddress {
 		}
 
 	}
+
 }

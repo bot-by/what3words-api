@@ -38,23 +38,23 @@ public interface What3Words {
 
 
 	/**
-	 * Get a three word address by its coordinates, in the default language.
+	 * Get a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by its coordinates.
 	 * <p>
 	 * Use {@link KeyInterceptor} to set up API key or add the query parameter {@code key}.
 	 *
 	 * @param queryParameters query parameters, coordinates are required and language is optional
-	 * @return three word address
+	 * @return 3 word address
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">What3Words: Convert to 3 word address</a>
 	 */
 	@RequestLine("GET /v3/convert-to-3wa")
 	ThreeWordAddress convertToAddress(@QueryMap Map<String, Object> queryParameters);
 
 	/**
-	 * Get a three word address by its coordinates, in the default language.
+	 * Get a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by its coordinates.
 	 *
 	 * @param key             API key, will be added as the header {@code X-Api-Key}
 	 * @param queryParameters query parameters, coordinates are required and language is optional
-	 * @return three word address
+	 * @return 3 word address
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">What3Words: Convert to 3 word address</a>
 	 */
 	@RequestLine("GET /v3/convert-to-3wa")
@@ -62,7 +62,7 @@ public interface What3Words {
 	ThreeWordAddress convertToAddress(@NotNull @Param("w3w-api-key") String key, @QueryMap Map<String, Object> queryParameters);
 
 	/**
-	 * Get coordinates by a three word address.
+	 * Get coordinates by a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
 	 * <p>
 	 * Use {@link KeyInterceptor} to set up API key.
 	 *
@@ -74,7 +74,7 @@ public interface What3Words {
 	Coordinates convertToCoordinates(@QueryMap Map<String, Object> queryParameters);
 
 	/**
-	 * Get coordinates by a three word address.
+	 * Get coordinates by a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
 	 *
 	 * @param key             API key
 	 * @param queryParameters query parameters, words is required and language is optional

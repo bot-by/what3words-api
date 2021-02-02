@@ -329,7 +329,10 @@
 					</links>
 					<isOffline>false</isOffline>
 					<docfilessubdirs>true</docfilessubdirs>
-					<top><![CDATA[<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism-material-dark.css">]]></top>
+					<top><![CDATA[
+						<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism-material-dark.css">
+						<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/what3words-api.css">
+					]]></top>
 					<bottom><![CDATA[<script type="text/javascript" src="{@docRoot}/resources/prism.js"></script>]]></bottom>
 					<additionalJOptions>
 						<additionalJOption>-J-Dhttp.agent=maven-javadoc-plugin-${project.name}</additionalJOption>
@@ -342,7 +345,7 @@
 		</plugins>
 	</build>
 
-	<name>What3Words API</name>
+	<name>what3words API</name>
 	<description>Unofficial Java wrapper for what3words.com API to convert 3 word addresses to coordinates and vice versa.</description>
 	<url>https://gitlab.com/bot-by/what3words-api</url>
 	<inceptionYear>2021</inceptionYear>
@@ -381,16 +384,6 @@
 			<artifactId>feign-core</artifactId>
 			<version>${feign-core.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>io.github.openfeign</groupId>
-			<artifactId>feign-slf4j</artifactId>
-			<version>${feign-slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>io.github.openfeign</groupId>
-			<artifactId>feign-java11</artifactId>
-			<version>${feign-java11.version}</version>
-		</dependency>
 		<!-- test -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -426,6 +419,18 @@
 			<groupId>org.hamcrest</groupId>
 			<artifactId>hamcrest</artifactId>
 			<version>${hamcrest.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-slf4j</artifactId>
+			<version>${feign-slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.github.openfeign</groupId>
+			<artifactId>feign-java11</artifactId>
+			<version>${feign-java11.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

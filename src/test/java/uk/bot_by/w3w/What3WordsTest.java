@@ -68,7 +68,7 @@ public class What3WordsTest {
 				() -> assertThat("arabic, greek, turkish", languages, containsInAnyOrder(arabic, greek, turkish)));
 	}
 
-	@DisplayName("Convert coordinates to a three word address")
+	@DisplayName("Convert coordinates to a 3 word address")
 	@Test
 	public void convertToAddress() {
 		// given
@@ -86,7 +86,7 @@ public class What3WordsTest {
 				() -> assertEquals("spring.tops.issued", threeWordAddress.toString(), "3wa"));
 	}
 
-	@DisplayName("Convert coordinates to a three word address")
+	@DisplayName("Convert coordinates to a 3 word address")
 	@Test
 	public void convertToAddressWithKey() {
 		// given
@@ -104,7 +104,7 @@ public class What3WordsTest {
 				() -> assertEquals("filled.count.soap", threeWordAddress.toString(), "3wa"));
 	}
 
-	@DisplayName("Convert coordinates to a three word address")
+	@DisplayName("Convert coordinates to a 3 word address")
 	@Test
 	public void convertToAddressWithLanguage() {
 		// given
@@ -124,7 +124,7 @@ public class What3WordsTest {
 				() -> assertEquals("brodaty.anteny.kwota", threeWordAddress.toString(), "3wa"));
 	}
 
-	@DisplayName("Convert three word address to coordinates")
+	@DisplayName("Convert 3 word address to coordinates")
 	@Test
 	public void convertToCoordinates() {
 		//given
@@ -142,7 +142,7 @@ public class What3WordsTest {
 				() -> assertEquals("51.381051,-2.359591", coordinates.toString(), "coordinates"));
 	}
 
-	@DisplayName("Convert three word address to coordinates")
+	@DisplayName("Convert 3 word address to coordinates")
 	@Test
 	public void convertToCoordinatesWithKey() {
 		//given
