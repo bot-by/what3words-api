@@ -153,29 +153,4 @@ class What3WordsDecoderTest {
 				() -> assertEquals("issued", threeWordAddress.getThird(), "third"));
 	}
 
-	@DisplayName("What3Words returns an error")
-	@Disabled
-	@Test
-	public void error() throws IOException {
-		//
-		response = Response.builder()
-				.request(Request.create(Request.HttpMethod.GET, "/api", Collections.emptyMap(), null, UTF_8, null))
-				.status(400)
-				.reason("Bad request")
-				.headers(Collections.emptyMap())
-				.body(body)
-				.build();
-		when(body.asReader(isA(Charset.class))).thenReturn(new StringReader("{ \"error\": { \"code\": \"BadWords\", \"message\": \"Invalid or " +
-				"non-existent 3 word address\" } }"));
-
-		// when
-		What3WordsException exception = assertThrows(What3WordsException.class, () -> decoder.decode(response, String.class));
-
-		// then
-		assertAll("API error",
-				() -> assertEquals(400, exception.getStatus(), "Exception message"),
-				() -> assertEquals("BadWords", exception.getCode(), "Exception message"),
-				() -> assertEquals("Invalid or non-existent 3 word address", exception.getMessage(), "Exception message"));
-	}
-
 }

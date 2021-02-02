@@ -4,6 +4,7 @@ import feign.Headers;
 import feign.Param;
 import feign.QueryMap;
 import feign.RequestLine;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Collection;
 import java.util.Map;
@@ -27,19 +28,19 @@ public interface What3Words {
 	/**
 	 * Get available languages.
 	 *
-	 * @param key API key
+	 * @param key API key, will be added to request as the header {@code X-Api-Key}
 	 * @return available languages of What3Words API
 	 * @see <a href="https://developer.what3words.com/public-api/docs#available-languages">What3Words: Available languages</a>
 	 */
 	@RequestLine("GET /v3/available-languages")
 	@Headers("X-Api-Key: {w3w-api-key}")
-	Collection<Language> availableLanguages(@Param("w3w-api-key") String key);
+	Collection<Language> availableLanguages(@NotNull @Param("w3w-api-key") String key);
 
 
 	/**
-	 * Get a three word address by its coordinates, in the  default language.
+	 * Get a three word address by its coordinates, in the default language.
 	 * <p>
-	 * Use {@link KeyInterceptor} to set up API key.
+	 * Use {@link KeyInterceptor} to set up API key or add the query parameter {@code key}.
 	 *
 	 * @param queryParameters query parameters, coordinates are required and language is optional
 	 * @return three word address
@@ -49,16 +50,16 @@ public interface What3Words {
 	ThreeWordAddress convertToAddress(@QueryMap Map<String, Object> queryParameters);
 
 	/**
-	 * Get a three word address by its coordinates, in the  default language.
+	 * Get a three word address by its coordinates, in the default language.
 	 *
-	 * @param key             API key
+	 * @param key             API key, will be added as the header {@code X-Api-Key}
 	 * @param queryParameters query parameters, coordinates are required and language is optional
 	 * @return three word address
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">What3Words: Convert to 3 word address</a>
 	 */
 	@RequestLine("GET /v3/convert-to-3wa")
 	@Headers("X-Api-Key: {w3w-api-key}")
-	ThreeWordAddress convertToAddress(@Param("w3w-api-key") String key, @QueryMap Map<String, Object> queryParameters);
+	ThreeWordAddress convertToAddress(@NotNull @Param("w3w-api-key") String key, @QueryMap Map<String, Object> queryParameters);
 
 	/**
 	 * Get coordinates by a three word address.

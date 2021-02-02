@@ -41,14 +41,6 @@ public class What3WordsDecoder implements Decoder {
 		try (Reader reader = response.body().asReader(UTF_8)) {
 			JSONObject json = new JSONObject(new JSONTokener(reader));
 
-			/*
-			if (json.has("error")) {
-				JSONObject error = json.getJSONObject("error");
-
-				throw new What3WordsException(response.status(), error.getString("code"), error.getString("message"));
-			}
-			*/
-
 			if (coordinatesType.equals(type)) {
 				return getCoordinates(json.getJSONObject("coordinates"));
 			} else if (languagesType.equals(type)) {

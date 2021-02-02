@@ -1,6 +1,20 @@
 [
   {
     "httpRequest": {
+      "headers": {
+        "X-Api-Key": [
+          "bad-words"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 400,
+      "reasonPhrase": "Bad Request",
+      "body": "{\"error\":{\"code\":\"BadWords\",\"message\":\"Invalid or non-existent 3 word address\"}}"
+    }
+  },
+  {
+    "httpRequest": {
       "method": "GET",
       "path": "/v3/available-languages",
       "headers": {
