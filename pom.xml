@@ -330,8 +330,8 @@
 					<isOffline>false</isOffline>
 					<docfilessubdirs>true</docfilessubdirs>
 					<top><![CDATA[
-						<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism-material-dark.css">
-						<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/what3words-api.css">
+<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism-material-dark.css"/>
+<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/what3words-api.css"/>
 					]]></top>
 					<bottom><![CDATA[<script type="text/javascript" src="{@docRoot}/resources/prism.js"></script>]]></bottom>
 					<additionalJOptions>
@@ -345,7 +345,7 @@
 		</plugins>
 	</build>
 
-	<name>what3words API</name>
+	<name>what3words API wrapper</name>
 	<description>Unofficial Java wrapper for what3words.com API to convert 3 word addresses to coordinates and vice versa.</description>
 	<url>https://gitlab.com/bot-by/what3words-api</url>
 	<inceptionYear>2021</inceptionYear>
