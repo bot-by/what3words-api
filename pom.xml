@@ -47,6 +47,7 @@
 		<clean-plugin.version>3.1.0</clean-plugin.version>
 		<jacoco-plugin.version>0.8.6</jacoco-plugin.version>
 		<javadoc-plugin.version>3.2.0</javadoc-plugin.version>
+		<source-plugin.version>3.2.0</source-plugin.version>
 		<!-- test -->
 		<junit-jupiter.version>5.7.0</junit-jupiter.version>
 		<mockito.version>3.6.0</mockito.version>
@@ -314,34 +315,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>${javadoc-plugin.version}</version>
-				<configuration>
-					<javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
-					<show>public</show>
-					<links>
-						<link>https://static.javadoc.io/org.json/json/${json.version}/</link>
-						<link>https://static.javadoc.io/io.github.openfeign/feign-core/${feign-core.version}/</link>
-						<link>https://static.javadoc.io/io.github.openfeign/feign-slf4j/${feign-slf4j.version}/</link>
-						<link>https://static.javadoc.io/io.github.openfeign/feign-java11/${feign-java11.version}/</link>
-					</links>
-					<isOffline>false</isOffline>
-					<docfilessubdirs>true</docfilessubdirs>
-					<top><![CDATA[
-<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism-material-dark.css"/>
-<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/what3words-api.css"/>
-					]]></top>
-					<bottom><![CDATA[<script type="text/javascript" src="{@docRoot}/resources/prism.js"></script>]]></bottom>
-					<additionalJOptions>
-						<additionalJOption>-J-Dhttp.agent=maven-javadoc-plugin-${project.name}</additionalJOption>
-					</additionalJOptions>
-					<additionalOptions>
-						<additionalOption>--allow-script-in-comments</additionalOption>
-					</additionalOptions>
-				</configuration>
-			</plugin>
 		</plugins>
 	</build>
 
@@ -434,4 +407,63 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<profiles>
+		<profile>
+			<id>sources-and-javadocs</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<version>${source-plugin.version}</version>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<version>${javadoc-plugin.version}</version>
+						<executions>
+							<execution>
+								<id>attach-javadocs</id>
+								<goals>
+									<goal>jar</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+							<show>public</show>
+							<links>
+								<link>https://static.javadoc.io/org.json/json/${json.version}/</link>
+								<link>https://static.javadoc.io/io.github.openfeign/feign-core/${feign-core.version}/</link>
+								<link>https://static.javadoc.io/io.github.openfeign/feign-slf4j/${feign-slf4j.version}/</link>
+								<link>https://static.javadoc.io/io.github.openfeign/feign-java11/${feign-java11.version}/</link>
+							</links>
+							<isOffline>false</isOffline>
+							<docfilessubdirs>true</docfilessubdirs>
+							<top><![CDATA[
+<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism-material-dark.css"/>
+<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/what3words-api.css"/>
+					]]></top>
+							<bottom><![CDATA[<script type="text/javascript" src="{@docRoot}/resources/prism.js"></script>]]></bottom>
+							<additionalJOptions>
+								<additionalJOption>-J-Dhttp.agent=maven-javadoc-plugin-${project.name}</additionalJOption>
+							</additionalJOptions>
+							<additionalOptions>
+								<additionalOption>--allow-script-in-comments</additionalOption>
+							</additionalOptions>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 </project>
