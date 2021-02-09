@@ -21,6 +21,8 @@ import java.util.Objects;
 
 /**
  * Language object represents language entity that returns <em>what3words</em> API.
+ * <p>
+ * The implementations should implements {@link Object#toString() toString()} that returns language code.
  *
  * @see What3Words#availableLanguages()
  * @since 1.0.0
@@ -52,6 +54,11 @@ public interface Language {
 	 */
 	String getNativeName();
 
+	/**
+	 * Basic implementation of {@link Language}
+	 *
+	 * @since 1.0.0
+	 */
 	class BasicLanguage implements Language {
 
 		private final String code;
@@ -104,6 +111,11 @@ public interface Language {
 
 	}
 
+	/**
+	 * Helper to constraint a language object.
+	 *
+	 * @since 1.0.0
+	 */
 	class LanguageBuilder {
 
 		private String code;
@@ -113,23 +125,49 @@ public interface Language {
 		private LanguageBuilder() {
 		}
 
-		public Language build() {
+		/**
+		 * Get a language object.
+		 * <p>
+		 * It checks that language code, name and native name are not null.
+		 *
+		 * @return language
+		 * @throws NullPointerException if language code, name and native name are null
+		 */
+		public Language build() throws NullPointerException {
 			Objects.requireNonNull(code, "language code is null");
 			Objects.requireNonNull(name, "language name is null");
 			Objects.requireNonNull(nativeName, "language native name is null");
 			return new BasicLanguage(this);
 		}
 
+		/**
+		 * Set language code.
+		 *
+		 * @param code language code
+		 * @return the builder
+		 */
 		public LanguageBuilder code(@NotNull String code) {
 			this.code = code;
 			return this;
 		}
 
+		/**
+		 * Set language name.
+		 *
+		 * @param name English language name
+		 * @return the builder
+		 */
 		public LanguageBuilder name(@NotNull String name) {
 			this.name = name;
 			return this;
 		}
 
+		/**
+		 * Set native language name.
+		 *
+		 * @param nativeName native language name
+		 * @return the builder
+		 */
 		public LanguageBuilder nativeName(@NotNull String nativeName) {
 			this.nativeName = nativeName;
 			return this;

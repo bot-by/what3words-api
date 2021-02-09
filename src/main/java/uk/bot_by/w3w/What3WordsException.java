@@ -15,6 +15,22 @@
  */
 package uk.bot_by.w3w;
 
+/**
+ * Represent error response of <em>what3words</em> API.
+ * <p>
+ * Example of error response:
+ * <pre><code class="language-json">
+ * {
+ *     "error": {
+ *         "code": "BadWords",
+ *         "message": "Invalid or non-existent 3 word address"
+ *     }
+ * }
+ * </code></pre>
+ *
+ * @see <a href="https://developer.what3words.com/public-api/docs#error-handling"><em>what3words</em>: Error handling</a>
+ * @since 1.0.0
+ */
 public class What3WordsException extends RuntimeException {
 
 	private final String code;
@@ -26,10 +42,20 @@ public class What3WordsException extends RuntimeException {
 		this.status = status;
 	}
 
+	/**
+	 * Error code like <em>InvalidKey</em>, <em>DuplicateParameter</em> etc.
+	 *
+	 * @return error code
+	 */
 	public String getCode() {
 		return code;
 	}
 
+	/**
+	 * Error status like {@code 400}, {@code 401}, {@code 404} and so on.
+	 *
+	 * @return error status
+	 */
 	public int getStatus() {
 		return status;
 	}

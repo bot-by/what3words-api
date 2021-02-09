@@ -15,6 +15,7 @@
  */
 package uk.bot_by.w3w;
 
+import feign.FeignException;
 import feign.Headers;
 import feign.Param;
 import feign.QueryMap;
@@ -41,10 +42,12 @@ public interface What3Words {
 	 * Use {@link KeyInterceptor} to set up API key.
 	 *
 	 * @return available languages of what3words API
+	 * @throws FeignException      if a remote server is not available or returns unknown error
+	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#available-languages">what3words: Available languages</a>
 	 */
 	@RequestLine("GET /v3/available-languages")
-	Collection<Language> availableLanguages();
+	Collection<Language> availableLanguages() throws FeignException, What3WordsException;
 
 	/**
 	 * Get available languages.
@@ -53,11 +56,13 @@ public interface What3Words {
 	 *
 	 * @param key API key, will be added to request as the header {@code X-Api-Key}
 	 * @return available languages of what3words API
+	 * @throws FeignException      if a remote server is not available or returns unknown error
+	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#available-languages">what3words: Available languages</a>
 	 */
 	@RequestLine("GET /v3/available-languages")
 	@Headers("X-Api-Key: {w3w-api-key}")
-	Collection<Language> availableLanguages(@NotNull @Param("w3w-api-key") String key);
+	Collection<Language> availableLanguages(@NotNull @Param("w3w-api-key") String key) throws FeignException, What3WordsException;
 
 
 	/**
@@ -67,10 +72,12 @@ public interface What3Words {
 	 *
 	 * @param queryParameters query parameters, coordinates are required and language is optional
 	 * @return 3 word address
+	 * @throws FeignException      if a remote server is not available or returns unknown error
+	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">what3words: Convert to 3 word address</a>
 	 */
 	@RequestLine("GET /v3/convert-to-3wa")
-	ThreeWordAddress convertToAddress(@QueryMap Map<String, Object> queryParameters);
+	ThreeWordAddress convertToAddress(@QueryMap Map<String, Object> queryParameters) throws FeignException, What3WordsException;
 
 	/**
 	 * Get a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by its coordinates.
@@ -80,11 +87,14 @@ public interface What3Words {
 	 * @param key             API key, will be added as the header {@code X-Api-Key}
 	 * @param queryParameters query parameters, coordinates are required and language is optional
 	 * @return 3 word address
+	 * @throws FeignException      if a remote server is not available or returns unknown error
+	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">what3words: Convert to 3 word address</a>
 	 */
 	@RequestLine("GET /v3/convert-to-3wa")
 	@Headers("X-Api-Key: {w3w-api-key}")
-	ThreeWordAddress convertToAddress(@NotNull @Param("w3w-api-key") String key, @QueryMap Map<String, Object> queryParameters);
+	ThreeWordAddress convertToAddress(@NotNull @Param("w3w-api-key") String key, @QueryMap Map<String, Object> queryParameters)
+			throws FeignException, What3WordsException;
 
 	/**
 	 * Get coordinates by a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
@@ -93,10 +103,12 @@ public interface What3Words {
 	 *
 	 * @param queryParameters query parameters, words is required
 	 * @return coordinates
+	 * @throws FeignException      if a remote server is not available or returns unknown error
+	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-coords">what3words: Convert to coordinates</a>
 	 */
 	@RequestLine("GET /v3/convert-to-coordinates")
-	Coordinates convertToCoordinates(@QueryMap Map<String, Object> queryParameters);
+	Coordinates convertToCoordinates(@QueryMap Map<String, Object> queryParameters) throws FeignException, What3WordsException;
 
 	/**
 	 * Get coordinates by a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
@@ -106,10 +118,13 @@ public interface What3Words {
 	 * @param key                API key
 	 * @param coordinatesRequest query parameters, words is required
 	 * @return coordinates
+	 * @throws FeignException      if a remote server is not available or returns unknown error
+	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-coords">what3words: Convert to coordinates</a>
 	 */
 	@RequestLine("GET /v3/convert-to-coordinates")
 	@Headers("X-Api-Key: {w3w-api-key}")
-	Coordinates convertToCoordinates(@Param("w3w-api-key") String key, @QueryMap CoordinatesRequest coordinatesRequest);
+	Coordinates convertToCoordinates(@Param("w3w-api-key") String key, @QueryMap CoordinatesRequest coordinatesRequest)
+			throws FeignException, What3WordsException;
 
 }

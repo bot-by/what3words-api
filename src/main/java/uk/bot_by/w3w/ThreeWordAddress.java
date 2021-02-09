@@ -62,6 +62,8 @@ public interface ThreeWordAddress {
 
 	/**
 	 * Basic implementation of {@link ThreeWordAddress}
+	 *
+	 * @since 1.0.0
 	 */
 	class BasicThreeWordAddress implements ThreeWordAddress {
 
@@ -111,6 +113,8 @@ public interface ThreeWordAddress {
 	 * <p>
 	 * Each word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> must match the pattern:
 	 * <pre><code class="language-regex">^[^0-9`~!@#$%^&amp;*()+\-_=\[{}\\|'&lt;,.&gt;?/&quot;;:£§º©®\s]{1,}$</code></pre>
+	 *
+	 * @since 1.0.0
 	 */
 	class ThreeWordAddressBuilder {
 

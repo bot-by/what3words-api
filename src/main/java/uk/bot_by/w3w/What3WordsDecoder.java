@@ -31,6 +31,11 @@ import java.util.Set;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+/**
+ * Decode response of <em>what3words</em> API.
+ *
+ * @since 1.0.0
+ */
 public class What3WordsDecoder implements Decoder {
 
 	private final Type coordinatesType;

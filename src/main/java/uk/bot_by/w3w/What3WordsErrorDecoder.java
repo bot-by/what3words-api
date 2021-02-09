@@ -27,6 +27,11 @@ import java.io.Reader;
 import static feign.FeignException.errorStatus;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
+/**
+ * Decode error response of <em>what3words</em> API.
+ *
+ * @since 1.0.0
+ */
 public class What3WordsErrorDecoder implements ErrorDecoder {
 
 	@Override
