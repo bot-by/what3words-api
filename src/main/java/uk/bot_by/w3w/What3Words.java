@@ -85,7 +85,7 @@ public interface What3Words {
 	 * It overrides API key of {@link KeyInterceptor} if it is used.
 	 *
 	 * @param key             API key, will be added as the header {@code X-Api-Key}
-	 * @param queryParameters query parameters, coordinates are required and language is optional
+	 * @param threeWordAddressRequest query parameters, coordinates are required and language is optional
 	 * @return 3 word address
 	 * @throws FeignException      if a remote server is not available or returns unknown error
 	 * @throws What3WordsException if <em>what3words</em> API returns error
@@ -93,7 +93,7 @@ public interface What3Words {
 	 */
 	@RequestLine("GET /v3/convert-to-3wa")
 	@Headers("X-Api-Key: {w3w-api-key}")
-	ThreeWordAddress convertToAddress(@NotNull @Param("w3w-api-key") String key, @QueryMap Map<String, Object> queryParameters)
+	ThreeWordAddress convertToAddress(@NotNull @Param("w3w-api-key") String key, @QueryMap ThreeWordAddressRequest threeWordAddressRequest)
 			throws FeignException, What3WordsException;
 
 	/**

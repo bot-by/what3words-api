@@ -73,6 +73,7 @@ public class What3WordsTest {
 	public void convertToAddress() {
 		// given
 		Coordinates coordinates = Coordinates.builder().latitude(51.381051d).longitude(-2.359591d).build();
+		Language language = Language.builder().code("al").name("Alien Language").nativeName("Alienese").build();
 		Map<String, Object> queryParameters = new HashMap<>();
 
 		queryParameters.put("coordinates", coordinates);
@@ -90,13 +91,17 @@ public class What3WordsTest {
 	@Test
 	public void convertToAddressWithKey() {
 		// given
-		Coordinates coordinates = Coordinates.builder().latitude(51.521251d).longitude(-0.203586d).build();
-		Map<String, Object> queryParameters = new HashMap<>();
-
-		queryParameters.put("coordinates", coordinates);
+		ThreeWordAddressRequest threeWordAddressRequest = ThreeWordAddressRequest.builder()
+				.coordinates(51.521251d, -0.203586d)
+				.language(Language.builder()
+						.code("al")
+						.name("Alien Language")
+						.nativeName("Alienese")
+						.build())
+				.build();
 
 		// when
-		ThreeWordAddress threeWordAddress = api.convertToAddress("xyz-api-key", queryParameters);
+		ThreeWordAddress threeWordAddress = api.convertToAddress("xyz-api-key", threeWordAddressRequest);
 
 		// then
 		assertAll("Available languages",
