@@ -19,6 +19,11 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
+/**
+ * Strict holder of query parameters for the coordinates request {@link What3Words#convertToCoordinates(String, CoordinatesRequest)}.
+ *
+ * @since 1.0.0
+ */
 public class CoordinatesRequest {
 
 	private final ThreeWordAddress words;
@@ -27,14 +32,29 @@ public class CoordinatesRequest {
 		words = builder.threeWordAddress;
 	}
 
+	/**
+	 * Get a builder to constraint coordinates query parameters.
+	 *
+	 * @return a builder
+	 */
 	public static CoordinatesRequestBuilder builder() {
 		return new CoordinatesRequestBuilder();
 	}
 
+	/**
+	 * Get a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
+	 *
+	 * @return 3 word address
+	 */
 	public ThreeWordAddress getWords() {
 		return words;
 	}
 
+	/**
+	 * Helper to constraint coordinates query parameters.
+	 *
+	 * @since 1.0.0
+	 */
 	public static class CoordinatesRequestBuilder {
 
 		private ThreeWordAddress threeWordAddress;
@@ -42,27 +62,61 @@ public class CoordinatesRequest {
 		private CoordinatesRequestBuilder() {
 		}
 
+		/**
+		 * Build coordinates query parameters.
+		 *
+		 * @return coordinates query parameters
+		 */
 		public CoordinatesRequest build() {
 			return new CoordinatesRequest(this);
 		}
 
+		/**
+		 * Set <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
+		 *
+		 * @param threeWordAddress 3 word address
+		 * @return the builder
+		 */
 		public CoordinatesRequestBuilder words(@NotNull ThreeWordAddress threeWordAddress) {
 			this.threeWordAddress = threeWordAddress;
 			return this;
 		}
 
-
-		public CoordinatesRequestBuilder words(@NotNull String words) {
+		/**
+		 * Set <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by a string.
+		 *
+		 * @param words 3 word address
+		 * @return the builder
+		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
+		 * @see uk.bot_by.w3w.ThreeWordAddress.ThreeWordAddressBuilder#words(String)
+		 */
+		public CoordinatesRequestBuilder words(@NotNull String words) throws IllegalArgumentException {
 			this.threeWordAddress = ThreeWordAddress.builder().words(words).build();
 			return this;
 		}
 
-		public CoordinatesRequestBuilder words(@NotNull String... words) {
+		/**
+		 * Set <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by a string array.
+		 *
+		 * @param words array with 3 elements
+		 * @return the builder
+		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
+		 * @see uk.bot_by.w3w.ThreeWordAddress.ThreeWordAddressBuilder#words(String...)
+		 */
+		public CoordinatesRequestBuilder words(@NotNull String... words) throws IllegalArgumentException {
 			this.threeWordAddress = ThreeWordAddress.builder().words(words).build();
 			return this;
 		}
 
-		public CoordinatesRequestBuilder words(@NotNull List<String> words) {
+		/**
+		 * Set <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by a string list.
+		 *
+		 * @param words list with 3 elements
+		 * @return the builder
+		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
+		 * @see uk.bot_by.w3w.ThreeWordAddress.ThreeWordAddressBuilder#words(List)
+		 */
+		public CoordinatesRequestBuilder words(@NotNull List<String> words) throws IllegalArgumentException {
 			this.threeWordAddress = ThreeWordAddress.builder().words(words).build();
 			return this;
 		}

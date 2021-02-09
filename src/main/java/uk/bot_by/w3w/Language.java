@@ -19,53 +19,92 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class Language {
+/**
+ * Language object represents language entity that returns <em>what3words</em> API.
+ *
+ * @see What3Words#availableLanguages()
+ * @since 1.0.0
+ */
+public interface Language {
 
-	private final String code;
-	private final String name;
-	private final String nativeName;
-
-	private Language(LanguageBuilder builder) {
-		this.code = builder.code;
-		this.name = builder.name;
-		this.nativeName = builder.nativeName;
-	}
-
-	public static LanguageBuilder builder() {
+	static LanguageBuilder builder() {
 		return new LanguageBuilder();
 	}
 
-	public String getCode() {
-		return code;
+	/**
+	 * <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a> 2 letter code.
+	 *
+	 * @return 2 letter code
+	 */
+	String getCode();
+
+	/**
+	 * English language name.
+	 *
+	 * @return language name
+	 */
+	String getName();
+
+	/**
+	 * Native language name.
+	 *
+	 * @return language name
+	 */
+	String getNativeName();
+
+	class BasicLanguage implements Language {
+
+		private final String code;
+		private final String name;
+		private final String nativeName;
+
+		private BasicLanguage(LanguageBuilder builder) {
+			this.code = builder.code;
+			this.name = builder.name;
+			this.nativeName = builder.nativeName;
+		}
+
+		@Override
+		public String getCode() {
+			return code;
+		}
+
+		@Override
+		public String getName() {
+			return name;
+		}
+
+		@Override
+		public String getNativeName() {
+			return nativeName;
+		}
+
+		/**
+		 * Returns language code.
+		 *
+		 * @return language code
+		 */
+		@Override
+		public String toString() {
+			return code;
+		}
+
+		@Override
+		public boolean equals(Object another) {
+			if (this == another) return true;
+			if (another == null || !Language.class.isAssignableFrom(another.getClass())) return false;
+
+			return code.equals(((Language) another).getCode());
+		}
+
+		@Override
+		public int hashCode() {
+			return Objects.hash(code);
+		}
+
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getNativeName() {
-		return nativeName;
-	}
-
-	@Override
-	public String toString() {
-		return code;
-	}
-
-	@Override
-	public boolean equals(Object another) {
-		if (this == another) return true;
-		if (another == null || getClass() != another.getClass()) return false;
-
-		return code.equals(((Language) another).code);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(code);
-	}
-
-	public static class LanguageBuilder {
+	class LanguageBuilder {
 
 		private String code;
 		private String name;
@@ -78,7 +117,7 @@ public class Language {
 			Objects.requireNonNull(code, "language code is null");
 			Objects.requireNonNull(name, "language name is null");
 			Objects.requireNonNull(nativeName, "language native name is null");
-			return new Language(this);
+			return new BasicLanguage(this);
 		}
 
 		public LanguageBuilder code(@NotNull String code) {

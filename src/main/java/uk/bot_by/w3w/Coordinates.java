@@ -24,6 +24,8 @@ import java.util.StringJoiner;
 /**
  * Coordinates has latitude and longitude values and should implements {@link Object#toString() toString()} that returns them as comma-separated
  * string of numbers with decimal point like <em>51.381051,-2.359591</em>.
+ *
+ * @since 1.0.0
  */
 public interface Coordinates {
 
@@ -52,6 +54,8 @@ public interface Coordinates {
 
 	/**
 	 * Basic implementation of {@link Coordinates}.
+	 *
+	 * @since 1.0.0
 	 */
 	class BasicCoordinates implements Coordinates {
 
@@ -63,10 +67,12 @@ public interface Coordinates {
 			this.longitude = builder.longitude;
 		}
 
+		@Override
 		public BigDecimal getLatitude() {
 			return latitude;
 		}
 
+		@Override
 		public BigDecimal getLongitude() {
 			return longitude;
 		}
@@ -88,6 +94,8 @@ public interface Coordinates {
 
 	/**
 	 * Helper to constraint coordinates.
+	 *
+	 * @since 1.0.0
 	 */
 	class CoordinatesBuilder {
 

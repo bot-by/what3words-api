@@ -25,6 +25,8 @@ import java.util.regex.Pattern;
 /**
  * ThreeWordAddress contains three parts of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> and should implements {@link Object#toString() toString()} that returns them as
  * dot-separated string like <em>chest.elbowed.speaking</em>.
+ *
+ * @since 1.0.0
  */
 public interface ThreeWordAddress {
 
@@ -73,18 +75,17 @@ public interface ThreeWordAddress {
 			this.third = builder.third;
 		}
 
-		public static ThreeWordAddressBuilder builder() {
-			return new ThreeWordAddressBuilder();
-		}
-
+		@Override
 		public String getFirst() {
 			return first;
 		}
 
+		@Override
 		public String getSecond() {
 			return second;
 		}
 
+		@Override
 		public String getThird() {
 			return third;
 		}
@@ -179,6 +180,21 @@ public interface ThreeWordAddress {
 			return this;
 		}
 
+		/**
+		 * Set <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by a string.
+		 * <p>
+		 * The string must contain three words separated by point with optional leading three slashes:
+		 * <ul>
+		 *     <li>first.second.third</li>
+		 *     <li>///first.second.third</li>
+		 *     <li>first・second・third</li>
+		 *     <li>first。second。third</li>
+		 * </ul>
+		 *
+		 * @param words 3 word address
+		 * @return the builder
+		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
+		 */
 		public ThreeWordAddressBuilder words(@NotNull String words) throws IllegalArgumentException {
 			if (words.isBlank()) {
 				throw new IllegalArgumentException("empty words");
@@ -191,6 +207,13 @@ public interface ThreeWordAddress {
 			return words(words.split(WORD_ADDRESS_DELIMITER_PATTERN));
 		}
 
+		/**
+		 * Set <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by a string array.
+		 *
+		 * @param words array with 3 elements
+		 * @return the builder
+		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
+		 */
 		public ThreeWordAddressBuilder words(@NotNull String... words) throws IllegalArgumentException {
 			if (3 > words.length) {
 				throw new IllegalArgumentException("3 words are required");
@@ -203,6 +226,13 @@ public interface ThreeWordAddress {
 			return this;
 		}
 
+		/**
+		 * Set <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by a string list.
+		 *
+		 * @param words list with 3 elements
+		 * @return the builder
+		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
+		 */
 		public ThreeWordAddressBuilder words(@NotNull List<String> words) throws IllegalArgumentException {
 			return words(words.toArray(new String[0]));
 		}

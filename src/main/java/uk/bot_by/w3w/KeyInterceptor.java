@@ -25,6 +25,8 @@ import org.jetbrains.annotations.NotNull;
  * The interceptor adds the HTTP header {@code X-Api-Key} to each request.
  * But if the {@linkplain RequestTemplate request template} contains another header {@code X-Api-Key}
  * or request parameter {@code key} the interceptor does nothing.
+ *
+ * @since 1.0.0
  */
 public class KeyInterceptor implements RequestInterceptor {
 
