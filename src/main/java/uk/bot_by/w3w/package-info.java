@@ -16,8 +16,10 @@
 
 /**
  * Java wrapper for <em>what3words</em> API.
+ * <p>
+ * It is based on <em>what3words</em> API <strong>v3</strong>.
  *
- * @see <a href="https://developer.what3words.com/public-api/docs">what3words: API Reference Docs</a>
+ * @see <a href="https://developer.what3words.com/public-api/docs"><em>what3words</em>: API Reference Docs</a>
  * @since 1.0.0
  */
 package uk.bot_by.w3w;

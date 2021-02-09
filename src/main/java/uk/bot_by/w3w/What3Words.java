@@ -1,3 +1,18 @@
+/*
+ * Copyright 2021 Witalij Berdinskich
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *	   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package uk.bot_by.w3w;
 
 import feign.Headers;
@@ -64,7 +79,7 @@ public interface What3Words {
 	/**
 	 * Get coordinates by a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
 	 * <p>
-	 * Use {@link KeyInterceptor} to set up API key.
+	 * Use {@link KeyInterceptor} to set up API key or add the query parameter {@code key}.
 	 *
 	 * @param queryParameters query parameters, words is required and language is optional
 	 * @return coordinates
@@ -76,13 +91,13 @@ public interface What3Words {
 	/**
 	 * Get coordinates by a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
 	 *
-	 * @param key             API key
-	 * @param queryParameters query parameters, words is required and language is optional
+	 * @param key                API key
+	 * @param coordinatesRequest query parameters, words is required and language is optional
 	 * @return coordinates
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-coords">What3Words: Convert to coordinates</a>
 	 */
 	@RequestLine("GET /v3/convert-to-coordinates")
 	@Headers("X-Api-Key: {w3w-api-key}")
-	Coordinates convertToCoordinates(@Param("w3w-api-key") String key, @QueryMap Map<String, Object> queryParameters);
+	Coordinates convertToCoordinates(@Param("w3w-api-key") String key, @QueryMap CoordinatesRequest coordinatesRequest);
 
 }

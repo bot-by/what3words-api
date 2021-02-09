@@ -18,7 +18,7 @@
  * Unofficial Java wrapper for <em>what3words</em> API to convert 3 word addresses to coordinates and vice versa.
  *
  * @since 1.0.0
- * @see <a href="https://what3words.com/chest.elbowed.speaking">what3words /// The simplest way to talk about location</a>
+ * @see <a href="https://what3words.com/about-us/"><em>what3words</em> /// The simplest way to talk about location</a>
  */
 module bot_by.what3words_api {
 	exports uk.bot_by.w3w;

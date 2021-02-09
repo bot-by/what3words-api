@@ -1,6 +1,6 @@
-# what3words API
+# _what3words_ API
 
-Unofficial Java wrapper for [what3words.com][] API
+Unofficial Java wrapper for _[what3words.com][]_ API
 to convert 3 word addresses to coordinates and vice versa.
 
 ## Installation

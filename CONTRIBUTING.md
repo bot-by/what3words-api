@@ -1,2 +1,2 @@
-# Contributing to what3words API
+# Contributing to _what3words_ API
 

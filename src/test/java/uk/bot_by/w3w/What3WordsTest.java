@@ -146,13 +146,10 @@ public class What3WordsTest {
 	@Test
 	public void convertToCoordinatesWithKey() {
 		//given
-		ThreeWordAddress threeWordAddress = ThreeWordAddress.builder().words("filled.count.soap".split("\\.")).build();
-		Map<String, Object> queryParameters = new HashMap<>();
-
-		queryParameters.put("words", threeWordAddress);
+		CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder().words("filled.count.soap".split("\\.")).build();
 
 		// when
-		Coordinates coordinates = api.convertToCoordinates("xyz-api-key", queryParameters);
+		Coordinates coordinates = api.convertToCoordinates("xyz-api-key", coordinatesRequest);
 
 		// then
 		assertAll("Coordinates",
