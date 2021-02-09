@@ -183,8 +183,9 @@ public interface ThreeWordAddress {
 			if (words.isBlank()) {
 				throw new IllegalArgumentException("empty words");
 			}
+
 			if (words.startsWith(THREE_LEADING_SLASHES)) {
-				words = words.substring(FIRST_NON_SLASH);
+				return words(words.substring(FIRST_NON_SLASH));
 			}
 
 			return words(words.split(WORD_ADDRESS_DELIMITER_PATTERN));
