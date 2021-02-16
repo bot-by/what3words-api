@@ -23,20 +23,20 @@ import java.util.StringJoiner;
 import java.util.regex.Pattern;
 
 /**
- * ThreeWordAddress contains three parts of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> and should implements {@link Object#toString() toString()} that returns them as
+ * Words contains three parts of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> and should implements {@link Object#toString() toString()} that returns them as
  * dot-separated string like <em>chest.elbowed.speaking</em>.
  *
  * @since 1.0.0
  */
-public interface ThreeWordAddress {
+public interface Words {
 
 	/**
 	 * Get a builder to constraint <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
 	 *
 	 * @return a builder
 	 */
-	static ThreeWordAddressBuilder builder() {
-		return new ThreeWordAddressBuilder();
+	static WordsBuilder builder() {
+		return new WordsBuilder();
 	}
 
 	/**
@@ -61,20 +61,20 @@ public interface ThreeWordAddress {
 	String getThird();
 
 	/**
-	 * Basic implementation of {@link ThreeWordAddress}
+	 * Basic implementation of {@link Words}
 	 *
 	 * @since 1.0.0
 	 */
-	class BasicThreeWordAddress implements ThreeWordAddress {
+	class BasicWords implements Words {
 
 		private final String first;
 		private final String second;
 		private final String third;
 
-		private BasicThreeWordAddress(ThreeWordAddressBuilder builder) {
-			this.first = builder.first;
-			this.second = builder.second;
-			this.third = builder.third;
+		private BasicWords(WordsBuilder builder) {
+			first = builder.first;
+			second = builder.second;
+			third = builder.third;
 		}
 
 		@Override
@@ -106,6 +106,26 @@ public interface ThreeWordAddress {
 					.toString();
 		}
 
+		@Override
+		public boolean equals(Object o) {
+			if (this == o) return true;
+			if (!(o instanceof Words)) return false;
+
+			Words that = (Words) o;
+
+			if (!getFirst().equals(that.getFirst())) return false;
+			if (!getSecond().equals(that.getSecond())) return false;
+			return getThird().equals(that.getThird());
+		}
+
+		@Override
+		public int hashCode() {
+			int result = getFirst().hashCode();
+			result = 31 * result + getSecond().hashCode();
+			result = 31 * result + getThird().hashCode();
+			return result;
+		}
+
 	}
 
 	/**
@@ -116,7 +136,7 @@ public interface ThreeWordAddress {
 	 *
 	 * @since 1.0.0
 	 */
-	class ThreeWordAddressBuilder {
+	class WordsBuilder {
 
 		private static final int FIRST_NON_SLASH = 3;
 		private static final String THREE_LEADING_SLASHES = "///";
@@ -127,7 +147,7 @@ public interface ThreeWordAddress {
 		private String second;
 		private String third;
 
-		private ThreeWordAddressBuilder() {
+		private WordsBuilder() {
 		}
 
 		/**
@@ -138,11 +158,11 @@ public interface ThreeWordAddress {
 		 * @return <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>
 		 * @throws NullPointerException if first, second or third words are null.
 		 */
-		public ThreeWordAddress build() throws NullPointerException {
+		public Words build() throws NullPointerException {
 			Objects.requireNonNull(first, "first word is null");
 			Objects.requireNonNull(second, "second word is null");
 			Objects.requireNonNull(third, "third word is null");
-			return new BasicThreeWordAddress(this);
+			return new BasicWords(this);
 		}
 
 		/**
@@ -152,7 +172,7 @@ public interface ThreeWordAddress {
 		 * @return the builder
 		 * @throws IllegalArgumentException if the word is blank or empty, if word does not match pattern
 		 */
-		public ThreeWordAddressBuilder first(@NotNull String word) throws IllegalArgumentException {
+		public WordsBuilder first(@NotNull String word) throws IllegalArgumentException {
 			isValidWord(word);
 			first = word;
 			return this;
@@ -165,7 +185,7 @@ public interface ThreeWordAddress {
 		 * @return the builder
 		 * @throws IllegalArgumentException if the word is blank or empty, if word does not match pattern
 		 */
-		public ThreeWordAddressBuilder second(@NotNull String word) throws IllegalArgumentException {
+		public WordsBuilder second(@NotNull String word) throws IllegalArgumentException {
 			isValidWord(word);
 			second = word;
 			return this;
@@ -178,7 +198,7 @@ public interface ThreeWordAddress {
 		 * @return the builder
 		 * @throws IllegalArgumentException if the word is blank or empty, if word does not match pattern
 		 */
-		public ThreeWordAddressBuilder third(@NotNull String word) throws IllegalArgumentException {
+		public WordsBuilder third(@NotNull String word) throws IllegalArgumentException {
 			isValidWord(word);
 			third = word;
 			return this;
@@ -199,7 +219,7 @@ public interface ThreeWordAddress {
 		 * @return the builder
 		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
 		 */
-		public ThreeWordAddressBuilder words(@NotNull String words) throws IllegalArgumentException {
+		public WordsBuilder words(@NotNull String words) throws IllegalArgumentException {
 			if (words.isBlank()) {
 				throw new IllegalArgumentException("empty words");
 			}
@@ -218,7 +238,7 @@ public interface ThreeWordAddress {
 		 * @return the builder
 		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
 		 */
-		public ThreeWordAddressBuilder words(@NotNull String... words) throws IllegalArgumentException {
+		public WordsBuilder words(@NotNull String... words) throws IllegalArgumentException {
 			if (3 > words.length) {
 				throw new IllegalArgumentException("3 words are required");
 			}
@@ -237,7 +257,7 @@ public interface ThreeWordAddress {
 		 * @return the builder
 		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
 		 */
-		public ThreeWordAddressBuilder words(@NotNull List<String> words) throws IllegalArgumentException {
+		public WordsBuilder words(@NotNull List<String> words) throws IllegalArgumentException {
 			return words(words.toArray(new String[0]));
 		}
 

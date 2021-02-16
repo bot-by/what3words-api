@@ -79,19 +79,19 @@ public class What3WordsTest {
 		queryParameters.put("coordinates", coordinates);
 
 		// when
-		ThreeWordAddress threeWordAddress = api.convertToAddress(queryParameters);
+		Words words = api.convertToAddress(queryParameters);
 
 		// then
 		assertAll("Available languages",
-				() -> assertNotNull(threeWordAddress, "not null"),
-				() -> assertEquals("spring.tops.issued", threeWordAddress.toString(), "3wa"));
+				() -> assertNotNull(words, "not null"),
+				() -> assertEquals("spring.tops.issued", words.toString(), "3wa"));
 	}
 
 	@DisplayName("Convert coordinates to a 3 word address")
 	@Test
 	public void convertToAddressWithKey() {
 		// given
-		ThreeWordAddressRequest threeWordAddressRequest = ThreeWordAddressRequest.builder()
+		WordsRequest wordsRequest = WordsRequest.builder()
 				.coordinates(51.521251d, -0.203586d)
 				.language(Language.builder()
 						.code("al")
@@ -101,12 +101,12 @@ public class What3WordsTest {
 				.build();
 
 		// when
-		ThreeWordAddress threeWordAddress = api.convertToAddress("xyz-api-key", threeWordAddressRequest);
+		Words words = api.convertToAddress("xyz-api-key", wordsRequest);
 
 		// then
 		assertAll("Available languages",
-				() -> assertNotNull(threeWordAddress, "not null"),
-				() -> assertEquals("filled.count.soap", threeWordAddress.toString(), "3wa"));
+				() -> assertNotNull(words, "not null"),
+				() -> assertEquals("filled.count.soap", words.toString(), "3wa"));
 	}
 
 	@DisplayName("Convert coordinates to a 3 word address")
@@ -121,22 +121,22 @@ public class What3WordsTest {
 		queryParameters.put("language", polish);
 
 		// when
-		ThreeWordAddress threeWordAddress = api.convertToAddress(queryParameters);
+		Words words = api.convertToAddress(queryParameters);
 
 		// then
 		assertAll("Available languages",
-				() -> assertNotNull(threeWordAddress, "not null"),
-				() -> assertEquals("brodaty.anteny.kwota", threeWordAddress.toString(), "3wa"));
+				() -> assertNotNull(words, "not null"),
+				() -> assertEquals("brodaty.anteny.kwota", words.toString(), "3wa"));
 	}
 
 	@DisplayName("Convert 3 word address to coordinates")
 	@Test
 	public void convertToCoordinates() {
 		//given
-		ThreeWordAddress threeWordAddress = ThreeWordAddress.builder().words("spring.tops.issued".split("\\.")).build();
+		Words words = Words.builder().words("spring.tops.issued".split("\\.")).build();
 		Map<String, Object> queryParameters = new HashMap<>();
 
-		queryParameters.put("words", threeWordAddress);
+		queryParameters.put("words", words);
 
 		// when
 		Coordinates coordinates = api.convertToCoordinates(queryParameters);

@@ -26,10 +26,10 @@ import java.util.List;
  */
 public class CoordinatesRequest {
 
-	private final ThreeWordAddress words;
+	private final Words words;
 
 	private CoordinatesRequest(CoordinatesRequestBuilder builder) {
-		words = builder.threeWordAddress;
+		words = builder.words;
 	}
 
 	/**
@@ -46,7 +46,7 @@ public class CoordinatesRequest {
 	 *
 	 * @return 3 word address
 	 */
-	public ThreeWordAddress getWords() {
+	public Words getWords() {
 		return words;
 	}
 
@@ -57,7 +57,7 @@ public class CoordinatesRequest {
 	 */
 	public static class CoordinatesRequestBuilder {
 
-		private ThreeWordAddress threeWordAddress;
+		private Words words;
 
 		private CoordinatesRequestBuilder() {
 		}
@@ -74,11 +74,11 @@ public class CoordinatesRequest {
 		/**
 		 * Set <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
 		 *
-		 * @param threeWordAddress 3 word address
+		 * @param words 3 word address
 		 * @return the builder
 		 */
-		public CoordinatesRequestBuilder words(@NotNull ThreeWordAddress threeWordAddress) {
-			this.threeWordAddress = threeWordAddress;
+		public CoordinatesRequestBuilder words(@NotNull Words words) {
+			this.words = words;
 			return this;
 		}
 
@@ -88,10 +88,10 @@ public class CoordinatesRequest {
 		 * @param words 3 word address
 		 * @return the builder
 		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
-		 * @see uk.bot_by.w3w.ThreeWordAddress.ThreeWordAddressBuilder#words(String)
+		 * @see Words.WordsBuilder#words(String)
 		 */
 		public CoordinatesRequestBuilder words(@NotNull String words) throws IllegalArgumentException {
-			this.threeWordAddress = ThreeWordAddress.builder().words(words).build();
+			this.words = Words.builder().words(words).build();
 			return this;
 		}
 
@@ -101,10 +101,10 @@ public class CoordinatesRequest {
 		 * @param words array with 3 elements
 		 * @return the builder
 		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
-		 * @see uk.bot_by.w3w.ThreeWordAddress.ThreeWordAddressBuilder#words(String...)
+		 * @see Words.WordsBuilder#words(String...)
 		 */
 		public CoordinatesRequestBuilder words(@NotNull String... words) throws IllegalArgumentException {
-			this.threeWordAddress = ThreeWordAddress.builder().words(words).build();
+			this.words = Words.builder().words(words).build();
 			return this;
 		}
 
@@ -114,10 +114,10 @@ public class CoordinatesRequest {
 		 * @param words list with 3 elements
 		 * @return the builder
 		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
-		 * @see uk.bot_by.w3w.ThreeWordAddress.ThreeWordAddressBuilder#words(List)
+		 * @see Words.WordsBuilder#words(List)
 		 */
 		public CoordinatesRequestBuilder words(@NotNull List<String> words) throws IllegalArgumentException {
-			this.threeWordAddress = ThreeWordAddress.builder().words(words).build();
+			this.words = Words.builder().words(words).build();
 			return this;
 		}
 

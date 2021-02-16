@@ -63,8 +63,8 @@ public interface Coordinates {
 		private final BigDecimal longitude;
 
 		private BasicCoordinates(CoordinatesBuilder builder) {
-			this.latitude = builder.latitude;
-			this.longitude = builder.longitude;
+			latitude = builder.latitude;
+			longitude = builder.longitude;
 		}
 
 		@Override
@@ -88,6 +88,24 @@ public interface Coordinates {
 					.add(latitude.toString())
 					.add(longitude.toString())
 					.toString();
+		}
+
+		@Override
+		public boolean equals(Object o) {
+			if (this == o) return true;
+			if (!(o instanceof Coordinates)) return false;
+
+			Coordinates that = (Coordinates) o;
+
+			if (!getLatitude().equals(that.getLatitude())) return false;
+			return getLongitude().equals(that.getLongitude());
+		}
+
+		@Override
+		public int hashCode() {
+			int result = getLatitude().hashCode();
+			result = 31 * result + getLongitude().hashCode();
+			return result;
 		}
 
 	}

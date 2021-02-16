@@ -40,13 +40,15 @@ public class What3WordsDecoder implements Decoder {
 
 	private final Type coordinatesType;
 	private final Type languagesType;
-	private final Type threeWordAddressType;
+	private final Type wordsType;
+	private final Type what3wordsResponseType;
 
 	public What3WordsDecoder() {
 		try {
 			coordinatesType = What3Words.class.getMethod("convertToCoordinates", Map.class).getGenericReturnType();
 			languagesType = What3Words.class.getMethod("availableLanguages").getGenericReturnType();
-			threeWordAddressType = What3Words.class.getMethod("convertToAddress", Map.class).getGenericReturnType();
+			wordsType = What3Words.class.getMethod("convertToAddress", Map.class).getGenericReturnType();
+			what3wordsResponseType = SquaredAddress.BasicSquaredAddress.class.getGenericSuperclass();
 		} catch (NoSuchMethodException exception) {
 			throw new IllegalStateException("could not initialize " + getClass().getName(), exception);
 		}
@@ -65,8 +67,8 @@ public class What3WordsDecoder implements Decoder {
 				return getCoordinates(json.getJSONObject("coordinates"));
 			} else if (languagesType.equals(type)) {
 				return getAvailableLanguages(json.getJSONArray("languages"));
-			} else if (threeWordAddressType.equals(type)) {
-				return getThreeWordAddress(json.getString("words"));
+			} else if (wordsType.equals(type)) {
+				return getWords(json.getString("words"));
 			}
 		}
 
@@ -96,8 +98,8 @@ public class What3WordsDecoder implements Decoder {
 				.build();
 	}
 
-	private Object getThreeWordAddress(String words) {
-		return ThreeWordAddress.builder()
+	private Object getWords(String words) {
+		return Words.builder()
 				.words(words.split("\\."))
 				.build();
 	}

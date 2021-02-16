@@ -66,9 +66,9 @@ public interface Language {
 		private final String nativeName;
 
 		private BasicLanguage(LanguageBuilder builder) {
-			this.code = builder.code;
-			this.name = builder.name;
-			this.nativeName = builder.nativeName;
+			code = builder.code;
+			name = builder.name;
+			nativeName = builder.nativeName;
 		}
 
 		@Override
@@ -78,12 +78,12 @@ public interface Language {
 
 		@Override
 		public String getName() {
-			return name;
+			return (null == name) ? code : name;
 		}
 
 		@Override
 		public String getNativeName() {
-			return nativeName;
+			return (null == nativeName) ? code : nativeName;
 		}
 
 		/**
@@ -128,15 +128,13 @@ public interface Language {
 		/**
 		 * Get a language object.
 		 * <p>
-		 * It checks that language code, name and native name are not null.
+		 * It checks that language code is not null.
 		 *
 		 * @return language
-		 * @throws NullPointerException if language code, name and native name are null
+		 * @throws NullPointerException if language code is null
 		 */
 		public Language build() throws NullPointerException {
 			Objects.requireNonNull(code, "language code is null");
-			Objects.requireNonNull(name, "language name is null");
-			Objects.requireNonNull(nativeName, "language native name is null");
 			return new BasicLanguage(this);
 		}
 

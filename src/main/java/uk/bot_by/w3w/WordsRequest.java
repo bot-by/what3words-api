@@ -6,16 +6,16 @@ import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
- * Strict holder of query parameters for the <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> request {@link What3Words#convertToAddress(String, ThreeWordAddressRequest)}
+ * Strict holder of query parameters for the <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> request {@link What3Words#convertToAddress(String, WordsRequest)}
  *
  * @since 1.0.0
  */
-public class ThreeWordAddressRequest {
+public class WordsRequest {
 
 	private final Coordinates coordinates;
 	private final Language language;
 
-	private ThreeWordAddressRequest(ThreeWordAddressRequestBuilder builder) {
+	private WordsRequest(WordsRequestBuilder builder) {
 		coordinates = builder.coordinates;
 		language = builder.language;
 	}
@@ -25,8 +25,8 @@ public class ThreeWordAddressRequest {
 	 *
 	 * @return a builder
 	 */
-	public static ThreeWordAddressRequestBuilder builder() {
-		return new ThreeWordAddressRequestBuilder();
+	public static WordsRequestBuilder builder() {
+		return new WordsRequestBuilder();
 	}
 
 	/**
@@ -52,12 +52,12 @@ public class ThreeWordAddressRequest {
 	 *
 	 * @since 1.0.0
 	 */
-	public static class ThreeWordAddressRequestBuilder {
+	public static class WordsRequestBuilder {
 
 		private Coordinates coordinates;
 		private Language language;
 
-		private ThreeWordAddressRequestBuilder() {
+		private WordsRequestBuilder() {
 		}
 
 		/**
@@ -67,9 +67,9 @@ public class ThreeWordAddressRequest {
 		 * @throws NullPointerException if coordinates is null
 		 * @see uk.bot_by.w3w.Coordinates.CoordinatesBuilder#build()
 		 */
-		public ThreeWordAddressRequest build() throws NullPointerException {
+		public WordsRequest build() throws NullPointerException {
 			Objects.requireNonNull(coordinates, "coordinate is null");
-			return new ThreeWordAddressRequest(this);
+			return new WordsRequest(this);
 		}
 
 		/**
@@ -78,7 +78,7 @@ public class ThreeWordAddressRequest {
 		 * @param coordinates coordinates
 		 * @return the builder
 		 */
-		public ThreeWordAddressRequestBuilder coordinates(@NotNull Coordinates coordinates) {
+		public WordsRequestBuilder coordinates(@NotNull Coordinates coordinates) {
 			this.coordinates = coordinates;
 			return this;
 		}
@@ -93,7 +93,7 @@ public class ThreeWordAddressRequest {
 		 * @see uk.bot_by.w3w.Coordinates.CoordinatesBuilder#latitude(double)
 		 * @see uk.bot_by.w3w.Coordinates.CoordinatesBuilder#longitude(double)
 		 */
-		public ThreeWordAddressRequestBuilder coordinates(double latitude, double longitude) throws IllegalArgumentException {
+		public WordsRequestBuilder coordinates(double latitude, double longitude) throws IllegalArgumentException {
 			coordinates = Coordinates.builder().latitude(latitude).longitude(longitude).build();
 			return this;
 		}
@@ -101,14 +101,14 @@ public class ThreeWordAddressRequest {
 		/**
 		 * Set coordinates.
 		 *
-		 * @param latitude latitude
+		 * @param latitude  latitude
 		 * @param longitude longitude
 		 * @return the builder
 		 * @throws IllegalArgumentException if latitude or longitude are out of range
 		 * @see uk.bot_by.w3w.Coordinates.CoordinatesBuilder#latitude(double)
 		 * @see uk.bot_by.w3w.Coordinates.CoordinatesBuilder#longitude(double)
 		 */
-		public ThreeWordAddressRequestBuilder coordinates(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
+		public WordsRequestBuilder coordinates(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
 			coordinates = Coordinates.builder().latitude(latitude).longitude(longitude).build();
 			return this;
 		}
@@ -119,7 +119,7 @@ public class ThreeWordAddressRequest {
 		 * @param language language
 		 * @return the builder
 		 */
-		public ThreeWordAddressRequestBuilder language(@NotNull Language language) {
+		public WordsRequestBuilder language(@NotNull Language language) {
 			this.language = language;
 			return this;
 		}

@@ -21,26 +21,6 @@ class LanguageTest {
 		assertEquals("language code is null", exception.getMessage(), "exception message");
 	}
 
-	@DisplayName("Language name is missing")
-	@Test
-	public void name() {
-		// when
-		Exception exception = assertThrows(NullPointerException.class, () -> Language.builder().code("aa").nativeName("Native name").build());
-
-		// then
-		assertEquals("language name is null", exception.getMessage(), "exception message");
-	}
-
-	@DisplayName("Language native name is missing")
-	@Test
-	public void nativeName() {
-		// when
-		Exception exception = assertThrows(NullPointerException.class, () -> Language.builder().code("aa").name("Name").build());
-
-		// then
-		assertEquals("language native name is null", exception.getMessage(), "exception message");
-	}
-
 	@DisplayName("Builder")
 	@Test
 	public void builder() {

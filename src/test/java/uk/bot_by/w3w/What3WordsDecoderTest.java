@@ -56,7 +56,7 @@ class What3WordsDecoderTest {
 
 	@DisplayName("Response without body")
 	@ParameterizedTest(name = "{arguments}")
-	@ValueSource(classes = {Collection.class, Coordinates.class, ThreeWordAddress.class})
+	@ValueSource(classes = {Collection.class, Coordinates.class, Words.class})
 	@SuppressWarnings("rawtypes")
 	public void bodyIsNull(Class type) {
 		// given
@@ -137,19 +137,19 @@ class What3WordsDecoderTest {
 
 	@DisplayName("Three word address")
 	@Test
-	public void threeWordAddress() throws IOException {
+	public void words() throws IOException {
 		// given
 		when(body.asReader(isA(Charset.class))).thenReturn(new StringReader("{ \"words\": \"spring.tops.issued\" }"));
 
 		// when
-		ThreeWordAddress threeWordAddress = (ThreeWordAddress) decoder.decode(response, ThreeWordAddress.class);
+		Words words = (Words) decoder.decode(response, Words.class);
 
 		// then
 		assertAll("Three word address",
-				() -> assertNotNull(threeWordAddress, "not null"),
-				() -> assertEquals("spring", threeWordAddress.getFirst(), "first"),
-				() -> assertEquals("tops", threeWordAddress.getSecond(), "second"),
-				() -> assertEquals("issued", threeWordAddress.getThird(), "third"));
+				() -> assertNotNull(words, "not null"),
+				() -> assertEquals("spring", words.getFirst(), "first"),
+				() -> assertEquals("tops", words.getSecond(), "second"),
+				() -> assertEquals("issued", words.getThird(), "third"));
 	}
 
 }

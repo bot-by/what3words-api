@@ -50,7 +50,7 @@
 		<source-plugin.version>3.2.0</source-plugin.version>
 		<!-- test -->
 		<junit-jupiter.version>5.7.0</junit-jupiter.version>
-		<mockito.version>3.6.0</mockito.version>
+		<mockito.version>3.7.0</mockito.version>
 		<hamcrest.version>2.2</hamcrest.version>
 		<!-- dependencies -->
 		<jetbrains-annotations.version>20.1.0</jetbrains-annotations.version>
@@ -117,7 +117,7 @@
 				<artifactId>flatten-maven-plugin</artifactId>
 				<version>${flatten-plugin.version}</version>
 				<configuration>
-					<flattenMode>resolveCiFriendliesOnly</flattenMode>
+					<flattenMode>ossrh</flattenMode>
 				</configuration>
 				<executions>
 					<execution>
@@ -335,6 +335,15 @@
 			<comments>See LICENSE</comments>
 		</license>
 	</licenses>
+
+	<developers>
+		<developer>
+			<id>radio_rogal</id>
+			<name>Witalij Berdinskich</name>
+			<email>radio_rogal@keemail.me</email>
+			<timezone>Europe/Kyiv</timezone>
+		</developer>
+	</developers>
 
 	<dependencies>
 		<dependency>
