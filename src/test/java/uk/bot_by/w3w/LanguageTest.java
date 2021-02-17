@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @Tag("fast")
@@ -13,7 +14,7 @@ class LanguageTest {
 
 	@DisplayName("Language code is missing")
 	@Test
-	public void code() {
+	public void missedLanguageCode() {
 		// when
 		Exception exception = assertThrows(NullPointerException.class, () -> Language.builder().name("Name").nativeName("Native name").build());
 
@@ -21,11 +22,30 @@ class LanguageTest {
 		assertEquals("language code is null", exception.getMessage(), "exception message");
 	}
 
+	@DisplayName("Language name and native name are null")
+	@Test
+	public void nameAndNativeNameAreNull() {
+		// when
+		Language language = Language.builder()
+				.code("aa")
+				.build();
+
+		// then
+		assertAll("Name and native name are null",
+				() -> assertEquals("aa", language.getCode(), "code"),
+				() -> assertEquals("aa", language.getName(), "name"),
+				() -> assertEquals("aa", language.getNativeName(), "native name"));
+	}
+
 	@DisplayName("Builder")
 	@Test
 	public void builder() {
 		// when
-		Language language = Language.builder().code("aa").name("Name").nativeName("Native name").build();
+		Language language = Language.builder()
+				.code("aa")
+				.name("Name")
+				.nativeName("Native name")
+				.build();
 
 		// then
 		assertAll("Language",
@@ -38,7 +58,11 @@ class LanguageTest {
 	@Test
 	public void testToString() {
 		// given
-		Language language = Language.builder().code("aa").name("Name").nativeName("Native name").build();
+		Language language = Language.builder()
+				.code("aa")
+				.name("Name")
+				.nativeName("Native name")
+				.build();
 
 		// when and then
 		assertEquals("aa", language.toString());

@@ -37,8 +37,16 @@ public class What3WordsTest {
 	@Test
 	public void availableLanguages() {
 		// given
-		Language german = Language.builder().code("de").name("").nativeName("").build();
-		Language norwegian = Language.builder().code("no").name("").nativeName("").build();
+		Language german = Language.builder()
+				.code("de")
+				.name("")
+				.nativeName("")
+				.build();
+		Language norwegian = Language.builder()
+				.code("no")
+				.name("")
+				.nativeName("")
+				.build();
 
 		// when
 		Collection<Language> languages = api.availableLanguages();
@@ -54,9 +62,15 @@ public class What3WordsTest {
 	@Test
 	public void availableLanguagesWithKey() {
 		// given
-		Language arabic = Language.builder().code("ar").name("").nativeName("").build();
-		Language greek = Language.builder().code("el").name("").nativeName("").build();
-		Language turkish = Language.builder().code("tr").name("").nativeName("").build();
+		Language arabic = Language.builder()
+				.code("ar")
+				.build();
+		Language greek = Language.builder()
+				.code("el")
+				.build();
+		Language turkish = Language.builder()
+				.code("tr")
+				.build();
 
 		// when
 		Collection<Language> languages = api.availableLanguages("xyz-api-key");
@@ -72,8 +86,15 @@ public class What3WordsTest {
 	@Test
 	public void convertToAddress() {
 		// given
-		Coordinates coordinates = Coordinates.builder().latitude(51.381051d).longitude(-2.359591d).build();
-		Language language = Language.builder().code("al").name("Alien Language").nativeName("Alienese").build();
+		Coordinates coordinates = Coordinates.builder()
+				.latitude(51.381051d)
+				.longitude(-2.359591d)
+				.build();
+		Language language = Language.builder()
+				.code("al")
+				.name("Alien Language")
+				.nativeName("Alienese")
+				.build();
 		Map<String, Object> queryParameters = new HashMap<>();
 
 		queryParameters.put("coordinates", coordinates);
@@ -113,8 +134,13 @@ public class What3WordsTest {
 	@Test
 	public void convertToAddressWithLanguage() {
 		// given
-		Coordinates coordinates = Coordinates.builder().latitude(51.841621d).longitude(16.571912d).build();
-		Language polish = Language.builder().code("pl").name("").nativeName("").build();
+		Coordinates coordinates = Coordinates.builder()
+				.latitude(51.841621d)
+				.longitude(16.571912d)
+				.build();
+		Language polish = Language.builder()
+				.code("pl")
+				.build();
 		Map<String, Object> queryParameters = new HashMap<>();
 
 		queryParameters.put("coordinates", coordinates);
@@ -133,7 +159,9 @@ public class What3WordsTest {
 	@Test
 	public void convertToCoordinates() {
 		//given
-		Words words = Words.builder().words("spring.tops.issued".split("\\.")).build();
+		Words words = Words.builder()
+				.words("spring.tops.issued".split("\\."))
+				.build();
 		Map<String, Object> queryParameters = new HashMap<>();
 
 		queryParameters.put("words", words);
@@ -151,7 +179,9 @@ public class What3WordsTest {
 	@Test
 	public void convertToCoordinatesWithKey() {
 		//given
-		CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder().words("filled.count.soap".split("\\.")).build();
+		CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder()
+				.words("filled.count.soap".split("\\."))
+				.build();
 
 		// when
 		Coordinates coordinates = api.convertToCoordinates("xyz-api-key", coordinatesRequest);

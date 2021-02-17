@@ -68,7 +68,7 @@ public class WordsRequest {
 		 * @see uk.bot_by.w3w.Coordinates.CoordinatesBuilder#build()
 		 */
 		public WordsRequest build() throws NullPointerException {
-			Objects.requireNonNull(coordinates, "coordinate is null");
+			Objects.requireNonNull(coordinates, "coordinates is null");
 			return new WordsRequest(this);
 		}
 
@@ -94,7 +94,10 @@ public class WordsRequest {
 		 * @see uk.bot_by.w3w.Coordinates.CoordinatesBuilder#longitude(double)
 		 */
 		public WordsRequestBuilder coordinates(double latitude, double longitude) throws IllegalArgumentException {
-			coordinates = Coordinates.builder().latitude(latitude).longitude(longitude).build();
+			coordinates = Coordinates.builder()
+					.latitude(latitude)
+					.longitude(longitude)
+					.build();
 			return this;
 		}
 
@@ -109,7 +112,10 @@ public class WordsRequest {
 		 * @see uk.bot_by.w3w.Coordinates.CoordinatesBuilder#longitude(double)
 		 */
 		public WordsRequestBuilder coordinates(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
-			coordinates = Coordinates.builder().latitude(latitude).longitude(longitude).build();
+			coordinates = Coordinates.builder()
+					.latitude(latitude)
+					.longitude(longitude)
+					.build();
 			return this;
 		}
 
@@ -121,6 +127,18 @@ public class WordsRequest {
 		 */
 		public WordsRequestBuilder language(@NotNull Language language) {
 			this.language = language;
+			return this;
+		}
+
+
+		/**
+		 * Set language.
+		 *
+		 * @param languageCode language code
+		 * @return the builder
+		 */
+		public WordsRequestBuilder language(@NotNull String languageCode) {
+			this.language = Language.builder().code(languageCode).build();
 			return this;
 		}
 

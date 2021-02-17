@@ -48,18 +48,20 @@ class WordsTest {
 	}
 
 	@DisplayName("Bad word")
-	@Test
-	public void badWord() {
+	@ParameterizedTest(name = "words: {arguments}")
+	@CsvSource({"firs+,second,third",
+			"first,$econd,third",
+			"first,second,th|rd"})
+	public void badWord(String first, String second, String third) {
 		// given
 		Words.WordsBuilder builder = Words.builder();
 
 		// when
-		Exception exception = assertThrows(IllegalArgumentException.class, () -> builder.words(Arrays.asList("first", "$econd", "third")));
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> builder.first(first).second(second).third(third));
 
 		// then
 		assertEquals("bad word", exception.getMessage(), "exception message");
 	}
-
 
 	@DisplayName("Bad words")
 	@Test
@@ -84,7 +86,7 @@ class WordsTest {
 		Words.WordsBuilder builder = Words.builder();
 
 		// when
-		Exception exception = assertThrows(IllegalArgumentException.class, () -> builder.words(Arrays.asList(first, second, third)));
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> builder.first(first).second(second).third(third).build());
 
 		// then
 		assertEquals("empty word", exception.getMessage(), "exception message");

@@ -143,6 +143,34 @@ public interface Coordinates {
 		}
 
 		/**
+		 * Set coordinates.
+		 *
+		 * @param latitude  latitude
+		 * @param longitude longitude
+		 * @return the builder
+		 * @throws IllegalArgumentException if latitude or longitude are out of range
+		 */
+		public CoordinatesBuilder coordinates(double latitude, double longitude) throws IllegalArgumentException {
+			latitude(latitude);
+			longitude(longitude);
+			return this;
+		}
+
+		/**
+		 * Set coordinates.
+		 *
+		 * @param latitude  latitude
+		 * @param longitude longitude
+		 * @return the builder
+		 * @throws IllegalArgumentException if latitude or longitude are out of range
+		 */
+		public CoordinatesBuilder coordinates(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
+			latitude(latitude);
+			longitude(longitude);
+			return this;
+		}
+
+		/**
 		 * Set latitude.
 		 * <p>
 		 * Latitude must be in the range of -90 to 90 (inclusive).

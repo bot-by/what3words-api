@@ -2,11 +2,12 @@ package uk.bot_by.w3w;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.StringJoiner;
 
 /**
- * Square of coordinates has northeast and southwest coordinates.
+ * Square of coordinates has northeast and southwest corners.
  *
  * @since 1.0.0
  */
@@ -132,6 +133,38 @@ public interface Square {
 		}
 
 		/**
+		 * Set northeast coordinates.
+		 *
+		 * @param latitude  latitude
+		 * @param longitude longitude
+		 * @return the builder
+		 * @throws IllegalArgumentException if latitude or longitude are out of range
+		 */
+		public SquareBuilder northeast(double latitude, double longitude) throws IllegalArgumentException {
+			this.northeast = Coordinates.builder()
+					.latitude(latitude)
+					.longitude(longitude)
+					.build();
+			return this;
+		}
+
+		/**
+		 * Set northeast coordinates.
+		 *
+		 * @param latitude  latitude
+		 * @param longitude longitude
+		 * @return the builder
+		 * @throws IllegalArgumentException if latitude or longitude are out of range
+		 */
+		public SquareBuilder northeast(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
+			this.northeast = Coordinates.builder()
+					.latitude(latitude)
+					.longitude(longitude)
+					.build();
+			return this;
+		}
+
+		/**
 		 * Set southwest coordinates.
 		 *
 		 * @param southwest southwest
@@ -139,6 +172,38 @@ public interface Square {
 		 */
 		public SquareBuilder southwest(@NotNull Coordinates southwest) {
 			this.southwest = southwest;
+			return this;
+		}
+
+		/**
+		 * Set southwest coordinates.
+		 *
+		 * @param latitude  latitude
+		 * @param longitude longitude
+		 * @return the builder
+		 * @throws IllegalArgumentException if latitude or longitude are out of range
+		 */
+		public SquareBuilder southwest(double latitude, double longitude) throws IllegalArgumentException {
+			this.southwest = Coordinates.builder()
+					.latitude(latitude)
+					.longitude(longitude)
+					.build();
+			return this;
+		}
+
+		/**
+		 * Set southwest coordinates.
+		 *
+		 * @param latitude  latitude
+		 * @param longitude longitude
+		 * @return the builder
+		 * @throws IllegalArgumentException if latitude or longitude are out of range
+		 */
+		public SquareBuilder southwest(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
+			this.southwest = Coordinates.builder()
+					.latitude(latitude)
+					.longitude(longitude)
+					.build();
 			return this;
 		}
 

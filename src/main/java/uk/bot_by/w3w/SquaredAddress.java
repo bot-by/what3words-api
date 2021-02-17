@@ -211,8 +211,9 @@ public interface SquaredAddress {
 		 * @param latitude  latitude
 		 * @param longitude longitude
 		 * @return the builder
+		 * @throws IllegalArgumentException if latitude or longitude are out of range
 		 */
-		public SquaredAddressBuilder coordinates(double latitude, double longitude) {
+		public SquaredAddressBuilder coordinates(double latitude, double longitude) throws IllegalArgumentException {
 			this.coordinates = Coordinates.builder()
 					.latitude(latitude)
 					.longitude(longitude)
@@ -226,8 +227,9 @@ public interface SquaredAddress {
 		 * @param latitude  latitude
 		 * @param longitude longitude
 		 * @return the builder
+		 * @throws IllegalArgumentException if latitude or longitude are out of range
 		 */
-		public SquaredAddressBuilder coordinates(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) {
+		public SquaredAddressBuilder coordinates(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
 			this.coordinates = Coordinates.builder()
 					.latitude(latitude)
 					.longitude(longitude)
@@ -254,7 +256,9 @@ public interface SquaredAddress {
 		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
 		 */
 		public SquaredAddressBuilder words(@NotNull String words) throws IllegalArgumentException {
-			this.words = Words.builder().words(words).build();
+			this.words = Words.builder()
+					.words(words)
+					.build();
 			return this;
 		}
 
@@ -266,7 +270,9 @@ public interface SquaredAddress {
 		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
 		 */
 		public SquaredAddressBuilder words(@NotNull String... words) throws IllegalArgumentException {
-			this.words = Words.builder().words(words).build();
+			this.words = Words.builder()
+					.words(words)
+					.build();
 			return this;
 		}
 
@@ -278,7 +284,9 @@ public interface SquaredAddress {
 		 * @throws IllegalArgumentException if the words is blank or empty, if any word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> does not match pattern
 		 */
 		public SquaredAddressBuilder words(@NotNull List<String> words) throws IllegalArgumentException {
-			this.words = Words.builder().words(words).build();
+			this.words = Words.builder()
+					.words(words)
+					.build();
 			return this;
 		}
 
@@ -310,7 +318,7 @@ public interface SquaredAddress {
 		 * @param mapLink a map link
 		 * @return the builder
 		 * @throws IllegalArgumentException if no protocol is specified, or an unknown protocol is found, or spec is null, or the parsed URL fails to
-		 *                               comply with the specific syntax of the associated protocol
+		 *                                  comply with the specific syntax of the associated protocol
 		 */
 		public SquaredAddressBuilder map(@NotNull String mapLink) throws IllegalArgumentException {
 			try {

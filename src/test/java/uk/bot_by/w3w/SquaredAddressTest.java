@@ -50,7 +50,9 @@ class SquaredAddressTest {
 				.northeast(northeast)
 				.southwest(southweast)
 				.build();
-		words = Words.builder().words("spring.tops.issued").build();
+		words = Words.builder()
+				.words("spring.tops.issued")
+				.build();
 	}
 
 	@DisplayName("Builder")

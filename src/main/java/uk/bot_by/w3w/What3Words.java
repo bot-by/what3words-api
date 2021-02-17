@@ -98,7 +98,7 @@ public interface What3Words {
 	 * <p>
 	 * It overrides API key of {@link KeyInterceptor} if it is used.
 	 *
-	 * @param key                     API key, will be added as the header {@code X-Api-Key}
+	 * @param key          API key, will be added as the header {@code X-Api-Key}
 	 * @param wordsRequest query parameters, coordinates are required and language is optional
 	 * @return 3 word address
 	 * @throws FeignException      if a remote server is not available or returns unknown error

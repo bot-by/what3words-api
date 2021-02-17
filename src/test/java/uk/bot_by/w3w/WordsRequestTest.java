@@ -18,7 +18,10 @@ class WordsRequestTest {
 	public void coordinates() {
 		// given
 		WordsRequest.WordsRequestBuilder builder = WordsRequest.builder();
-		Coordinates coordinates = Coordinates.builder().latitude(51.381051d).longitude(-2.359591d).build();
+		Coordinates coordinates = Coordinates.builder()
+				.latitude(51.381051d)
+				.longitude(-2.359591d)
+				.build();
 		BigDecimal expectedLatitude = BigDecimal.valueOf(51.381051d);
 		BigDecimal expectedLongitude = BigDecimal.valueOf(-2.359591d);
 
@@ -73,10 +76,17 @@ class WordsRequestTest {
 	public void language() {
 		// given
 		WordsRequest.WordsRequestBuilder builder = WordsRequest.builder();
-		Coordinates coordinates = Coordinates.builder().latitude(51.381051d).longitude(-2.359591d).build();
+		Coordinates coordinates = Coordinates.builder()
+				.latitude(51.381051d)
+				.longitude(-2.359591d)
+				.build();
 		BigDecimal expectedLatitude = BigDecimal.valueOf(51.381051d);
 		BigDecimal expectedLongitude = BigDecimal.valueOf(-2.359591d);
-		Language language = Language.builder().code("al").name("Alien Language").nativeName("Alienese").build();
+		Language language = Language.builder()
+				.code("al")
+				.name("Alien Language")
+				.nativeName("Alienese")
+				.build();
 
 		// when
 		WordsRequest request = builder.coordinates(coordinates).language(language).build();
@@ -86,6 +96,29 @@ class WordsRequestTest {
 				() -> assertEquals(expectedLatitude, request.getCoordinates().getLatitude(), "latitude"),
 				() -> assertEquals(expectedLongitude, request.getCoordinates().getLongitude(), "longitude"),
 				() -> assertEquals(language, request.getLanguage(), "language"));
+	}
+
+	@DisplayName("Create request by coordinates and language code")
+	@Test
+	public void languageCode() {
+		// given
+		WordsRequest.WordsRequestBuilder builder = WordsRequest.builder();
+		Coordinates coordinates = Coordinates.builder()
+				.latitude(51.381051d)
+				.longitude(-2.359591d)
+				.build();
+		BigDecimal expectedLatitude = BigDecimal.valueOf(51.381051d);
+		BigDecimal expectedLongitude = BigDecimal.valueOf(-2.359591d);
+		Language expectedLanguage = Language.builder().code("al").build();
+
+		// when
+		WordsRequest request = builder.coordinates(coordinates).language("al").build();
+
+		// then
+		assertAll("3 word address request",
+				() -> assertEquals(expectedLatitude, request.getCoordinates().getLatitude(), "latitude"),
+				() -> assertEquals(expectedLongitude, request.getCoordinates().getLongitude(), "longitude"),
+				() -> assertEquals(expectedLanguage, request.getLanguage(), "language"));
 	}
 
 }

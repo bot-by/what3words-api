@@ -105,7 +105,11 @@ class What3WordsDecoderTest {
 	public void availableLanguages() throws IOException, NoSuchMethodException {
 		// given
 		Type languageCollection = What3Words.class.getMethod("availableLanguages").getGenericReturnType();
-		Language expectedLanguage = Language.builder().code("aa").name("").nativeName("").build();
+		Language expectedLanguage = Language.builder()
+				.code("aa")
+				.name("")
+				.nativeName("")
+				.build();
 		when(body.asReader(isA(Charset.class))).thenReturn(new StringReader("{ \"languages\": [ { \"code\": \"aa\", \"name\": \"Name\", " +
 				"\"nativeName\": \"Native name\" } ] }"));
 

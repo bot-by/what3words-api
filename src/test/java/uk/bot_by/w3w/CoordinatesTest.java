@@ -31,7 +31,7 @@ class CoordinatesTest {
 	@DisplayName("Latitude must be in the range")
 	@ParameterizedTest
 	@ValueSource(doubles = {-91d, 91d})
-	public void latitudeRange(double latitude) {
+	public void latitudeIsOutOfRange(double latitude) {
 		// when
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> Coordinates.builder().latitude(latitude).build());
 
@@ -55,7 +55,7 @@ class CoordinatesTest {
 	@DisplayName("Longitude must be in the range")
 	@ParameterizedTest
 	@ValueSource(doubles = {-181d, 181d})
-	public void longitudeRange(double longitude) {
+	public void longitudeIsOutOfRange(double longitude) {
 		// when
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> Coordinates.builder().longitude(longitude).build());
 
@@ -71,7 +71,46 @@ class CoordinatesTest {
 		BigDecimal longitude = BigDecimal.valueOf(-2.359591d);
 
 		// when
-		Coordinates coordinates = Coordinates.builder().latitude(latitude.doubleValue()).longitude(longitude.doubleValue()).build();
+		Coordinates coordinates = Coordinates.builder()
+				.latitude(latitude)
+				.longitude(longitude)
+				.build();
+
+		// then
+		assertAll("Coordinates",
+				() -> assertEquals(latitude, coordinates.getLatitude(), "latitude"),
+				() -> assertEquals(longitude, coordinates.getLongitude(), "longitude"));
+	}
+
+	@DisplayName("Coordinates as double values")
+	@Test
+	public void coordinatesAsDoubleValues() {
+		// given
+		BigDecimal latitude = BigDecimal.valueOf(51.381051d);
+		BigDecimal longitude = BigDecimal.valueOf(-2.359591d);
+
+		// when
+		Coordinates coordinates = Coordinates.builder()
+				.coordinates(51.381051d, -2.359591d)
+				.build();
+
+		// then
+		assertAll("Coordinates",
+				() -> assertEquals(latitude, coordinates.getLatitude(), "latitude"),
+				() -> assertEquals(longitude, coordinates.getLongitude(), "longitude"));
+	}
+
+	@DisplayName("Coordinates as BigDecimal values")
+	@Test
+	public void coordinatesAsBigDecimalValues() {
+		// given
+		BigDecimal latitude = BigDecimal.valueOf(51.381051d);
+		BigDecimal longitude = BigDecimal.valueOf(-2.359591d);
+
+		// when
+		Coordinates coordinates = Coordinates.builder()
+				.coordinates(latitude, longitude)
+				.build();
 
 		// then
 		assertAll("Coordinates",
@@ -83,7 +122,10 @@ class CoordinatesTest {
 	@Test
 	public void string() {
 		// given
-		Coordinates coordinates = Coordinates.builder().latitude(51.381051d).longitude(-2.359591d).build();
+		Coordinates coordinates = Coordinates.builder()
+				.latitude(51.381051d)
+				.longitude(-2.359591d)
+				.build();
 
 		// when and then
 		assertEquals("51.381051,-2.359591", coordinates.toString());
