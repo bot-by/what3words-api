@@ -62,6 +62,9 @@
       "queryStringParameters": {
         "coordinates": [
           "51.381051,-2.359591"
+        ],
+        "language": [
+          "al"
         ]
       }
     },

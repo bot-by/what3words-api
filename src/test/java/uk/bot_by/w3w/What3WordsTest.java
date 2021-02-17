@@ -98,6 +98,7 @@ public class What3WordsTest {
 		Map<String, Object> queryParameters = new HashMap<>();
 
 		queryParameters.put("coordinates", coordinates);
+		queryParameters.put("language", language);
 
 		// when
 		Words words = api.convertToAddress(queryParameters);
