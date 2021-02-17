@@ -25,7 +25,15 @@ import java.util.regex.Pattern;
 /**
  * Words contains three parts of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> and should implements {@link Object#toString() toString()} that returns them as
  * dot-separated string like <em>chest.elbowed.speaking</em>.
+ * <p>
+ * Each word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> must match the pattern:
+ * <pre><code class="language-regex">^[^0-9`~!@#$%^&amp;*()+\-_=\[{}\\|'&lt;,.&gt;?/&quot;;:£§º©®\s]{1,}$</code></pre>
+ * <p>
+ * Words are separated by chars
+ * <pre><code class="language-regex">[・.。]</code></pre>
+ * Three leading slashes are allowed as option.
  *
+ * @see <a href="https://developer.what3words.com/tutorial/detecting-if-text-is-in-the-format-of-a-3-word-address">Detecting if text is in the format of a 3 word address using RegEx</a>
  * @since 1.0.0
  */
 public interface Words {
@@ -130,9 +138,6 @@ public interface Words {
 
 	/**
 	 * Helper to constraint <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
-	 * <p>
-	 * Each word of <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> must match the pattern:
-	 * <pre><code class="language-regex">^[^0-9`~!@#$%^&amp;*()+\-_=\[{}\\|'&lt;,.&gt;?/&quot;;:£§º©®\s]{1,}$</code></pre>
 	 *
 	 * @since 1.0.0
 	 */
@@ -207,7 +212,7 @@ public interface Words {
 		/**
 		 * Set <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by a string.
 		 * <p>
-		 * The string must contain three words separated by point with optional leading three slashes:
+		 * The string must contain three words separated by point with optional three leading slashes:
 		 * <ul>
 		 *     <li>first.second.third</li>
 		 *     <li>///first.second.third</li>
