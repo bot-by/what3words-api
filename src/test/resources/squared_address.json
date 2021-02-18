@@ -1,0 +1,21 @@
+{
+  "country": "GB",
+  "square": {
+    "southwest": {
+      "lng": -2.359613,
+      "lat": 51.381037
+    },
+    "northeast": {
+      "lng": -2.35957,
+      "lat": 51.381064
+    }
+  },
+  "nearestPlace": "Bath, Somerset",
+  "coordinates": {
+    "lng": -2.359591,
+    "lat": 51.381051
+  },
+  "words": "spring.tops.issued",
+  "language": "en",
+  "map": "https://w3w.co/spring.tops.issued"
+}

@@ -101,7 +101,7 @@ public class What3WordsTest {
 		queryParameters.put("language", language);
 
 		// when
-		Words words = api.convertToAddress(queryParameters);
+		Words words = api.convertToAddress(queryParameters).getWords();
 
 		// then
 		assertAll("Available languages",
@@ -123,7 +123,7 @@ public class What3WordsTest {
 				.build();
 
 		// when
-		Words words = api.convertToAddress("xyz-api-key", wordsRequest);
+		Words words = api.convertToAddress("xyz-api-key", wordsRequest).getWords();
 
 		// then
 		assertAll("Available languages",
@@ -148,7 +148,7 @@ public class What3WordsTest {
 		queryParameters.put("language", polish);
 
 		// when
-		Words words = api.convertToAddress(queryParameters);
+		Words words = api.convertToAddress(queryParameters).getWords();
 
 		// then
 		assertAll("Available languages",
@@ -168,7 +168,7 @@ public class What3WordsTest {
 		queryParameters.put("words", words);
 
 		// when
-		Coordinates coordinates = api.convertToCoordinates(queryParameters);
+		Coordinates coordinates = api.convertToCoordinates(queryParameters).getCoordinates();
 
 		// then
 		assertAll("Coordinates",
@@ -185,7 +185,7 @@ public class What3WordsTest {
 				.build();
 
 		// when
-		Coordinates coordinates = api.convertToCoordinates("xyz-api-key", coordinatesRequest);
+		Coordinates coordinates = api.convertToCoordinates("xyz-api-key", coordinatesRequest).getCoordinates();
 
 		// then
 		assertAll("Coordinates",

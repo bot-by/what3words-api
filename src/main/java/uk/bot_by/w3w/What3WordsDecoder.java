@@ -26,7 +26,6 @@ import java.io.IOException;
 import java.io.Reader;
 import java.lang.reflect.Type;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -38,17 +37,13 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  */
 public class What3WordsDecoder implements Decoder {
 
-	private final Type coordinatesType;
 	private final Type languagesType;
-	private final Type wordsType;
-	private final Type what3wordsResponseType;
+	private final Type squaredAddressType;
 
 	public What3WordsDecoder() {
 		try {
-			coordinatesType = What3Words.class.getMethod("convertToCoordinates", Map.class).getGenericReturnType();
 			languagesType = What3Words.class.getMethod("availableLanguages").getGenericReturnType();
-			wordsType = What3Words.class.getMethod("convertToAddress", Map.class).getGenericReturnType();
-			what3wordsResponseType = SquaredAddress.BasicSquaredAddress.class.getGenericSuperclass();
+			squaredAddressType = SquaredAddress.class;
 		} catch (NoSuchMethodException exception) {
 			throw new IllegalStateException("could not initialize " + getClass().getName(), exception);
 		}
@@ -63,12 +58,10 @@ public class What3WordsDecoder implements Decoder {
 		try (Reader reader = response.body().asReader(UTF_8)) {
 			JSONObject json = new JSONObject(new JSONTokener(reader));
 
-			if (coordinatesType.equals(type)) {
-				return getCoordinates(json.getJSONObject("coordinates"));
-			} else if (languagesType.equals(type)) {
+			if (languagesType.equals(type)) {
 				return getAvailableLanguages(json.getJSONArray("languages"));
-			} else if (wordsType.equals(type)) {
-				return getWords(json.getString("words"));
+			} else if (squaredAddressType.equals(type)) {
+				return getSquaredAddress(json);
 			}
 		}
 
@@ -91,6 +84,20 @@ public class What3WordsDecoder implements Decoder {
 		return availableLanguages;
 	}
 
+	private SquaredAddress getSquaredAddress(JSONObject squaredAddress) {
+		SquaredAddress.SquaredAddressBuilder builder = SquaredAddress.builder();
+
+		builder.country(squaredAddress.getString("country"));
+		builder.square(getSquare(squaredAddress.getJSONObject("square")));
+		builder.nearestPlace(squaredAddress.getString("nearestPlace"));
+		builder.coordinates(getCoordinates(squaredAddress.getJSONObject("coordinates")));
+		builder.words(squaredAddress.getString("words"));
+		builder.language(Language.builder().code(squaredAddress.getString("language")).build());
+		builder.map(squaredAddress.getString("map"));
+
+		return builder.build();
+	}
+
 	private Coordinates getCoordinates(JSONObject coordinates) {
 		return Coordinates.builder()
 				.latitude(coordinates.getBigDecimal("lat"))
@@ -98,9 +105,16 @@ public class What3WordsDecoder implements Decoder {
 				.build();
 	}
 
-	private Object getWords(String words) {
-		return Words.builder()
-				.words(words.split("\\."))
+	private Language getLanguage(String language) {
+		return Language.builder()
+				.code(language)
+				.build();
+	}
+
+	private Square getSquare(JSONObject square) {
+		return Square.builder()
+				.northeast(getCoordinates(square.getJSONObject("northeast")))
+				.southwest(getCoordinates(square.getJSONObject("southwest")))
 				.build();
 	}
 

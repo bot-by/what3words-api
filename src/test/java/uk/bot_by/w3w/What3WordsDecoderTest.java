@@ -13,13 +13,16 @@ import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.nio.charset.Charset;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.stream.Collectors;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -123,37 +126,25 @@ class What3WordsDecoderTest {
 				() -> assertThat("language code is equal", availableLanguages, contains(expectedLanguage)));
 	}
 
-	@DisplayName("Coordinates")
+	@DisplayName("Squared address")
 	@Test
-	public void coordinates() throws IOException {
+	public void squaredAddress() throws IOException {
 		// given
-		when(body.asReader(isA(Charset.class))).thenReturn(new StringReader("{ \"coordinates\": { \"lng\": -2.359591, \"lat\": 51.381051 } }"));
+		BufferedReader squaredAddressReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("/squared_address.json")));
+
+		when(body.asReader(isA(Charset.class))).thenReturn(new StringReader(squaredAddressReader.lines().collect(Collectors.joining("\n"))));
 
 		// when
-		Coordinates coordinates = (Coordinates) decoder.decode(response, Coordinates.class);
+		SquaredAddress squaredAddress = (SquaredAddress) decoder.decode(response, SquaredAddress.class);
 
 		// then
 		assertAll("Coordinates",
-				() -> assertNotNull(coordinates, "not null"),
-				() -> assertEquals(BigDecimal.valueOf(-2.359591d), coordinates.getLongitude(), "longitude"),
-				() -> assertEquals(BigDecimal.valueOf(51.381051d), coordinates.getLatitude(), "latitude"));
-	}
-
-	@DisplayName("Three word address")
-	@Test
-	public void words() throws IOException {
-		// given
-		when(body.asReader(isA(Charset.class))).thenReturn(new StringReader("{ \"words\": \"spring.tops.issued\" }"));
-
-		// when
-		Words words = (Words) decoder.decode(response, Words.class);
-
-		// then
-		assertAll("Three word address",
-				() -> assertNotNull(words, "not null"),
-				() -> assertEquals("spring", words.getFirst(), "first"),
-				() -> assertEquals("tops", words.getSecond(), "second"),
-				() -> assertEquals("issued", words.getThird(), "third"));
+				() -> assertNotNull(squaredAddress, "not null"),
+				() -> assertEquals("GB", squaredAddress.getCountry(), "country"),
+				() -> assertEquals(BigDecimal.valueOf(-2.359591d), squaredAddress.getCoordinates().getLongitude(), "longitude"),
+				() -> assertEquals(BigDecimal.valueOf(51.381051d), squaredAddress.getCoordinates().getLatitude(), "latitude"),
+				() -> assertEquals("spring.tops.issued", squaredAddress.getWords().toString(), "words"),
+				() -> assertEquals("https://w3w.co/spring.tops.issued", squaredAddress.getMap().toExternalForm(), "map"));
 	}
 
 }

@@ -77,7 +77,7 @@ public interface What3Words {
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">what3words: Convert to 3 word address</a>
 	 */
 	@RequestLine("GET /v3/convert-to-3wa")
-	Words convertToAddress(@QueryMap Map<String, Object> queryParameters) throws FeignException, What3WordsException;
+	SquaredAddress convertToAddress(@QueryMap Map<String, Object> queryParameters) throws FeignException, What3WordsException;
 
 	/**
 	 * Get a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by its coordinates.
@@ -91,7 +91,7 @@ public interface What3Words {
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">what3words: Convert to 3 word address</a>
 	 */
 	@RequestLine("GET /v3/convert-to-3wa")
-	Words convertToAddress(@QueryMap WordsRequest wordsRequest) throws FeignException, What3WordsException;
+	SquaredAddress convertToAddress(@QueryMap WordsRequest wordsRequest) throws FeignException, What3WordsException;
 
 	/**
 	 * Get a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr> by its coordinates.
@@ -107,7 +107,7 @@ public interface What3Words {
 	 */
 	@RequestLine("GET /v3/convert-to-3wa")
 	@Headers("X-Api-Key: {w3w-api-key}")
-	Words convertToAddress(@NotNull @Param("w3w-api-key") String key, @QueryMap WordsRequest wordsRequest)
+	SquaredAddress convertToAddress(@NotNull @Param("w3w-api-key") String key, @QueryMap WordsRequest wordsRequest)
 			throws FeignException, What3WordsException;
 
 	/**
@@ -122,7 +122,7 @@ public interface What3Words {
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-coords">what3words: Convert to coordinates</a>
 	 */
 	@RequestLine("GET /v3/convert-to-coordinates")
-	Coordinates convertToCoordinates(@QueryMap Map<String, Object> queryParameters) throws FeignException, What3WordsException;
+	SquaredAddress convertToCoordinates(@QueryMap Map<String, Object> queryParameters) throws FeignException, What3WordsException;
 
 	/**
 	 * Get coordinates by a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
@@ -136,7 +136,7 @@ public interface What3Words {
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-coords">what3words: Convert to coordinates</a>
 	 */
 	@RequestLine("GET /v3/convert-to-coordinates")
-	Coordinates convertToCoordinates(@QueryMap CoordinatesRequest coordinatesRequest) throws FeignException, What3WordsException;
+	SquaredAddress convertToCoordinates(@QueryMap CoordinatesRequest coordinatesRequest) throws FeignException, What3WordsException;
 
 	/**
 	 * Get coordinates by a <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
@@ -152,7 +152,7 @@ public interface What3Words {
 	 */
 	@RequestLine("GET /v3/convert-to-coordinates")
 	@Headers("X-Api-Key: {w3w-api-key}")
-	Coordinates convertToCoordinates(@Param("w3w-api-key") String key, @QueryMap CoordinatesRequest coordinatesRequest)
+	SquaredAddress convertToCoordinates(@Param("w3w-api-key") String key, @QueryMap CoordinatesRequest coordinatesRequest)
 			throws FeignException, What3WordsException;
 
 }

@@ -23,7 +23,7 @@ class SquaredAddressTest {
 	private Coordinates coordinates;
 	private Language language;
 	private Coordinates northeast;
-	private Coordinates southweast;
+	private Coordinates southwest;
 	private Square square;
 	private Words words;
 
@@ -42,13 +42,13 @@ class SquaredAddressTest {
 				.latitude(49.39d)
 				.longitude(-1.01d)
 				.build();
-		southweast = Coordinates.builder()
+		southwest = Coordinates.builder()
 				.latitude(51.03d)
 				.longitude(1.09d)
 				.build();
 		square = Square.builder()
 				.northeast(northeast)
-				.southwest(southweast)
+				.southwest(southwest)
 				.build();
 		words = Words.builder()
 				.words("spring.tops.issued")
@@ -139,16 +139,16 @@ class SquaredAddressTest {
 				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
 	}
 
-	@DisplayName("Square")
+	@DisplayName("Square as corners")
 	@Test
-	public void square() throws MalformedURLException {
+	public void squareAsCorners() throws MalformedURLException {
 		// given
 		SquaredAddress.SquaredAddressBuilder builder = SquaredAddress.builder();
 
 		// when
 		SquaredAddress squaredAddress =
 				builder.country("AA")
-						.square(northeast, southweast)
+						.square(northeast, southwest)
 						.nearestPlace("place")
 						.coordinates(coordinates)
 						.words(words)
@@ -253,7 +253,7 @@ class SquaredAddressTest {
 
 	@DisplayName("Map link")
 	@Test
-	public void mapLink() throws MalformedURLException {
+	public void mapLink() {
 		// given
 		SquaredAddress.SquaredAddressBuilder builder = SquaredAddress.builder();
 
@@ -294,7 +294,7 @@ class SquaredAddressTest {
 		// given
 		SquaredAddress.SquaredAddressBuilder builder = SquaredAddress.builder();
 		Optional.ofNullable(country).ifPresent(builder::country);
-		Optional.ofNullable(square).ifPresent(empty -> builder.square(northeast, southweast));
+		Optional.ofNullable(square).ifPresent(empty -> builder.square(northeast, southwest));
 		Optional.ofNullable(nearestPlace).ifPresent(builder::nearestPlace);
 		Optional.ofNullable(coordinates).ifPresent(empty -> builder.coordinates(BigDecimal.valueOf(50.01d), BigDecimal.valueOf(-2.02d)));
 		Optional.ofNullable(words).ifPresent(builder::words);
