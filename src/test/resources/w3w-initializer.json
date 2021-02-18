@@ -69,7 +69,7 @@
       }
     },
     "httpResponse": {
-      "body": "{\"coordinates\":{\"lng\":-2.359591,\"lat\":51.381051},\"words\":\"spring.tops.issued\",\"language\":\"en\"}"
+      "body": "{\"country\":\"aa\",\"nearestPlace\":\"Rome\",\"square\":{\"northeast\":{\"lng\":50,\"lat\":1},\"southwest\":{\"lng\":51,\"lat\":2}},\"coordinates\":{\"lng\":-2.359591,\"lat\":51.381051},\"words\":\"spring.tops.issued\",\"map\":\"https://w3w.co/spring.tops.issued\",\"language\":\"en\"}"
     }
   },
   {
@@ -94,7 +94,7 @@
       }
     },
     "httpResponse": {
-      "body": "{\"coordinates\":{\"lng\":-0.203586,\"lat\":51.521251},\"words\":\"filled.count.soap\",\"language\":\"en\"}"
+      "body": "{\"country\":\"aa\",\"nearestPlace\":\"Rome\",\"square\":{\"northeast\":{\"lng\":50,\"lat\":1},\"southwest\":{\"lng\":51,\"lat\":2}},\"coordinates\":{\"lng\":-0.203586,\"lat\":51.521251},\"words\":\"filled.count.soap\",\"map\":\"https://w3w.co/filled.count.soap\",\"language\":\"en\"}"
     }
   },
   {
@@ -119,7 +119,7 @@
       }
     },
     "httpResponse": {
-      "body": "{\"coordinates\":{\"lng\":16.571912,\"lat\":51.841621},\"words\":\"brodaty.anteny.kwota\",\"language\":\"pl\"}"
+      "body": "{\"country\":\"aa\",\"nearestPlace\":\"Rome\",\"square\":{\"northeast\":{\"lng\":50,\"lat\":1},\"southwest\":{\"lng\":51,\"lat\":2}},\"coordinates\":{\"lng\":16.571912,\"lat\":51.841621},\"words\":\"brodaty.anteny.kwota\",\"map\":\"https://w3w.co/brodaty.anteny.kwota\",\"language\":\"pl\"}"
     }
   },
   {
@@ -141,7 +141,7 @@
       }
     },
     "httpResponse": {
-      "body": "{\"coordinates\":{\"lng\":-2.359591,\"lat\":51.381051},\"words\":\"spring.tops.issued\",\"language\":\"en\"}"
+      "body": "{\"country\":\"aa\",\"nearestPlace\":\"Rome\",\"square\":{\"northeast\":{\"lng\":50,\"lat\":1},\"southwest\":{\"lng\":51,\"lat\":2}},\"coordinates\":{\"lng\":-2.359591,\"lat\":51.381051},\"words\":\"spring.tops.issued\",\"map\":\"https://w3w.co/spring.tops.issued\",\"language\":\"en\"}"
     }
   },
   {
@@ -163,7 +163,7 @@
       }
     },
     "httpResponse": {
-      "body": "{\"coordinates\":{\"lng\":-0.203586,\"lat\":51.521251},\"words\":\"filled.count.soap\",\"language\":\"en\"}"
+      "body": "{\"country\":\"aa\",\"nearestPlace\":\"Rome\",\"square\":{\"northeast\":{\"lng\":50,\"lat\":1},\"southwest\":{\"lng\":51,\"lat\":2}},\"coordinates\":{\"lng\":-0.203586,\"lat\":51.521251},\"words\":\"filled.count.soap\",\"map\":\"https://w3w.co/filled.count.soap\",\"language\":\"en\"}"
     }
   }
 ]
