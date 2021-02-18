@@ -92,7 +92,7 @@ public class What3WordsDecoder implements Decoder {
 		builder.nearestPlace(squaredAddress.getString("nearestPlace"));
 		builder.coordinates(getCoordinates(squaredAddress.getJSONObject("coordinates")));
 		builder.words(squaredAddress.getString("words"));
-		builder.language(Language.builder().code(squaredAddress.getString("language")).build());
+		builder.language(getLanguage(squaredAddress.getString("language")));
 		builder.map(squaredAddress.getString("map"));
 
 		return builder.build();
