@@ -9,6 +9,34 @@ import java.util.List;
 import java.util.Objects;
 import java.util.StringJoiner;
 
+/**
+ * SquaredAddress represents response of <em>what3words</em> API.
+ * <p>
+ * Example of JSON:
+ * <pre><code class="language-json">
+ * {
+ *   "country": "GB",
+ *   "square": {
+ *     "southwest": {
+ *       "lng": -2.359613,
+ *       "lat": 51.381037
+ *     },
+ *     "northeast": {
+ *       "lng": -2.35957,
+ *       "lat": 51.381064
+ *     }
+ *   },
+ *   "nearestPlace": "Bath, Somerset",
+ *   "coordinates": {
+ *     "lng": -2.359591,
+ *     "lat": 51.381051
+ *   },
+ *   "words": "spring.tops.issued",
+ *   "language": "en",
+ *   "map": "https://w3w.co/spring.tops.issued"
+ * }
+ * </code></pre>
+ */
 public interface SquaredAddress {
 
 	/**
@@ -20,18 +48,54 @@ public interface SquaredAddress {
 		return new SquaredAddressBuilder();
 	}
 
+	/**
+	 * Get a country code.
+	 *
+	 * @return country code
+	 * @see <a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2">ISO 3166-1 alpha-2</a>
+	 */
 	String getCountry();
 
+	/**
+	 * Get a square 3x3 metres that is described by <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
+	 *
+	 * @return square
+	 */
 	Square getSquare();
 
+	/**
+	 * Get name of nearest city or town.
+	 *
+	 * @return nearest populated place.
+	 */
 	String getNearestPlace();
 
+	/**
+	 * Get coordinates of the centre of square.
+	 *
+	 * @return coordinates
+	 */
 	Coordinates getCoordinates();
 
+	/**
+	 * Get <abbr class="tooltip">3wa<span class="tooltiptext">3 word address</span></abbr>.
+	 *
+	 * @return 3 word address
+	 */
 	Words getWords();
 
+	/**
+	 * Get language of 3 word address.
+	 *
+	 * @return language
+	 */
 	Language getLanguage();
 
+	/**
+	 * Get link to <em>what3words</em> map.
+	 *
+	 * @return link to map
+	 */
 	URL getMap();
 
 	/**

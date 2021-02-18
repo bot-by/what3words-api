@@ -41,7 +41,7 @@ public interface What3Words {
 	 * <p>
 	 * Use {@link KeyInterceptor} to set up API key.
 	 *
-	 * @return available languages of what3words API
+	 * @return available languages of <em>what3words</em> API
 	 * @throws FeignException      if a remote server is not available or returns unknown error
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#available-languages">what3words: Available languages</a>
@@ -55,7 +55,7 @@ public interface What3Words {
 	 * It overrides API key of {@link KeyInterceptor} if it is used.
 	 *
 	 * @param key API key, will be added to request as the header {@code X-Api-Key}
-	 * @return available languages of what3words API
+	 * @return available languages of <em>what3words</em> API
 	 * @throws FeignException      if a remote server is not available or returns unknown error
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#available-languages">what3words: Available languages</a>
