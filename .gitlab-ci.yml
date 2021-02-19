@@ -36,6 +36,6 @@ test coverage:
 deploy snapshot:
   stage: deploy
   script:
-    - mvn -s ci_settings.xml -Dsha1=-${CI_COMMIT_SHORT_SHA} deploy -DskipTests -ntp -DaltSnapshotDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
+    - mvn -s ci_settings.xml -Dsha1=-${CI_COMMIT_SHORT_SHA} deploy -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
   only:
     - branches
