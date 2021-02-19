@@ -1,0 +1,4 @@
+---
+exclude_paths:
+  - src/site/resources/css/prism-material-dark.css
+  - src/site/resources/js/prism.js
