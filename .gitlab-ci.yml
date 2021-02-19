@@ -37,7 +37,3 @@ gitlab deploy:
   stage: deploy
   script:
     - mvn -s ci_settings.xml -Dchangelist= clean deploy -Psources-and-javadocs -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
-  only:
-    - tags
-  except:
-    - branches

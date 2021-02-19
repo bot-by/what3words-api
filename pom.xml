@@ -48,6 +48,8 @@
 		<jacoco-plugin.version>0.8.6</jacoco-plugin.version>
 		<javadoc-plugin.version>3.2.0</javadoc-plugin.version>
 		<source-plugin.version>3.2.0</source-plugin.version>
+		<site-plugin.version>3.9.1</site-plugin.version>
+		<info-reports-plugin.version>3.1.1</info-reports-plugin.version>
 		<!-- test -->
 		<junit-jupiter.version>5.7.0</junit-jupiter.version>
 		<mockito.version>3.7.0</mockito.version>
@@ -419,7 +421,7 @@
 
 	<profiles>
 		<profile>
-			<id>sources-and-javadocs</id>
+			<id>site</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -470,6 +472,16 @@
 								<additionalOption>--allow-script-in-comments</additionalOption>
 							</additionalOptions>
 						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-project-info-reports-plugin</artifactId>
+						<version>${info-reports-plugin.version}</version>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-site-plugin</artifactId>
+						<version>${site-plugin.version}</version>
 					</plugin>
 				</plugins>
 			</build>
