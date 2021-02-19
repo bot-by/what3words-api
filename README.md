@@ -9,6 +9,8 @@ to convert 3 word addresses to coordinates and vice versa.
 
 The package is not published to Maven Central yet. Use bot-by's GitLab repository instead, please:
 
+#### Maven
+
 ```xml
 <repositories>
   <repository>
@@ -17,7 +19,9 @@ The package is not published to Maven Central yet. Use bot-by's GitLab repositor
   </repository>
 </repositories>
 ```
-or
+
+#### Gradle
+
 ```gradle
 repositories {
     maven {
@@ -38,7 +42,9 @@ repositories {
   <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
-or
+
+#### Gradle
+
 ```gradle
 dependencies {
     compile('uk.bot-by.3wa:what3words-api:1.0.0-SNAPSHOT')
