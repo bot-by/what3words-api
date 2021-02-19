@@ -3,13 +3,9 @@
 Unofficial Java wrapper for _[what3words.com][]_ API
 to convert 3 word addresses to coordinates and vice versa.
 
-## Installation
-
-### Repository
+## Repository
 
 The package is not published to Maven Central yet. Use bot-by's GitLab repository instead, please:
-
-#### Maven
 
 ```xml
 <repositories>
@@ -20,20 +16,7 @@ The package is not published to Maven Central yet. Use bot-by's GitLab repositor
 </repositories>
 ```
 
-#### Gradle
-
-```gradle
-repositories {
-    maven {
-        url "https://gitlab.com/api/v4/groups/7239110/-/packages/maven"
-        name "bot-by"
-    }
-}
-```
-
-### Dependency
-
-#### Maven
+Add dependency to your project:
 
 ```xml
 <dependency>
@@ -41,16 +24,6 @@ repositories {
   <artifactId>what3words-api</artifactId>
   <version>1.0.0-SNAPSHOT</version>
 </dependency>
-```
-
-#### Gradle
-
-```gradle
-dependencies {
-    implementation 'uk.bot-by.3wa:what3words-api:1.0.0-SNAPSHOT'
-
-    // Other dependencies your app might use
-}
 ```
 
 ## Usage
