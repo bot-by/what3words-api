@@ -455,13 +455,11 @@
 							<links>
 								<link>https://static.javadoc.io/org.json/json/${json.version}/</link>
 								<link>https://static.javadoc.io/io.github.openfeign/feign-core/${feign-core.version}/</link>
-								<link>https://static.javadoc.io/io.github.openfeign/feign-slf4j/${feign-slf4j.version}/</link>
-								<link>https://static.javadoc.io/io.github.openfeign/feign-java11/${feign-java11.version}/</link>
 							</links>
 							<isOffline>false</isOffline>
 							<docfilessubdirs>true</docfilessubdirs>
 							<top><![CDATA[
-<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism-material-dark.css"/>
+<link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism.css"/>
 <link rel="stylesheet" type="text/css" href="{@docRoot}/resources/what3words-api.css"/>
 					]]></top>
 							<bottom><![CDATA[<script type="text/javascript" src="{@docRoot}/resources/prism.js"></script>]]></bottom>

@@ -5,9 +5,47 @@
 	<title>Java wrapper for <em>what3words.com</em> API</title>
 </head>
 <body>
-<img src="resources/w3w_square_white-black.svg" alt="what3words" height="64" width="64" style="float: left">
 <h3>Unofficial Java wrapper for
 	<em><a href="https://what3words.com/">what3words.com</a></em> API<br>
 	to convert 3 word addresses to coordinates and vice versa.</h3>
+<h2>Installation</h2>
+<h3>Repository</h3>
+<p>The package is not published to Maven Central yet. Use bot-by's GitLab repository instead, please:</p>
+<h4>Maven</h4>
+<pre><code class="language-xml">
+&lt;repositories&gt;
+  &lt;repository&gt;
+    &lt;id&gt;bot-by-maven&lt;/id&gt;
+    &lt;url&gt;https://gitlab.com/api/v4/groups/7239110/-/packages/maven&lt;/url&gt;
+  &lt;/repository&gt;
+&lt;/repositories&gt;
+</code></pre>
+<h4>Gradle</h4>
+<pre><code class="language-groovy">
+repositories {
+  maven {
+    url &quot;https://gitlab.com/api/v4/groups/7239110/-/packages/maven&quot;
+    name &quot;bot-by&quot;
+  }
+}
+</code></pre>
+<h3>Dependency</h3>
+<h4>Maven</h4>
+<pre><code class="language-xml">
+&lt;dependency&gt;
+  &lt;groupId&gt;uk.bot-by.3wa&lt;/groupId&gt;
+  &lt;artifactId&gt;what3words-api&lt;/artifactId&gt;
+  &lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h4>Gradle</h4>
+<pre><code class="language-groovy">
+dependencies {
+  implementation 'uk.bot-by.3wa:what3words-api:1.0.0-SNAPSHOT'
+
+  // Other dependencies your app might use
+}
+</code></pre>
+<h2>Usage</h2>
 </body>
 </html>

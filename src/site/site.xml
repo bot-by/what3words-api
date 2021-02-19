@@ -1,27 +1,13 @@
 <project xmlns="http://maven.apache.org/DECORATION/1.8.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/DECORATION/1.8.0 http://maven.apache.org/xsd/decoration-1.8.0.xsd">
-	<bannerLeft>
-		<title>what3words API wrapper</title>
-		<src>images/w3w_square_white-black.svg</src>
-		<href>https://gitlab.com/bot-by/what3words-api/</href>
-		<alt>three slashes</alt>
-		<height>64</height>
-		<width>64</width>
-	</bannerLeft>
-	<bannerRight>
-		<title>Get started with the what3words API</title>
-		<src>images/w3w_HorizontalLogo_RGB_Black_ENG.svg</src>
-		<href>https://developer.what3words.com/</href>
-		<alt>what3words API</alt>
-		<height>64</height>
-	</bannerRight>
-
 	<publishDate position="right"/>
 	<version position="right"/>
 
+	<!--
 	<skin>
 		<groupId>lt.velykis.maven.skins</groupId>
 		<artifactId>reflow-maven-skin</artifactId>
 		<version>1.1.1</version>
 	</skin>
+	-->
 </project>

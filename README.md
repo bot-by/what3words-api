@@ -47,7 +47,7 @@ repositories {
 
 ```gradle
 dependencies {
-    compile('uk.bot-by.3wa:what3words-api:1.0.0-SNAPSHOT')
+    implementation 'uk.bot-by.3wa:what3words-api:1.0.0-SNAPSHOT'
 
     // Other dependencies your app might use
 }
