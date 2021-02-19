@@ -1,4 +1,6 @@
 ---
 exclude_paths:
+  - src/main/javadoc/resources/prism-material-dark.css
+  - src/main/javadoc/resources/prism.js
   - src/site/resources/css/prism-material-dark.css
   - src/site/resources/js/prism.js
