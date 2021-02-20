@@ -3,7 +3,7 @@
 Unofficial Java wrapper for _[what3words.com][]_ API
 to convert 3 word addresses to coordinates and vice versa.
 
-## Installation
+## Usage
 
 The package is not published to Maven Central yet. Use bot-by's GitLab repository instead, please:
 
@@ -26,8 +26,6 @@ Please add dependency to your project:
 </dependency>
 ```
 
-## Setup
-
 Instantiate an instance of What3Words with [Feign][]
 
 ```java
@@ -36,13 +34,11 @@ api = Feign.builder()
         .decoder(new What3WordsDecoder())
         .errorDecoder(new What3WordsErrorDecoder())
         .requestInterceptor(new KeyInterceptor("abc-api-key"))
-        .target(What3Words.class, "http://localhost:9876");
+        .target(What3Words.class, "https://api.what3words.com/");
 ```
 
 This is a minimal configuration and `KeyInterceptor` is optional:
 you can put an API key in request data.
-
-## Usage
 
 ### Convert coordinates to 3 word address
 
