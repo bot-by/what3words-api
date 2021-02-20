@@ -73,14 +73,7 @@ class SquaredAddressTest {
 						.build();
 
 		// then
-		assertAll("Squared address, full response of What3Words",
-				() -> assertEquals("AA", squaredAddress.getCountry(), "country"),
-				() -> assertEquals(square, squaredAddress.getSquare(), "square"),
-				() -> assertEquals("place", squaredAddress.getNearestPlace(), "nearest place"),
-				() -> assertEquals(coordinates, squaredAddress.getCoordinates(), "coordinates"),
-				() -> assertEquals(words, squaredAddress.getWords(), "words"),
-				() -> assertEquals(language, squaredAddress.getLanguage(), "language"),
-				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
+		assertSquaredAddress(squaredAddress);
 	}
 
 	@DisplayName("Coordinates as double values")
@@ -101,14 +94,7 @@ class SquaredAddressTest {
 						.build();
 
 		// then
-		assertAll("Squared address, full response of What3Words",
-				() -> assertEquals("AA", squaredAddress.getCountry(), "country"),
-				() -> assertEquals(square, squaredAddress.getSquare(), "square"),
-				() -> assertEquals("place", squaredAddress.getNearestPlace(), "nearest place"),
-				() -> assertEquals(coordinates, squaredAddress.getCoordinates(), "coordinates"),
-				() -> assertEquals(words, squaredAddress.getWords(), "words"),
-				() -> assertEquals(language, squaredAddress.getLanguage(), "language"),
-				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
+		assertSquaredAddress(squaredAddress);
 	}
 
 	@DisplayName("Coordinates as BigDecimal values")
@@ -129,14 +115,7 @@ class SquaredAddressTest {
 						.build();
 
 		// then
-		assertAll("Squared address, full response of What3Words",
-				() -> assertEquals("AA", squaredAddress.getCountry(), "country"),
-				() -> assertEquals(square, squaredAddress.getSquare(), "square"),
-				() -> assertEquals("place", squaredAddress.getNearestPlace(), "nearest place"),
-				() -> assertEquals(coordinates, squaredAddress.getCoordinates(), "coordinates"),
-				() -> assertEquals(words, squaredAddress.getWords(), "words"),
-				() -> assertEquals(language, squaredAddress.getLanguage(), "language"),
-				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
+		assertSquaredAddress(squaredAddress);
 	}
 
 	@DisplayName("Square as corners")
@@ -157,14 +136,7 @@ class SquaredAddressTest {
 						.build();
 
 		// then
-		assertAll("Squared address, full response of What3Words",
-				() -> assertEquals("AA", squaredAddress.getCountry(), "country"),
-				() -> assertEquals(square, squaredAddress.getSquare(), "square"),
-				() -> assertEquals("place", squaredAddress.getNearestPlace(), "nearest place"),
-				() -> assertEquals(coordinates, squaredAddress.getCoordinates(), "coordinates"),
-				() -> assertEquals(words, squaredAddress.getWords(), "words"),
-				() -> assertEquals(language, squaredAddress.getLanguage(), "language"),
-				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
+		assertSquaredAddress(squaredAddress);
 	}
 
 	@DisplayName("Words as array")
@@ -185,14 +157,7 @@ class SquaredAddressTest {
 						.build();
 
 		// then
-		assertAll("Squared address, full response of What3Words",
-				() -> assertEquals("AA", squaredAddress.getCountry(), "country"),
-				() -> assertEquals(square, squaredAddress.getSquare(), "square"),
-				() -> assertEquals("place", squaredAddress.getNearestPlace(), "nearest place"),
-				() -> assertEquals(coordinates, squaredAddress.getCoordinates(), "coordinates"),
-				() -> assertEquals(words, squaredAddress.getWords(), "words"),
-				() -> assertEquals(language, squaredAddress.getLanguage(), "language"),
-				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
+		assertSquaredAddress(squaredAddress);
 	}
 
 	@DisplayName("Words as list")
@@ -213,14 +178,7 @@ class SquaredAddressTest {
 						.build();
 
 		// then
-		assertAll("Squared address, full response of What3Words",
-				() -> assertEquals("AA", squaredAddress.getCountry(), "country"),
-				() -> assertEquals(square, squaredAddress.getSquare(), "square"),
-				() -> assertEquals("place", squaredAddress.getNearestPlace(), "nearest place"),
-				() -> assertEquals(coordinates, squaredAddress.getCoordinates(), "coordinates"),
-				() -> assertEquals(words, squaredAddress.getWords(), "words"),
-				() -> assertEquals(language, squaredAddress.getLanguage(), "language"),
-				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
+		assertSquaredAddress(squaredAddress);
 	}
 
 	@DisplayName("Words as string")
@@ -241,14 +199,7 @@ class SquaredAddressTest {
 						.build();
 
 		// then
-		assertAll("Squared address, full response of What3Words",
-				() -> assertEquals("AA", squaredAddress.getCountry(), "country"),
-				() -> assertEquals(square, squaredAddress.getSquare(), "square"),
-				() -> assertEquals("place", squaredAddress.getNearestPlace(), "nearest place"),
-				() -> assertEquals(coordinates, squaredAddress.getCoordinates(), "coordinates"),
-				() -> assertEquals(words, squaredAddress.getWords(), "words"),
-				() -> assertEquals(language, squaredAddress.getLanguage(), "language"),
-				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
+		assertSquaredAddress(squaredAddress);
 	}
 
 	@DisplayName("Map link")
@@ -269,14 +220,7 @@ class SquaredAddressTest {
 						.build();
 
 		// then
-		assertAll("Squared address, full response of What3Words",
-				() -> assertEquals("AA", squaredAddress.getCountry(), "country"),
-				() -> assertEquals(square, squaredAddress.getSquare(), "square"),
-				() -> assertEquals("place", squaredAddress.getNearestPlace(), "nearest place"),
-				() -> assertEquals(coordinates, squaredAddress.getCoordinates(), "coordinates"),
-				() -> assertEquals(words, squaredAddress.getWords(), "words"),
-				() -> assertEquals(language, squaredAddress.getLanguage(), "language"),
-				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
+		assertSquaredAddress(squaredAddress);
 	}
 
 	@DisplayName("Missed field")
@@ -306,6 +250,17 @@ class SquaredAddressTest {
 
 		// then
 		assertEquals(expectedMessage, exception.getMessage(), "exception message");
+	}
+
+	private void assertSquaredAddress(SquaredAddress squaredAddress) {
+		assertAll("Squared address, full response of What3Words",
+				() -> assertEquals("AA", squaredAddress.getCountry(), "country"),
+				() -> assertEquals(square, squaredAddress.getSquare(), "square"),
+				() -> assertEquals("place", squaredAddress.getNearestPlace(), "nearest place"),
+				() -> assertEquals(coordinates, squaredAddress.getCoordinates(), "coordinates"),
+				() -> assertEquals(words, squaredAddress.getWords(), "words"),
+				() -> assertEquals(language, squaredAddress.getLanguage(), "language"),
+				() -> assertEquals("https://example.com", squaredAddress.getMap().toExternalForm(), "map"));
 	}
 
 }
