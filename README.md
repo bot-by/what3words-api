@@ -3,7 +3,7 @@
 Unofficial Java wrapper for _[what3words.com][]_ API
 to convert 3 word addresses to coordinates and vice versa.
 
-## Repository
+## Installation
 
 The package is not published to Maven Central yet. Use bot-by's GitLab repository instead, please:
 
@@ -16,7 +16,7 @@ The package is not published to Maven Central yet. Use bot-by's GitLab repositor
 </repositories>
 ```
 
-Add dependency to your project:
+Please add dependency to your project:
 
 ```xml
 <dependency>
@@ -26,9 +26,65 @@ Add dependency to your project:
 </dependency>
 ```
 
+## Setup
+
+Instantiate an instance of What3Words with [Feign][]
+
+```java
+api = Feign.builder()
+        .client(new Http2Client())
+        .decoder(new What3WordsDecoder())
+        .errorDecoder(new What3WordsErrorDecoder())
+        .requestInterceptor(new KeyInterceptor("abc-api-key"))
+        .target(What3Words.class, "http://localhost:9876");
+```
+
+This is a minimal configuration and `KeyInterceptor` is optional:
+you can put an API key in request data.
+
 ## Usage
 
-TODO: Write usage instructions
+### Convert coordinates to 3 word address
+
+```java
+WordsRequest wordsRequest = WordsRequest.builder()
+        .coordinates(51.381051d, -2.359591d)
+        .language(Language.builder()
+                .code("uk")
+                .build())
+        .build();
+
+Words words = api.convertToAddress(wordsRequest).getWords();
+```
+
+It converts coordinates of Roman Baths to Ukrainian words _///зрання.поїздка.зрізаний_.
+
+The language is optional: if you do not add
+then _what3words_ returns English words _///spring.tops.issued_.
+
+### Convert 3 word address to coordinates
+
+```java
+CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder()
+        .words("filled.count.soap"))
+        .build();
+
+Coordinates coordinates = api.convertToCoordinates(coordinatesRequest).getCoordinates();
+```
+
+It returns [well known coordinates][filled.count.soap] of the _what3words_'s office.
+
+### Get available languages
+
+```java
+Collection<Language> languages = api.availableLanguages();
+```
+
+or with explicit API key
+
+```java
+Collection<Language> languages = api.availableLanguages("xyz-api-key");
+```
 
 ## Contributing
 
@@ -58,3 +114,5 @@ limitations under the License.
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 [what3words.com]: https://what3words.com/ "It’s the easiest way to find and share exact locations."
+[Feign]: https://github.com/OpenFeign/feign "Feign makes writing java http clients easier."
+[filled.count.soap]: https://twitter.com/what3words/status/1005118966132551681

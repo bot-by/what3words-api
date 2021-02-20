@@ -64,6 +64,7 @@
 	</properties>
 
 	<build>
+		<defaultGoal>clean verify</defaultGoal>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -328,6 +329,15 @@
 		<name>bot-by</name>
 		<url>https://bot-by.uk</url>
 	</organization>
+	<developers>
+		<developer>
+			<id>radio_rogal</id>
+			<name>Witalij Berdinskich</name>
+			<email>radio_rogal@keemail.me</email>
+			<timezone>Europe/Kyiv</timezone>
+			<url>https://gitlab.com/radio_rogal</url>
+		</developer>
+	</developers>
 
 	<licenses>
 		<license>
@@ -338,14 +348,19 @@
 		</license>
 	</licenses>
 
-	<developers>
-		<developer>
-			<id>radio_rogal</id>
-			<name>Witalij Berdinskich</name>
-			<email>radio_rogal@keemail.me</email>
-			<timezone>Europe/Kyiv</timezone>
-		</developer>
-	</developers>
+	<scm>
+		<url>https://gitlab.com/bot-by/what3words-api</url>
+		<connection>scm:git:https://gitlab.com/bot-by/what3words-api.git</connection>
+		<developerConnection>scm:git:git@gitlab.com:bot-by/what3words-api.git</developerConnection>
+	</scm>
+	<issueManagement>
+		<system>GitLab</system>
+		<url>https://gitlab.com/bot-by/what3words-api/-/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>GitLab</system>
+		<url>https://gitlab.com/bot-by/what3words-api/-/pipelines</url>
+	</ciManagement>
 
 	<dependencies>
 		<dependency>
@@ -421,7 +436,7 @@
 
 	<profiles>
 		<profile>
-			<id>site</id>
+			<id>release-and-site</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -461,8 +476,10 @@
 							<top><![CDATA[
 <link rel="stylesheet" type="text/css" href="{@docRoot}/resources/prism.css"/>
 <link rel="stylesheet" type="text/css" href="{@docRoot}/resources/what3words-api.css"/>
-					]]></top>
-							<bottom><![CDATA[<script type="text/javascript" src="{@docRoot}/resources/prism.js"></script>]]></bottom>
+							]]></top>
+							<bottom><![CDATA[
+<script type="text/javascript" src="{@docRoot}/resources/prism.js"></script>
+							]]></bottom>
 							<additionalJOptions>
 								<additionalJOption>-J-Dhttp.agent=maven-javadoc-plugin-${project.name}</additionalJOption>
 							</additionalJOptions>
