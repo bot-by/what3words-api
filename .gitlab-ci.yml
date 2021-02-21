@@ -50,7 +50,7 @@ deploy release:
   except:
     - branches
 
-publish site:
+pages:
   stage: publish
   script:
     - mvn site
