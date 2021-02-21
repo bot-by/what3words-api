@@ -14,7 +14,6 @@ stages:
   - test
   - coverage
   - deploy
-  - publish
 
 build:
   stage: build
@@ -40,6 +39,8 @@ deploy snapshot:
     - mvn -s ci_settings.xml deploy -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
   only:
     - branches
+  except:
+    - tags
 
 deploy release:
   stage: deploy
@@ -51,10 +52,11 @@ deploy release:
     - branches
 
 pages:
-  stage: publish
+  stage: deploy
   script:
-    - mvn site
+    - mvn verify site
     - mv target/site public
+    - mv target/apidocs public
   artifacts:
     paths:
       - public

@@ -49,6 +49,7 @@
 		<javadoc-plugin.version>3.2.0</javadoc-plugin.version>
 		<source-plugin.version>3.2.0</source-plugin.version>
 		<site-plugin.version>3.9.1</site-plugin.version>
+		<docs-maven-skin.version>2.0.11</docs-maven-skin.version>
 		<info-reports-plugin.version>3.1.1</info-reports-plugin.version>
 		<!-- test -->
 		<junit-jupiter.version>5.7.0</junit-jupiter.version>
@@ -328,7 +329,7 @@
 					<dependency>
 						<groupId>com.bernardomg.maven.skins</groupId>
 						<artifactId>docs-maven-skin</artifactId>
-						<version>2.0.11</version>
+						<version>${docs-maven-skin.version}</version>
 					</dependency>
 				</dependencies>
 			</plugin>
@@ -360,7 +361,7 @@
 
 	<name>what3words API wrapper</name>
 	<description>Unofficial Java wrapper for what3words.com API to convert 3 word addresses to coordinates and vice versa.</description>
-	<url>https://gitlab.com/bot-by/what3words-api</url>
+	<url>https://bot-by.gitlab.io/what3words-api/</url>
 	<inceptionYear>2021</inceptionYear>
 	<organization>
 		<name>bot-by</name>
@@ -473,7 +474,7 @@
 
 	<profiles>
 		<profile>
-			<id>sources-and-javadocs</id>
+			<id>sources</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -489,6 +490,13 @@
 							</execution>
 						</executions>
 					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>javadocs</id>
+			<build>
+				<plugins>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-javadoc-plugin</artifactId>
