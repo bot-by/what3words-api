@@ -1,11 +1,14 @@
-# _what3words_ API wrapper
+# Unofficial Java wrapper for _[what3words.com][]_ API to convert 3 word addresses to coordinates and vice versa.
 
-Unofficial Java wrapper for _[what3words.com][]_ API
-to convert 3 word addresses to coordinates and vice versa.
+I was fascinated by the idea of three-word addresses,
+which is the basis of the site _[what3words.com][]_.
+But I want to realise the library to another way
+than [official package][w3w-java-wrapper] provides.
 
-## Usage
+## Acquire
 
-The package is not published to Maven Central yet. Use bot-by's GitLab repository instead, please:
+The package is not published to Maven Central yet.
+Use bot-by's GitLab repository instead, please:
 
 ```xml
 <repositories>
@@ -22,11 +25,13 @@ Please add dependency to your project:
 <dependency>
   <groupId>uk.bot-by.3wa</groupId>
   <artifactId>what3words-api</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
 </dependency>
 ```
 
-Instantiate an instance of What3Words with [Feign][]
+## Usage
+
+Instantiate an instance of What3Words with [Feign][feign]
 
 ```java
 api = Feign.builder()
@@ -53,7 +58,8 @@ WordsRequest wordsRequest = WordsRequest.builder()
 Words words = api.convertToAddress(wordsRequest).getWords();
 ```
 
-It converts coordinates of Roman Baths to Ukrainian words _///зрання.поїздка.зрізаний_.
+It converts coordinates of Roman Baths
+to Ukrainian words _///зрання.поїздка.зрізаний_.
 
 The language is optional: if you do not add
 then _what3words_ returns English words _///spring.tops.issued_.
@@ -110,5 +116,6 @@ limitations under the License.
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 [what3words.com]: https://what3words.com/ "It’s the easiest way to find and share exact locations."
-[Feign]: https://github.com/OpenFeign/feign "Feign makes writing java http clients easier."
+[w3w-java-wrapper]: https://github.com/what3words/w3w-java-wrapper "Java library for what3words REST API."
+[feign]: https://github.com/OpenFeign/feign "Feign makes writing java http clients easier."
 [filled.count.soap]: https://twitter.com/what3words/status/1005118966132551681

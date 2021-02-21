@@ -14,6 +14,7 @@ stages:
   - test
   - coverage
   - deploy
+  - publish
 
 build:
   stage: build
@@ -43,8 +44,17 @@ deploy snapshot:
 deploy release:
   stage: deploy
   script:
-    - mvn -s ci_settings.xml -Dchangelist= clean deploy -Prelease -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
+    - mvn -s ci_settings.xml -Dchangelist= clean deploy -Prelease -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
   only:
     - tags
   except:
     - branches
+
+publish site:
+  stage: publish
+  script:
+    - mvn site
+    - mv target/site public
+  artifacts:
+    paths:
+      - public

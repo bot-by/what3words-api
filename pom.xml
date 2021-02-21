@@ -61,6 +61,8 @@
 		<feign-core.version>11.0</feign-core.version>
 		<feign-slf4j.version>11.0</feign-slf4j.version>
 		<feign-java11.version>10.12</feign-java11.version>
+		<!-- other -->
+		<package.registry.url>https://gitlab.com/bot-by/what3words-api/-/packages</package.registry.url>
 	</properties>
 
 	<build>
@@ -318,8 +320,43 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>${site-plugin.version}</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.bernardomg.maven.skins</groupId>
+						<artifactId>docs-maven-skin</artifactId>
+						<version>2.0.11</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>${info-reports-plugin.version}</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>ci-management</report>
+							<report>dependencies</report>
+							<report>dependency-info</report>
+							<report>issue-management</report>
+							<report>licenses</report>
+							<report>scm</report>
+							<report>summary</report>
+							<report>team</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
 
 	<name>what3words API wrapper</name>
 	<description>Unofficial Java wrapper for what3words.com API to convert 3 word addresses to coordinates and vice versa.</description>
@@ -436,7 +473,7 @@
 
 	<profiles>
 		<profile>
-			<id>release</id>
+			<id>sources-and-javadocs</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -488,29 +525,8 @@
 							</additionalOptions>
 						</configuration>
 					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-project-info-reports-plugin</artifactId>
-						<version>${info-reports-plugin.version}</version>
-					</plugin>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-site-plugin</artifactId>
-						<version>${site-plugin.version}</version>
-					</plugin>
 				</plugins>
 			</build>
-			<!--
-			<reporting>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-project-info-reports-plugin</artifactId>
-						<version>${info-reports-plugin.version}</version>
-					</plugin>
-				</plugins>
-			</reporting>
-			-->
 		</profile>
 	</profiles>
 </project>
