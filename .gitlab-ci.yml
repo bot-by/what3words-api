@@ -58,3 +58,5 @@ publish site:
   artifacts:
     paths:
       - public
+  except:
+    - branches
