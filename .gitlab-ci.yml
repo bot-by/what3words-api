@@ -27,7 +27,7 @@ test:
     - bash <(curl -Ls https://coverage.codacy.com/get.sh) report
   coverage: '/(\d+\.?\d*) \% covered/'
 
-deploy snapshot:
+snapshot:
   stage: deploy
   script:
     - mvn $MAVEN_CLI_OPTS -s ci_settings.xml deploy -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
@@ -36,7 +36,7 @@ deploy snapshot:
   except:
     - tags
 
-deploy release:
+release:
   stage: deploy
   script:
     - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -DskipTests -ntp -Psources,javadocs -Dchangelist= -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
@@ -51,6 +51,7 @@ pages:
     - mvn verify site -Pjavadocs
     - mv target/site public
     - mv target/apidocs public
+    - mv public/images/favicon.ico public
   artifacts:
     paths:
       - public

@@ -25,6 +25,21 @@
 		</skinConfig>
 	</custom>
 	<body>
+		<head><![CDATA[
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#ff0000">
+<meta name="apple-mobile-web-app-title" content="what3words API wrapper">
+<meta name="application-name" content="what3words API wrapper">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-config" content="/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+		]]></head>
+		<links>
+			<item name="what3words" href="https://what3words.com"/>
+		</links>
 		<menu name="General Info" inherit="top">
 			<item name="Acquire" href="./acquire.html"/>
 			<item name="Usage" href="./usage.html"/>
@@ -36,7 +51,7 @@
 			<item name="Javadocs" href="./apidocs/"/>
 		</menu>
 		<menu name="Info and reports" inherit="bottom">
-			<item name="Info" href="./project-info.html"/>
+			<item name="Project Information" href="./project-info.html"/>
 			<item name="Tests" href="./jacoco/"/>
 			<item name="Contributing" href="./contributing.html"/>
 		</menu>
