@@ -12,7 +12,6 @@ cache:
 stages:
   - build
   - test
-  - coverage
   - deploy
 
 build:
@@ -24,19 +23,14 @@ test:
   stage: test
   script:
     - mvn $MAVEN_CLI_OPTS verify
-
-test coverage:
-  stage: coverage
-  script:
     - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, "instructions covered"; print 100*covered/instructions, "% covered" }' target/site/jacoco/jacoco.csv
     - bash <(curl -Ls https://coverage.codacy.com/get.sh) report
   coverage: '/(\d+\.?\d*) \% covered/'
-  allow_failure: true
 
 deploy snapshot:
   stage: deploy
   script:
-    - mvn -s ci_settings.xml deploy -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
+    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml deploy -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
   only:
     - branches
   except:
@@ -45,7 +39,7 @@ deploy snapshot:
 deploy release:
   stage: deploy
   script:
-    - mvn -s ci_settings.xml -Dchangelist= clean deploy -Prelease -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
+    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -DskipTests -ntp -Psources,javadocs -Dchangelist= -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
   only:
     - tags
   except:
