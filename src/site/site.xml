@@ -34,12 +34,11 @@
 			<item name="Acquire" href="./acquire.html"/>
 			<item name="Usage" href="./usage.html"/>
 			<item name="Javadocs" href="./apidocs/"/>
-			<item name="Tests" href="./jacoco/"/>
-			<item name="Contributing" href="./contributing.html"/>
 		</menu>
 		<menu name="Info and reports" inherit="bottom">
-			<item name="Info" href="./info.html"/>
-			<item name="Reports" href="./reports.html"/>
+			<item name="Info" href="./project-info.html"/>
+			<item name="Tests" href="./jacoco/"/>
+			<item name="Contributing" href="./contributing.html"/>
 		</menu>
 		<menu name="Code" inherit="bottom">
 			<item name="SCM" href="${project.scm.url}">
