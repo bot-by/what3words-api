@@ -54,7 +54,7 @@ deploy release:
 pages:
   stage: deploy
   script:
-    - mvn verify site
+    - mvn verify site -Pjavadocs
     - mv target/site public
     - mv target/apidocs public
   artifacts:
