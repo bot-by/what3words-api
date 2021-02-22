@@ -1,4 +1,4 @@
-# Unofficial Java wrapper for _[what3words.com][]_ API to convert 3 word addresses to coordinates and vice versa.
+# Unofficial Java wrapper for _[what3words.com][]_ API to convert 3 word addresses to coordinates and vice versa
 
 I was fascinated by the idea of three-word addresses,
 which is the basis of the site _[what3words.com][]_.
