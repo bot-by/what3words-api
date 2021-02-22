@@ -30,7 +30,7 @@ Words words = api.convertToAddress(wordsRequest).getWords();
 It converts coordinates of Roman Baths
 to Ukrainian words _///зрання.поїздка.зрізаний_.
 
-The language is optional: if you do not add
+The language is optional: if you do not add it
 then _what3words_ returns English words _///spring.tops.issued_.
 
 ## Convert 3 word address to coordinates

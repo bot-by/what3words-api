@@ -61,7 +61,7 @@ Words words = api.convertToAddress(wordsRequest).getWords();
 It converts coordinates of Roman Baths
 to Ukrainian words _///зрання.поїздка.зрізаний_.
 
-The language is optional: if you do not add
+The language is optional: if you do not add it
 then _what3words_ returns English words _///spring.tops.issued_.
 
 ### Convert 3 word address to coordinates
@@ -90,11 +90,11 @@ Collection<Language> languages = api.availableLanguages("xyz-api-key");
 
 ## Contributing
 
-Please read [CONTRIBUTING](CONTRIBUTING.md).
+Please read [Contributing](contributing.md).
 
 ## History
 
-See [CHANGELOG](CHANGELOG.md)
+See [Changelog](changelog.md)
 
 ## License
 
@@ -112,7 +112,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-[Apache License v2.0](LICENSE)  
+[Apache License v2.0](LICENSE)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 [what3words.com]: https://what3words.com/ "It’s the easiest way to find and share exact locations."

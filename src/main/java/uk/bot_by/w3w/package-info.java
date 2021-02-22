@@ -43,7 +43,7 @@
  * </code></pre>
  * <p>It converts coordinates of Roman Baths to
  * Ukrainian words <em>///зрання.поїздка.зрізаний</em>.</p>
- * <p>The language is optional: if you do not add then
+ * <p>The language is optional: if you do not add it then
  * what3words returns English words <em>///spring.tops.issued</em>.</p>
  * <h3>Convert 3 word address to coordinates</h3>
  * <pre><code class="language-java">
