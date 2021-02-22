@@ -361,7 +361,7 @@
 
 	<name>what3words API wrapper</name>
 	<description>Unofficial Java wrapper for what3words.com API to convert 3 word addresses to coordinates and vice versa.</description>
-	<url>https://bot-by.gitlab.io/what3words-api/</url>
+	<url>https://what3words-api.bot-by.uk</url>
 	<inceptionYear>2021</inceptionYear>
 	<organization>
 		<name>bot-by</name>
