@@ -19,10 +19,10 @@ public class ErrorTest {
 	@BeforeAll
 	public static void setUpClass() {
 		api = Feign.builder()
-				.client(new Http2Client())
-				.decoder(new What3WordsDecoder())
-				.errorDecoder(new What3WordsErrorDecoder())
-				.target(What3Words.class, "http://localhost:9876");
+					  .client(new Http2Client())
+					  .decoder(new What3WordsDecoder())
+					  .errorDecoder(new What3WordsErrorDecoder())
+					  .target(What3Words.class, "http://localhost:9876");
 	}
 
 	@DisplayName("Not found")

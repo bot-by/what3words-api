@@ -85,9 +85,9 @@ public interface Coordinates {
 		@Override
 		public String toString() {
 			return new StringJoiner(",")
-					.add(latitude.toString())
-					.add(longitude.toString())
-					.toString();
+						   .add(latitude.toString())
+						   .add(longitude.toString())
+						   .toString();
 		}
 
 		@Override

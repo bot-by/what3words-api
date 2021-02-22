@@ -49,12 +49,12 @@ class What3WordsDecoderTest {
 	void setUp() {
 		decoder = new What3WordsDecoder();
 		response = Response.builder()
-				.request(Request.create(Request.HttpMethod.GET, "/api", Collections.emptyMap(), null, UTF_8, null))
-				.status(200)
-				.reason("OK")
-				.headers(Collections.emptyMap())
-				.body(body)
-				.build();
+						   .request(Request.create(Request.HttpMethod.GET, "/api", Collections.emptyMap(), null, UTF_8, null))
+						   .status(200)
+						   .reason("OK")
+						   .headers(Collections.emptyMap())
+						   .body(body)
+						   .build();
 	}
 
 	@DisplayName("Response without body")
@@ -65,12 +65,12 @@ class What3WordsDecoderTest {
 		// given
 		body = null;
 		response = Response.builder()
-				.request(Request.create(Request.HttpMethod.GET, "/api", Collections.emptyMap(), null, UTF_8, null))
-				.status(200)
-				.reason("OK")
-				.headers(Collections.emptyMap())
-				.body(body)
-				.build();
+						   .request(Request.create(Request.HttpMethod.GET, "/api", Collections.emptyMap(), null, UTF_8, null))
+						   .status(200)
+						   .reason("OK")
+						   .headers(Collections.emptyMap())
+						   .body(body)
+						   .build();
 
 		// when
 		Exception exception = assertThrows(IllegalArgumentException.class, () -> decoder.decode(response, type));
@@ -109,12 +109,12 @@ class What3WordsDecoderTest {
 		// given
 		Type languageCollection = What3Words.class.getMethod("availableLanguages").getGenericReturnType();
 		Language expectedLanguage = Language.builder()
-				.code("aa")
-				.name("")
-				.nativeName("")
-				.build();
+											.code("aa")
+											.name("")
+											.nativeName("")
+											.build();
 		when(body.asReader(isA(Charset.class))).thenReturn(new StringReader("{ \"languages\": [ { \"code\": \"aa\", \"name\": \"Name\", " +
-				"\"nativeName\": \"Native name\" } ] }"));
+																					"\"nativeName\": \"Native name\" } ] }"));
 
 		// when
 		Collection<Language> availableLanguages = (Collection<Language>) decoder.decode(response, languageCollection);

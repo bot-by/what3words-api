@@ -24,13 +24,13 @@ public class SquareTest {
 	@BeforeEach
 	public void setUp() {
 		northeast = Coordinates.builder()
-				.latitude(49.39d)
-				.longitude(-1.01d)
-				.build();
+							.latitude(49.39d)
+							.longitude(-1.01d)
+							.build();
 		southwest = Coordinates.builder()
-				.latitude(51.03d)
-				.longitude(1.09d)
-				.build();
+							.latitude(51.03d)
+							.longitude(1.09d)
+							.build();
 	}
 
 	@DisplayName("Builder")

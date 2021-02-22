@@ -108,10 +108,10 @@ public interface Words {
 		@Override
 		public String toString() {
 			return new StringJoiner(".")
-					.add(first)
-					.add(second)
-					.add(third)
-					.toString();
+						   .add(first)
+						   .add(second)
+						   .add(third)
+						   .toString();
 		}
 
 		@Override

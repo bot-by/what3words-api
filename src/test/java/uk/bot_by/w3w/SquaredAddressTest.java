@@ -30,29 +30,29 @@ class SquaredAddressTest {
 	@BeforeEach
 	public void setUp() {
 		coordinates = Coordinates.builder()
-				.latitude(50.01d)
-				.longitude(-2.02d)
-				.build();
+							  .latitude(50.01d)
+							  .longitude(-2.02d)
+							  .build();
 		language = Language.builder()
-				.code("aa")
-				.name("name")
-				.nativeName("native name")
-				.build();
+						   .code("aa")
+						   .name("name")
+						   .nativeName("native name")
+						   .build();
 		northeast = Coordinates.builder()
-				.latitude(49.39d)
-				.longitude(-1.01d)
-				.build();
+							.latitude(49.39d)
+							.longitude(-1.01d)
+							.build();
 		southwest = Coordinates.builder()
-				.latitude(51.03d)
-				.longitude(1.09d)
-				.build();
+							.latitude(51.03d)
+							.longitude(1.09d)
+							.build();
 		square = Square.builder()
-				.northeast(northeast)
-				.southwest(southwest)
-				.build();
+						 .northeast(northeast)
+						 .southwest(southwest)
+						 .build();
 		words = Words.builder()
-				.words("spring.tops.issued")
-				.build();
+						.words("spring.tops.issued")
+						.build();
 	}
 
 	@DisplayName("Builder")

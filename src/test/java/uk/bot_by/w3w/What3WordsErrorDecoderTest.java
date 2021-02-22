@@ -40,12 +40,12 @@ class What3WordsErrorDecoderTest {
 	void setUp() {
 		decoder = new What3WordsErrorDecoder();
 		response = Response.builder()
-				.request(Request.create(Request.HttpMethod.GET, "/api", Collections.emptyMap(), null, UTF_8, null))
-				.status(400)
-				.reason("Bad Request")
-				.headers(Collections.emptyMap())
-				.body(body)
-				.build();
+						   .request(Request.create(Request.HttpMethod.GET, "/api", Collections.emptyMap(), null, UTF_8, null))
+						   .status(400)
+						   .reason("Bad Request")
+						   .headers(Collections.emptyMap())
+						   .body(body)
+						   .build();
 	}
 
 	@DisplayName("Response without body")
@@ -54,12 +54,12 @@ class What3WordsErrorDecoderTest {
 		// given
 		body = null;
 		response = Response.builder()
-				.request(Request.create(Request.HttpMethod.GET, "/api", Collections.emptyMap(), null, UTF_8, null))
-				.status(500)
-				.reason("Test Error Response")
-				.headers(Collections.emptyMap())
-				.body(body)
-				.build();
+						   .request(Request.create(Request.HttpMethod.GET, "/api", Collections.emptyMap(), null, UTF_8, null))
+						   .status(500)
+						   .reason("Test Error Response")
+						   .headers(Collections.emptyMap())
+						   .body(body)
+						   .build();
 
 		// when
 		Exception exception = decoder.decode("qwerty", response);

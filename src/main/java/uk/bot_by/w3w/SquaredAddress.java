@@ -161,14 +161,14 @@ public interface SquaredAddress {
 		@Override
 		public String toString() {
 			return new StringJoiner(",", getClass().getSimpleName() + "{", "}")
-					.add("country='" + country + "'")
-					.add("square=" + square)
-					.add("nearestPlace='" + nearestPlace + "'")
-					.add("coordinates=" + coordinates)
-					.add("words=" + words)
-					.add("language=" + language)
-					.add("map=" + map)
-					.toString();
+						   .add("country='" + country + "'")
+						   .add("square=" + square)
+						   .add("nearestPlace='" + nearestPlace + "'")
+						   .add("coordinates=" + coordinates)
+						   .add("words=" + words)
+						   .add("language=" + language)
+						   .add("map=" + map)
+						   .toString();
 		}
 
 	}
@@ -241,9 +241,9 @@ public interface SquaredAddress {
 		 */
 		public SquaredAddressBuilder square(@NotNull Coordinates northeast, @NotNull Coordinates southwest) {
 			this.square = Square.builder()
-					.northeast(northeast)
-					.southwest(southwest)
-					.build();
+								  .northeast(northeast)
+								  .southwest(southwest)
+								  .build();
 			return this;
 		}
 
@@ -279,9 +279,9 @@ public interface SquaredAddress {
 		 */
 		public SquaredAddressBuilder coordinates(double latitude, double longitude) throws IllegalArgumentException {
 			this.coordinates = Coordinates.builder()
-					.latitude(latitude)
-					.longitude(longitude)
-					.build();
+									   .latitude(latitude)
+									   .longitude(longitude)
+									   .build();
 			return this;
 		}
 
@@ -295,9 +295,9 @@ public interface SquaredAddress {
 		 */
 		public SquaredAddressBuilder coordinates(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
 			this.coordinates = Coordinates.builder()
-					.latitude(latitude)
-					.longitude(longitude)
-					.build();
+									   .latitude(latitude)
+									   .longitude(longitude)
+									   .build();
 			return this;
 		}
 
@@ -321,8 +321,8 @@ public interface SquaredAddress {
 		 */
 		public SquaredAddressBuilder words(@NotNull String words) throws IllegalArgumentException {
 			this.words = Words.builder()
-					.words(words)
-					.build();
+								 .words(words)
+								 .build();
 			return this;
 		}
 
@@ -335,8 +335,8 @@ public interface SquaredAddress {
 		 */
 		public SquaredAddressBuilder words(@NotNull String... words) throws IllegalArgumentException {
 			this.words = Words.builder()
-					.words(words)
-					.build();
+								 .words(words)
+								 .build();
 			return this;
 		}
 
@@ -349,8 +349,8 @@ public interface SquaredAddress {
 		 */
 		public SquaredAddressBuilder words(@NotNull List<String> words) throws IllegalArgumentException {
 			this.words = Words.builder()
-					.words(words)
-					.build();
+								 .words(words)
+								 .build();
 			return this;
 		}
 

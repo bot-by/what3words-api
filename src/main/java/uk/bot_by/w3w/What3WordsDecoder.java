@@ -75,10 +75,10 @@ public class What3WordsDecoder implements Decoder {
 			JSONObject item = (JSONObject) language;
 
 			availableLanguages.add(Language.builder()
-					.code(item.getString("code"))
-					.name(item.getString("name"))
-					.nativeName(item.getString("nativeName"))
-					.build());
+										   .code(item.getString("code"))
+										   .name(item.getString("name"))
+										   .nativeName(item.getString("nativeName"))
+										   .build());
 		}
 
 		return availableLanguages;
@@ -100,22 +100,22 @@ public class What3WordsDecoder implements Decoder {
 
 	private Coordinates getCoordinates(JSONObject coordinates) {
 		return Coordinates.builder()
-				.latitude(coordinates.getBigDecimal("lat"))
-				.longitude(coordinates.getBigDecimal("lng"))
-				.build();
+					   .latitude(coordinates.getBigDecimal("lat"))
+					   .longitude(coordinates.getBigDecimal("lng"))
+					   .build();
 	}
 
 	private Language getLanguage(String language) {
 		return Language.builder()
-				.code(language)
-				.build();
+					   .code(language)
+					   .build();
 	}
 
 	private Square getSquare(JSONObject square) {
 		return Square.builder()
-				.northeast(getCoordinates(square.getJSONObject("northeast")))
-				.southwest(getCoordinates(square.getJSONObject("southwest")))
-				.build();
+					   .northeast(getCoordinates(square.getJSONObject("northeast")))
+					   .southwest(getCoordinates(square.getJSONObject("southwest")))
+					   .build();
 	}
 
 }

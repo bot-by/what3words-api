@@ -50,6 +50,6 @@
     ],
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
-    "start_url": "https://bot-by.gitlab.io/what3words-api/",
+    "start_url": "https://what3words-api.bot-by.uk/",
     "display": "standalone"
 }

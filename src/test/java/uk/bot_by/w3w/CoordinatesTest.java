@@ -72,9 +72,9 @@ class CoordinatesTest {
 
 		// when
 		Coordinates coordinates = Coordinates.builder()
-				.latitude(latitude)
-				.longitude(longitude)
-				.build();
+										  .latitude(latitude)
+										  .longitude(longitude)
+										  .build();
 
 		// then
 		assertAll("Coordinates",
@@ -91,8 +91,8 @@ class CoordinatesTest {
 
 		// when
 		Coordinates coordinates = Coordinates.builder()
-				.coordinates(51.381051d, -2.359591d)
-				.build();
+										  .coordinates(51.381051d, -2.359591d)
+										  .build();
 
 		// then
 		assertAll("Coordinates",
@@ -109,8 +109,8 @@ class CoordinatesTest {
 
 		// when
 		Coordinates coordinates = Coordinates.builder()
-				.coordinates(latitude, longitude)
-				.build();
+										  .coordinates(latitude, longitude)
+										  .build();
 
 		// then
 		assertAll("Coordinates",
@@ -123,9 +123,9 @@ class CoordinatesTest {
 	public void string() {
 		// given
 		Coordinates coordinates = Coordinates.builder()
-				.latitude(51.381051d)
-				.longitude(-2.359591d)
-				.build();
+										  .latitude(51.381051d)
+										  .longitude(-2.359591d)
+										  .build();
 
 		// when and then
 		assertEquals("51.381051,-2.359591", coordinates.toString());

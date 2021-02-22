@@ -95,9 +95,9 @@ public class WordsRequest {
 		 */
 		public WordsRequestBuilder coordinates(double latitude, double longitude) throws IllegalArgumentException {
 			coordinates = Coordinates.builder()
-					.latitude(latitude)
-					.longitude(longitude)
-					.build();
+								  .latitude(latitude)
+								  .longitude(longitude)
+								  .build();
 			return this;
 		}
 
@@ -113,9 +113,9 @@ public class WordsRequest {
 		 */
 		public WordsRequestBuilder coordinates(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
 			coordinates = Coordinates.builder()
-					.latitude(latitude)
-					.longitude(longitude)
-					.build();
+								  .latitude(latitude)
+								  .longitude(longitude)
+								  .build();
 			return this;
 		}
 

@@ -69,9 +69,9 @@ public interface Square {
 		@Override
 		public String toString() {
 			return new StringJoiner(";", "{", "}")
-					.add("northeast:" + northeast)
-					.add("southwest:" + southwest)
-					.toString();
+						   .add("northeast:" + northeast)
+						   .add("southwest:" + southwest)
+						   .toString();
 		}
 
 		@Override
@@ -142,9 +142,9 @@ public interface Square {
 		 */
 		public SquareBuilder northeast(double latitude, double longitude) throws IllegalArgumentException {
 			this.northeast = Coordinates.builder()
-					.latitude(latitude)
-					.longitude(longitude)
-					.build();
+									 .latitude(latitude)
+									 .longitude(longitude)
+									 .build();
 			return this;
 		}
 
@@ -158,9 +158,9 @@ public interface Square {
 		 */
 		public SquareBuilder northeast(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
 			this.northeast = Coordinates.builder()
-					.latitude(latitude)
-					.longitude(longitude)
-					.build();
+									 .latitude(latitude)
+									 .longitude(longitude)
+									 .build();
 			return this;
 		}
 
@@ -185,9 +185,9 @@ public interface Square {
 		 */
 		public SquareBuilder southwest(double latitude, double longitude) throws IllegalArgumentException {
 			this.southwest = Coordinates.builder()
-					.latitude(latitude)
-					.longitude(longitude)
-					.build();
+									 .latitude(latitude)
+									 .longitude(longitude)
+									 .build();
 			return this;
 		}
 
@@ -201,9 +201,9 @@ public interface Square {
 		 */
 		public SquareBuilder southwest(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
 			this.southwest = Coordinates.builder()
-					.latitude(latitude)
-					.longitude(longitude)
-					.build();
+									 .latitude(latitude)
+									 .longitude(longitude)
+									 .build();
 			return this;
 		}
 

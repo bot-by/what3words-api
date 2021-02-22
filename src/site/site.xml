@@ -38,7 +38,8 @@
 <meta name="theme-color" content="#ffffff">
 		]]></head>
 		<links>
-			<item name="what3words" href="https://what3words.com"/>
+			<item name="what3words" href="https://what3words.com" title="The simplest way to talk about location"/>
+			<item name="feign" href="https://github.com/OpenFeign/feign" title="Feign makes writing java http clients easier"/>
 		</links>
 		<menu name="General Info" inherit="top">
 			<item name="Acquire" href="./acquire.html"/>
