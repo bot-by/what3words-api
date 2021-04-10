@@ -3,14 +3,14 @@
     "httpRequest": {
       "headers": {
         "X-Api-Key": [
-          "bad-words"
+          "wrong-key"
         ]
       }
     },
     "httpResponse": {
-      "statusCode": 400,
-      "reasonPhrase": "Bad Request",
-      "body": "{\"error\":{\"code\":\"BadWords\",\"message\":\"Invalid or non-existent 3 word address\"}}"
+      "statusCode": 401,
+      "reasonPhrase": "Unauthorized",
+      "body": "{\"error\":{\"code\":\"InvalidKey\",\"message\":\"Authentication failed; invalid API key\"}}"
     }
   },
   {

@@ -2,7 +2,7 @@
 
 Instantiate an instance of _[what3words.com][]_ with [Feign][feign]
 
-```java
+```language-java
 api = Feign.builder()
               .client(new Http2Client())
               .decoder(new What3WordsDecoder())
@@ -16,7 +16,7 @@ you can put an API key in request data.
 
 ## Convert coordinates to 3 word address
 
-```java
+```language-java
 WordsRequest wordsRequest = WordsRequest.builder()
                                     .coordinates(51.381051d, -2.359591d)
                                     .language(Language.builder()
@@ -35,7 +35,7 @@ then _what3words_ returns English words _///spring.tops.issued_.
 
 ## Convert 3 word address to coordinates
 
-```java
+```language-java
 CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder()
                                                 .words("filled.count.soap")
                                                 .build();
@@ -47,13 +47,13 @@ It returns [well known coordinates][filled.count.soap] of the _what3words_'s off
 
 ## Get available languages
 
-```java
+```language-java
 Collection<Language> languages = api.availableLanguages();
 ```
 
 or with explicit API key
 
-```java
+```language-java
 Collection<Language> languages = api.availableLanguages("xyz-api-key");
 ```
 

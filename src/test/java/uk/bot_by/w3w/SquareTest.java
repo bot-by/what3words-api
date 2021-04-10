@@ -24,13 +24,13 @@ public class SquareTest {
 	@BeforeEach
 	public void setUp() {
 		northeast = Coordinates.builder()
-							.latitude(49.39d)
-							.longitude(-1.01d)
-							.build();
+		                       .latitude(49.39d)
+		                       .longitude(-1.01d)
+		                       .build();
 		southwest = Coordinates.builder()
-							.latitude(51.03d)
-							.longitude(1.09d)
-							.build();
+		                       .latitude(51.03d)
+		                       .longitude(1.09d)
+		                       .build();
 	}
 
 	@DisplayName("Builder")
@@ -40,7 +40,7 @@ public class SquareTest {
 		Square.SquareBuilder builder = Square.builder();
 
 		builder.northeast(northeast)
-				.southwest(southwest);
+		       .southwest(southwest);
 
 		// when
 		Square square = assertDoesNotThrow(builder::build);
@@ -152,6 +152,19 @@ public class SquareTest {
 				() -> assertNotNull(square, "square was built"),
 				() -> assertEquals(northeast, square.getNortheast(), "northeast"),
 				() -> assertEquals(southwest, square.getSouthwest(), "southwest"));
+	}
+
+	@DisplayName("To string")
+	@Test
+	public void string() {
+		// given
+		Square square = Square.builder()
+		                      .northeast(49.39d, -1.01d)
+		                      .southwest(51.03d, 1.09d)
+		                      .build();
+
+		// when and then
+		assertEquals("{northeast:49.39,-1.01;southwest:51.03,1.09}", square.toString());
 	}
 
 }

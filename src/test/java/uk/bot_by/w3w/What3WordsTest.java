@@ -26,11 +26,11 @@ public class What3WordsTest {
 	@BeforeAll
 	public static void setUpClass() {
 		api = Feign.builder()
-					  .client(new Http2Client())
-					  .decoder(new What3WordsDecoder())
-					  .errorDecoder(new What3WordsErrorDecoder())
-					  .requestInterceptor(new KeyInterceptor("abc-api-key"))
-					  .target(What3Words.class, "http://localhost:9876");
+		           .client(new Http2Client())
+		           .decoder(new What3WordsDecoder())
+		           .errorDecoder(new What3WordsErrorDecoder())
+		           .requestInterceptor(new KeyInterceptor("abc-api-key"))
+		           .target(What3Words.class, "http://localhost:9876");
 	}
 
 	@DisplayName("Available languages")
@@ -38,15 +38,15 @@ public class What3WordsTest {
 	public void availableLanguages() {
 		// given
 		Language german = Language.builder()
-								  .code("de")
-								  .name("")
-								  .nativeName("")
-								  .build();
+		                          .code("de")
+		                          .name("")
+		                          .nativeName("")
+		                          .build();
 		Language norwegian = Language.builder()
-									 .code("no")
-									 .name("")
-									 .nativeName("")
-									 .build();
+		                             .code("no")
+		                             .name("")
+		                             .nativeName("")
+		                             .build();
 
 		// when
 		Collection<Language> languages = api.availableLanguages();
@@ -63,14 +63,14 @@ public class What3WordsTest {
 	public void availableLanguagesWithKey() {
 		// given
 		Language arabic = Language.builder()
-								  .code("ar")
-								  .build();
+		                          .code("ar")
+		                          .build();
 		Language greek = Language.builder()
-								 .code("el")
-								 .build();
+		                         .code("el")
+		                         .build();
 		Language turkish = Language.builder()
-								   .code("tr")
-								   .build();
+		                           .code("tr")
+		                           .build();
 
 		// when
 		Collection<Language> languages = api.availableLanguages("xyz-api-key");
@@ -87,14 +87,14 @@ public class What3WordsTest {
 	public void convertToAddress() {
 		// given
 		Coordinates coordinates = Coordinates.builder()
-										  .latitude(51.381051d)
-										  .longitude(-2.359591d)
-										  .build();
+		                                     .latitude(51.381051d)
+		                                     .longitude(-2.359591d)
+		                                     .build();
 		Language language = Language.builder()
-									.code("al")
-									.name("Alien Language")
-									.nativeName("Alienese")
-									.build();
+		                            .code("al")
+		                            .name("Alien Language")
+		                            .nativeName("Alienese")
+		                            .build();
 		Map<String, Object> queryParameters = new HashMap<>();
 
 		queryParameters.put("coordinates", coordinates);
@@ -114,13 +114,13 @@ public class What3WordsTest {
 	public void convertToAddressWithKey() {
 		// given
 		WordsRequest wordsRequest = WordsRequest.builder()
-											.coordinates(51.521251d, -0.203586d)
-											.language(Language.builder()
-															  .code("al")
-															  .name("Alien Language")
-															  .nativeName("Alienese")
-															  .build())
-											.build();
+		                                        .coordinates(51.521251d, -0.203586d)
+		                                        .language(Language.builder()
+		                                                          .code("al")
+		                                                          .name("Alien Language")
+		                                                          .nativeName("Alienese")
+		                                                          .build())
+		                                        .build();
 
 		// when
 		Words words = api.convertToAddress("xyz-api-key", wordsRequest).getWords();
@@ -136,12 +136,12 @@ public class What3WordsTest {
 	public void convertToAddressWithLanguage() {
 		// given
 		Coordinates coordinates = Coordinates.builder()
-										  .latitude(51.841621d)
-										  .longitude(16.571912d)
-										  .build();
+		                                     .latitude(51.841621d)
+		                                     .longitude(16.571912d)
+		                                     .build();
 		Language polish = Language.builder()
-								  .code("pl")
-								  .build();
+		                          .code("pl")
+		                          .build();
 		Map<String, Object> queryParameters = new HashMap<>();
 
 		queryParameters.put("coordinates", coordinates);
@@ -161,8 +161,8 @@ public class What3WordsTest {
 	public void convertToCoordinates() {
 		//given
 		Words words = Words.builder()
-							  .words("spring.tops.issued".split("\\."))
-							  .build();
+		                   .words("spring.tops.issued".split("\\."))
+		                   .build();
 		Map<String, Object> queryParameters = new HashMap<>();
 
 		queryParameters.put("words", words);
@@ -181,8 +181,8 @@ public class What3WordsTest {
 	public void convertToCoordinatesWithKey() {
 		//given
 		CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder()
-														.words("filled.count.soap".split("\\."))
-														.build();
+		                                                          .words("filled.count.soap".split("\\."))
+		                                                          .build();
 
 		// when
 		Coordinates coordinates = api.convertToCoordinates("xyz-api-key", coordinatesRequest).getCoordinates();

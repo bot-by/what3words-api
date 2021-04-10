@@ -3,4 +3,5 @@
 /.flattened-pom.xml
 
 *.iml
+*~
 
