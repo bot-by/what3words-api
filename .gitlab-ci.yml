@@ -40,12 +40,19 @@ snapshot:
 release:
   stage: deploy
   script:
-    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy site -Dchangelist= -DskipTests -ntp -Psources,javadocs -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
-    - mv target/site public
-    - mv target/apidocs public
-    - mv public/images/favicon.ico public
+    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -Dchangelist= -DskipTests -ntp -Psources,javadocs -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
   artifacts:
     paths:
       - public
+  only:
+    - tags
+
+pages:
+  stage: deploy
+  script:
+    - mvn verify site -Dchangelist= -DskipTests -Pjavadocs
+    - mv target/site public
+    - mv target/apidocs public
+    - mv public/images/favicon.ico public
   only:
     - tags
