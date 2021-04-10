@@ -10,7 +10,7 @@ than [official package][w3w-java-wrapper] provides.
 The package is not published to Maven Central yet.
 Use bot-by's GitLab repository instead, please:
 
-```language-xml
+```xml
 <repositories>
   <repository>
     <id>bot-by-maven</id>
@@ -21,7 +21,7 @@ Use bot-by's GitLab repository instead, please:
 
 Please add dependency to your project:
 
-```language-xml
+```xml
 <dependency>
   <groupId>uk.bot-by.3wa</groupId>
   <artifactId>what3words-api</artifactId>
@@ -33,7 +33,7 @@ Please add dependency to your project:
 
 Instantiate an instance of What3Words with [Feign][feign]
 
-```language-java
+```java
 api = Feign.builder()
            .client(new Http2Client())
            .decoder(new What3WordsDecoder())
@@ -47,7 +47,7 @@ you can put an API key in request data.
 
 ### Convert coordinates to 3 word address
 
-```language-java
+```java
 WordsRequest wordsRequest = WordsRequest.builder()
                                         .coordinates(51.381051d, -2.359591d)
                                         .language(Language.builder()
@@ -66,7 +66,7 @@ then _what3words_ returns English words _///spring.tops.issued_.
 
 ### Convert 3 word address to coordinates
 
-```language-java
+```java
 CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder()
                                                           .words("filled.count.soap")
                                                           .build();
@@ -78,13 +78,13 @@ It returns [well known coordinates][filled.count.soap] of the _what3words_'s off
 
 ### Get available languages
 
-```language-java
+```java
 Collection<Language> languages = api.availableLanguages();
 ```
 
 or with explicit API key
 
-```language-java
+```java
 Collection<Language> languages = api.availableLanguages("xyz-api-key");
 ```
 
