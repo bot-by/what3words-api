@@ -41,9 +41,6 @@ release:
   stage: deploy
   script:
     - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -Dchangelist= -DskipTests -ntp -Psources,javadocs -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
-  artifacts:
-    paths:
-      - public
   only:
     - tags
 
@@ -54,5 +51,8 @@ pages:
     - mv target/site public
     - mv target/apidocs public
     - mv public/images/favicon.ico public
+  artifacts:
+    paths:
+      - public
   only:
     - tags
