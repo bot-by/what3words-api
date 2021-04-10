@@ -18,6 +18,8 @@ build:
   stage: build
   script:
     - mvn $MAVEN_CLI_OPTS compile
+  except:
+    - tags
 
 test:
   stage: test
@@ -26,6 +28,8 @@ test:
     - awk -F"," '{ instructions += $4 + $5; covered += $5 } END { print covered, "/", instructions, "instructions covered"; print 100*covered/instructions, "% covered" }' target/site/jacoco/jacoco.csv
     - bash <(curl -Ls https://coverage.codacy.com/get.sh) report
   coverage: '/(\d+\.?\d*) \% covered/'
+  except:
+    - tags
 
 snapshot:
   stage: deploy
@@ -40,14 +44,14 @@ snapshot:
 release:
   stage: deploy
   script:
-    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -Dchangelist= -DskipTests -ntp -Psources,javadocs -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
+    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -Dchangelist= -ntp -Psources,javadocs -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
   only:
     - tags
 
 pages:
   stage: deploy
   script:
-    - mvn verify site -Dchangelist= -DskipTests -Pjavadocs
+    - mvn clean verify site -Dchangelist= -Pjavadocs
     - mv target/site public
     - mv target/apidocs public
     - mv public/images/favicon.ico public
