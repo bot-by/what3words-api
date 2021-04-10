@@ -49,5 +49,3 @@ release:
       - public
   only:
     - tags
-  except:
-    - branches
