@@ -34,21 +34,13 @@ snapshot:
   only:
     - branches
   except:
-    - tags
+    - master
+
 
 release:
   stage: deploy
   script:
-    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -DskipTests -ntp -Psources,javadocs -Dchangelist= -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
-  only:
-    - tags
-  except:
-    - branches
-
-pages:
-  stage: deploy
-  script:
-    - mvn verify site -Pjavadocs
+    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy site -Dchangelist= -DskipTests -ntp -Psources,javadocs -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
     - mv target/site public
     - mv target/apidocs public
     - mv public/images/favicon.ico public
@@ -56,4 +48,6 @@ pages:
     paths:
       - public
   only:
-    - master
+    - tags
+  except:
+    - branches
