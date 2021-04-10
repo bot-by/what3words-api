@@ -92,8 +92,8 @@ public class CoordinatesRequest {
 		 */
 		public CoordinatesRequestBuilder words(@NotNull String words) throws IllegalArgumentException {
 			this.words = Words.builder()
-								 .words(words)
-								 .build();
+			                  .words(words)
+			                  .build();
 			return this;
 		}
 
@@ -107,8 +107,8 @@ public class CoordinatesRequest {
 		 */
 		public CoordinatesRequestBuilder words(@NotNull String... words) throws IllegalArgumentException {
 			this.words = Words.builder()
-								 .words(words)
-								 .build();
+			                  .words(words)
+			                  .build();
 			return this;
 		}
 
@@ -122,8 +122,8 @@ public class CoordinatesRequest {
 		 */
 		public CoordinatesRequestBuilder words(@NotNull List<String> words) throws IllegalArgumentException {
 			this.words = Words.builder()
-								 .words(words)
-								 .build();
+			                  .words(words)
+			                  .build();
 			return this;
 		}
 

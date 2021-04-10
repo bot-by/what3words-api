@@ -10,7 +10,7 @@ than [official package][w3w-java-wrapper] provides.
 The package is not published to Maven Central yet.
 Use bot-by's GitLab repository instead, please:
 
-```xml
+```language-xml
 <repositories>
   <repository>
     <id>bot-by-maven</id>
@@ -21,7 +21,7 @@ Use bot-by's GitLab repository instead, please:
 
 Please add dependency to your project:
 
-```xml
+```language-xml
 <dependency>
   <groupId>uk.bot-by.3wa</groupId>
   <artifactId>what3words-api</artifactId>
@@ -33,7 +33,7 @@ Please add dependency to your project:
 
 Instantiate an instance of What3Words with [Feign][feign]
 
-```java
+```language-java
 api = Feign.builder()
               .client(new Http2Client())
               .decoder(new What3WordsDecoder())
@@ -47,7 +47,7 @@ you can put an API key in request data.
 
 ### Convert coordinates to 3 word address
 
-```java
+```language-java
 WordsRequest wordsRequest = WordsRequest.builder()
                                     .coordinates(51.381051d, -2.359591d)
                                     .language(Language.builder()
@@ -66,7 +66,7 @@ then _what3words_ returns English words _///spring.tops.issued_.
 
 ### Convert 3 word address to coordinates
 
-```java
+```language-java
 CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder()
                                                 .words("filled.count.soap")
                                                 .build();
@@ -78,13 +78,13 @@ It returns [well known coordinates][filled.count.soap] of the _what3words_'s off
 
 ### Get available languages
 
-```java
+```language-java
 Collection<Language> languages = api.availableLanguages();
 ```
 
 or with explicit API key
 
-```java
+```language-java
 Collection<Language> languages = api.availableLanguages("xyz-api-key");
 ```
 
@@ -112,7 +112,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-[Apache License v2.0](LICENSE)
+[Apache License v2.0](LICENSE)  
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0.html)
 
 [what3words.com]: https://what3words.com/ "It’s the easiest way to find and share exact locations."

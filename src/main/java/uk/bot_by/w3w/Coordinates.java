@@ -79,15 +79,18 @@ public interface Coordinates {
 
 		/**
 		 * Returns coordinates as comma-separated string of numbers with decimal point.
+		 * <pre><code class="language-csv">
+		 * 51.381051,-2.359591
+		 * </code></pre>
 		 *
 		 * @return comma-separated string of latitude and longitude
 		 */
 		@Override
 		public String toString() {
 			return new StringJoiner(",")
-						   .add(latitude.toString())
-						   .add(longitude.toString())
-						   .toString();
+					       .add(latitude.toString())
+					       .add(longitude.toString())
+					       .toString();
 		}
 
 		@Override
@@ -143,7 +146,7 @@ public interface Coordinates {
 		}
 
 		/**
-		 * Set coordinates.
+		 * Set coordinates as pair of doubles.
 		 *
 		 * @param latitude  latitude
 		 * @param longitude longitude
@@ -157,7 +160,7 @@ public interface Coordinates {
 		}
 
 		/**
-		 * Set coordinates.
+		 * Set coordinates as pair of {@link BigDecimal}s.
 		 *
 		 * @param latitude  latitude
 		 * @param longitude longitude
@@ -171,7 +174,7 @@ public interface Coordinates {
 		}
 
 		/**
-		 * Set latitude.
+		 * Set double latitude value.
 		 * <p>
 		 * Latitude must be in the range of -90 to 90 (inclusive).
 		 *
@@ -184,7 +187,7 @@ public interface Coordinates {
 		}
 
 		/**
-		 * Set latitude.
+		 * Set {@link BigDecimal} latitude value.
 		 * <p>
 		 * Latitude must be in the range of -90 to 90 (inclusive).
 		 *
@@ -201,7 +204,7 @@ public interface Coordinates {
 		}
 
 		/**
-		 * Set longitude value.
+		 * Set double longitude value.
 		 * <p>
 		 * Longitude must be in the range of -180 to 180 (inclusive).
 		 *
@@ -214,7 +217,7 @@ public interface Coordinates {
 		}
 
 		/**
-		 * Set longitude value.
+		 * Set {@link BigDecimal} longitude value.
 		 * <p>
 		 * Longitude must be in the range of -180 to 180 (inclusive).
 		 *

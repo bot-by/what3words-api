@@ -84,7 +84,7 @@ public class WordsRequest {
 		}
 
 		/**
-		 * Set coordinates.
+		 * Set coordinates as pair of doubles.
 		 *
 		 * @param latitude  latitude
 		 * @param longitude longitude
@@ -95,14 +95,14 @@ public class WordsRequest {
 		 */
 		public WordsRequestBuilder coordinates(double latitude, double longitude) throws IllegalArgumentException {
 			coordinates = Coordinates.builder()
-								  .latitude(latitude)
-								  .longitude(longitude)
-								  .build();
+			                         .latitude(latitude)
+			                         .longitude(longitude)
+			                         .build();
 			return this;
 		}
 
 		/**
-		 * Set coordinates.
+		 * Set coordinates as pair of {@link BigDecimal}s.
 		 *
 		 * @param latitude  latitude
 		 * @param longitude longitude
@@ -113,9 +113,9 @@ public class WordsRequest {
 		 */
 		public WordsRequestBuilder coordinates(@NotNull BigDecimal latitude, @NotNull BigDecimal longitude) throws IllegalArgumentException {
 			coordinates = Coordinates.builder()
-								  .latitude(latitude)
-								  .longitude(longitude)
-								  .build();
+			                         .latitude(latitude)
+			                         .longitude(longitude)
+			                         .build();
 			return this;
 		}
 

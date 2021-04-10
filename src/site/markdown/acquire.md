@@ -3,7 +3,7 @@
 The package is not published to Maven Central yet.
 Use bot-by's GitLab repository instead, please:
 
-```xml
+```language-xml
 <repositories>
   <repository>
     <id>bot-by-maven</id>
@@ -14,7 +14,7 @@ Use bot-by's GitLab repository instead, please:
 
 Please add dependency to your project:
 
-```xml
+```language-xml
 <dependency>
   <groupId>uk.bot-by.3wa</groupId>
   <artifactId>what3words-api</artifactId>

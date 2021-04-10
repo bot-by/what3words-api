@@ -12,6 +12,23 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @Tag("fast")
 class CoordinatesRequestTest {
 
+	@DisplayName("Create request by an words object")
+	@Test
+	public void words() {
+		// given
+		CoordinatesRequest.CoordinatesRequestBuilder builder = CoordinatesRequest.builder();
+		Words words = Words.builder().words("first.second.third").build();
+
+		// when
+		CoordinatesRequest request = builder.words(words).build();
+
+		// then
+		assertAll("Coordinates request",
+				() -> assertEquals("first", request.getWords().getFirst()),
+				() -> assertEquals("second", request.getWords().getSecond()),
+				() -> assertEquals("third", request.getWords().getThird()));
+	}
+
 	@DisplayName("Create request by an array")
 	@Test
 	public void array() {

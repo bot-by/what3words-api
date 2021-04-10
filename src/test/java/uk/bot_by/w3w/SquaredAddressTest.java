@@ -30,29 +30,29 @@ class SquaredAddressTest {
 	@BeforeEach
 	public void setUp() {
 		coordinates = Coordinates.builder()
-							  .latitude(50.01d)
-							  .longitude(-2.02d)
-							  .build();
+		                         .latitude(50.01d)
+		                         .longitude(-2.02d)
+		                         .build();
 		language = Language.builder()
-						   .code("aa")
-						   .name("name")
-						   .nativeName("native name")
-						   .build();
+		                   .code("aa")
+		                   .name("name")
+		                   .nativeName("native name")
+		                   .build();
 		northeast = Coordinates.builder()
-							.latitude(49.39d)
-							.longitude(-1.01d)
-							.build();
+		                       .latitude(49.39d)
+		                       .longitude(-1.01d)
+		                       .build();
 		southwest = Coordinates.builder()
-							.latitude(51.03d)
-							.longitude(1.09d)
-							.build();
+		                       .latitude(51.03d)
+		                       .longitude(1.09d)
+		                       .build();
 		square = Square.builder()
-						 .northeast(northeast)
-						 .southwest(southwest)
-						 .build();
+		               .northeast(northeast)
+		               .southwest(southwest)
+		               .build();
 		words = Words.builder()
-						.words("spring.tops.issued")
-						.build();
+		             .words("spring.tops.issued")
+		             .build();
 	}
 
 	@DisplayName("Builder")
@@ -64,13 +64,13 @@ class SquaredAddressTest {
 		// when
 		SquaredAddress squaredAddress =
 				builder.country("AA")
-						.square(square)
-						.nearestPlace("place")
-						.coordinates(coordinates)
-						.words(words)
-						.language(language)
-						.map(new URL("https://example.com"))
-						.build();
+				       .square(square)
+				       .nearestPlace("place")
+				       .coordinates(coordinates)
+				       .words(words)
+				       .language(language)
+				       .map(new URL("https://example.com"))
+				       .build();
 
 		// then
 		assertSquaredAddress(squaredAddress);
@@ -85,13 +85,13 @@ class SquaredAddressTest {
 		// when
 		SquaredAddress squaredAddress =
 				builder.country("AA")
-						.square(square)
-						.nearestPlace("place")
-						.coordinates(50.01d, -2.02d)
-						.words(words)
-						.language(language)
-						.map(new URL("https://example.com"))
-						.build();
+				       .square(square)
+				       .nearestPlace("place")
+				       .coordinates(50.01d, -2.02d)
+				       .words(words)
+				       .language(language)
+				       .map(new URL("https://example.com"))
+				       .build();
 
 		// then
 		assertSquaredAddress(squaredAddress);
@@ -106,13 +106,13 @@ class SquaredAddressTest {
 		// when
 		SquaredAddress squaredAddress =
 				builder.country("AA")
-						.square(square)
-						.nearestPlace("place")
-						.coordinates(BigDecimal.valueOf(50.01d), BigDecimal.valueOf(-2.02d))
-						.words(words)
-						.language(language)
-						.map(new URL("https://example.com"))
-						.build();
+				       .square(square)
+				       .nearestPlace("place")
+				       .coordinates(BigDecimal.valueOf(50.01d), BigDecimal.valueOf(-2.02d))
+				       .words(words)
+				       .language(language)
+				       .map(new URL("https://example.com"))
+				       .build();
 
 		// then
 		assertSquaredAddress(squaredAddress);
@@ -127,13 +127,13 @@ class SquaredAddressTest {
 		// when
 		SquaredAddress squaredAddress =
 				builder.country("AA")
-						.square(northeast, southwest)
-						.nearestPlace("place")
-						.coordinates(coordinates)
-						.words(words)
-						.language(language)
-						.map(new URL("https://example.com"))
-						.build();
+				       .square(northeast, southwest)
+				       .nearestPlace("place")
+				       .coordinates(coordinates)
+				       .words(words)
+				       .language(language)
+				       .map(new URL("https://example.com"))
+				       .build();
 
 		// then
 		assertSquaredAddress(squaredAddress);
@@ -148,13 +148,13 @@ class SquaredAddressTest {
 		// when
 		SquaredAddress squaredAddress =
 				builder.country("AA")
-						.square(square)
-						.nearestPlace("place")
-						.coordinates(coordinates)
-						.words("spring", "tops", "issued")
-						.language(language)
-						.map(new URL("https://example.com"))
-						.build();
+				       .square(square)
+				       .nearestPlace("place")
+				       .coordinates(coordinates)
+				       .words("spring", "tops", "issued")
+				       .language(language)
+				       .map(new URL("https://example.com"))
+				       .build();
 
 		// then
 		assertSquaredAddress(squaredAddress);
@@ -169,13 +169,13 @@ class SquaredAddressTest {
 		// when
 		SquaredAddress squaredAddress =
 				builder.country("AA")
-						.square(square)
-						.nearestPlace("place")
-						.coordinates(coordinates)
-						.words(Arrays.asList("spring", "tops", "issued"))
-						.language(language)
-						.map(new URL("https://example.com"))
-						.build();
+				       .square(square)
+				       .nearestPlace("place")
+				       .coordinates(coordinates)
+				       .words(Arrays.asList("spring", "tops", "issued"))
+				       .language(language)
+				       .map(new URL("https://example.com"))
+				       .build();
 
 		// then
 		assertSquaredAddress(squaredAddress);
@@ -190,13 +190,13 @@ class SquaredAddressTest {
 		// when
 		SquaredAddress squaredAddress =
 				builder.country("AA")
-						.square(square)
-						.nearestPlace("place")
-						.coordinates(coordinates)
-						.words("///spring・tops・issued")
-						.language(language)
-						.map(new URL("https://example.com"))
-						.build();
+				       .square(square)
+				       .nearestPlace("place")
+				       .coordinates(coordinates)
+				       .words("///spring・tops・issued")
+				       .language(language)
+				       .map(new URL("https://example.com"))
+				       .build();
 
 		// then
 		assertSquaredAddress(squaredAddress);
@@ -211,16 +211,35 @@ class SquaredAddressTest {
 		// when
 		SquaredAddress squaredAddress =
 				builder.country("AA")
-						.square(square)
-						.nearestPlace("place")
-						.coordinates(coordinates)
-						.words(words)
-						.language(language)
-						.map("https://example.com")
-						.build();
+				       .square(square)
+				       .nearestPlace("place")
+				       .coordinates(coordinates)
+				       .words(words)
+				       .language(language)
+				       .map("https://example.com")
+				       .build();
 
 		// then
 		assertSquaredAddress(squaredAddress);
+	}
+
+	@DisplayName("Bad map link")
+	@Test
+	public void badMapLink() {
+		// given
+		SquaredAddress.SquaredAddressBuilder builder = SquaredAddress.builder()
+		                                                             .country("AA")
+		                                                             .square(square)
+		                                                             .nearestPlace("place")
+		                                                             .coordinates(coordinates)
+		                                                             .words(words)
+		                                                             .language(language);
+
+		// when
+		Exception exception = assertThrows(IllegalArgumentException.class, () -> builder.map("qwerty!@#$%^"));
+
+		// then
+		assertEquals("map link", exception.getMessage(), "exception message");
 	}
 
 	@DisplayName("Missed field")
@@ -234,7 +253,7 @@ class SquaredAddressTest {
 			"AA,square,place,coordinates,spring。tops。issued,  ,https://example.com, language is null",
 			"AA,square,place,coordinates,spring。tops。issued,aa,                   , map is null"})
 	public void missedField(String country, String square, String nearestPlace, String coordinates, String words,
-							String languageCode, String mapLink, String expectedMessage) {
+	                        String languageCode, String mapLink, String expectedMessage) {
 		// given
 		SquaredAddress.SquaredAddressBuilder builder = SquaredAddress.builder();
 		Optional.ofNullable(country).ifPresent(builder::country);
@@ -250,6 +269,25 @@ class SquaredAddressTest {
 
 		// then
 		assertEquals(expectedMessage, exception.getMessage(), "exception message");
+	}
+
+	@DisplayName("To string")
+	@Test
+	public void string() {
+		// given
+		SquaredAddress squaredAddress = SquaredAddress.builder()
+		                                              .country("AA")
+		                                              .square(square)
+		                                              .nearestPlace("place")
+		                                              .coordinates(coordinates)
+		                                              .words(words)
+		                                              .language(language)
+		                                              .map("https://example.com")
+		                                              .build();
+
+		// when and then
+		assertEquals("{country='AA',square={northeast:49.39,-1.01;southwest:51.03,1.09},nearestPlace='place',coordinates=50.01,-2.02," +
+				             "words=spring.tops.issued,language=aa,map=https://example.com}", squaredAddress.toString());
 	}
 
 	private void assertSquaredAddress(SquaredAddress squaredAddress) {

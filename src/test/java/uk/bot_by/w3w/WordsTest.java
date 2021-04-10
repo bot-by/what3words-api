@@ -191,7 +191,7 @@ class WordsTest {
 
 	@DisplayName("To string")
 	@Test
-	public void testToString() {
+	public void string() {
 		// given
 		Words words = Words.builder().words("spring", "tops", "issued").build();
 

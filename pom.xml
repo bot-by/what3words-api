@@ -49,7 +49,7 @@
 		<javadoc-plugin.version>3.2.0</javadoc-plugin.version>
 		<source-plugin.version>3.2.0</source-plugin.version>
 		<site-plugin.version>3.9.1</site-plugin.version>
-		<docs-maven-skin.version>2.0.11</docs-maven-skin.version>
+		<docs-maven-skin.version>2.1.0</docs-maven-skin.version>
 		<info-reports-plugin.version>3.1.1</info-reports-plugin.version>
 		<!-- test -->
 		<junit-jupiter.version>5.7.0</junit-jupiter.version>
@@ -382,7 +382,7 @@
 			<name>Apache 2</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
 			<distribution>repo</distribution>
-			<comments>See LICENSE</comments>
+			<comments>See NOTICE for third-party licenses.</comments>
 		</license>
 	</licenses>
 

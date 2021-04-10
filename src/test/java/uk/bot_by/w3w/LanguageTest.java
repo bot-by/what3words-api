@@ -26,8 +26,8 @@ class LanguageTest {
 	public void nameAndNativeNameAreNull() {
 		// when
 		Language language = Language.builder()
-									.code("aa")
-									.build();
+		                            .code("aa")
+		                            .build();
 
 		// then
 		assertAll("Name and native name are null",
@@ -41,10 +41,10 @@ class LanguageTest {
 	public void builder() {
 		// when
 		Language language = Language.builder()
-									.code("aa")
-									.name("Name")
-									.nativeName("Native name")
-									.build();
+		                            .code("aa")
+		                            .name("Name")
+		                            .nativeName("Native name")
+		                            .build();
 
 		// then
 		assertAll("Language",
@@ -55,13 +55,13 @@ class LanguageTest {
 
 	@DisplayName("To string")
 	@Test
-	public void testToString() {
+	public void string() {
 		// given
 		Language language = Language.builder()
-									.code("aa")
-									.name("Name")
-									.nativeName("Native name")
-									.build();
+		                            .code("aa")
+		                            .name("Name")
+		                            .nativeName("Native name")
+		                            .build();
 
 		// when and then
 		assertEquals("aa", language.toString());

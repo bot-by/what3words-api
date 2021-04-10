@@ -19,10 +19,10 @@ public class ErrorTest {
 	@BeforeAll
 	public static void setUpClass() {
 		api = Feign.builder()
-					  .client(new Http2Client())
-					  .decoder(new What3WordsDecoder())
-					  .errorDecoder(new What3WordsErrorDecoder())
-					  .target(What3Words.class, "http://localhost:9876");
+		           .client(new Http2Client())
+		           .decoder(new What3WordsDecoder())
+		           .errorDecoder(new What3WordsErrorDecoder())
+		           .target(What3Words.class, "http://localhost:9876");
 	}
 
 	@DisplayName("Not found")
@@ -32,14 +32,14 @@ public class ErrorTest {
 		assertThrows(FeignException.NotFound.class, () -> api.availableLanguages("qwerty"));
 	}
 
-	@DisplayName("Bad words")
+	@DisplayName("Wrong API key")
 	@Test
-	public void badWords() {
+	public void wrongKey() {
 		// when
-		Exception exception = assertThrows(What3WordsException.class, () -> api.availableLanguages("bad-words"));
+		Exception exception = assertThrows(What3WordsException.class, () -> api.availableLanguages("wrong-key"));
 
 		// then
-		assertEquals("Invalid or non-existent 3 word address", exception.getMessage(), "exception message");
+		assertEquals("Authentication failed; invalid API key", exception.getMessage(), "exception message");
 	}
 
 }

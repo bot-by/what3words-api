@@ -19,9 +19,9 @@ class WordsRequestTest {
 		// given
 		WordsRequest.WordsRequestBuilder builder = WordsRequest.builder();
 		Coordinates coordinates = Coordinates.builder()
-										  .latitude(51.381051d)
-										  .longitude(-2.359591d)
-										  .build();
+		                                     .latitude(51.381051d)
+		                                     .longitude(-2.359591d)
+		                                     .build();
 		BigDecimal expectedLatitude = BigDecimal.valueOf(51.381051d);
 		BigDecimal expectedLongitude = BigDecimal.valueOf(-2.359591d);
 
@@ -77,16 +77,16 @@ class WordsRequestTest {
 		// given
 		WordsRequest.WordsRequestBuilder builder = WordsRequest.builder();
 		Coordinates coordinates = Coordinates.builder()
-										  .latitude(51.381051d)
-										  .longitude(-2.359591d)
-										  .build();
+		                                     .latitude(51.381051d)
+		                                     .longitude(-2.359591d)
+		                                     .build();
 		BigDecimal expectedLatitude = BigDecimal.valueOf(51.381051d);
 		BigDecimal expectedLongitude = BigDecimal.valueOf(-2.359591d);
 		Language language = Language.builder()
-									.code("al")
-									.name("Alien Language")
-									.nativeName("Alienese")
-									.build();
+		                            .code("al")
+		                            .name("Alien Language")
+		                            .nativeName("Alienese")
+		                            .build();
 
 		// when
 		WordsRequest request = builder.coordinates(coordinates).language(language).build();
@@ -104,9 +104,9 @@ class WordsRequestTest {
 		// given
 		WordsRequest.WordsRequestBuilder builder = WordsRequest.builder();
 		Coordinates coordinates = Coordinates.builder()
-										  .latitude(51.381051d)
-										  .longitude(-2.359591d)
-										  .build();
+		                                     .latitude(51.381051d)
+		                                     .longitude(-2.359591d)
+		                                     .build();
 		BigDecimal expectedLatitude = BigDecimal.valueOf(51.381051d);
 		BigDecimal expectedLongitude = BigDecimal.valueOf(-2.359591d);
 		Language expectedLanguage = Language.builder().code("al").build();
