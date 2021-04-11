@@ -21,13 +21,13 @@
 
 	<groupId>uk.bot-by.3wa</groupId>
 	<artifactId>what3words-api</artifactId>
-	<version>${revision}${sha1}${changelist}</version>
+	<version>${revision}${changelist}${sha1}</version>
 
 	<properties>
 		<!-- version -->
-		<revision>1.0.0</revision>
-		<sha1/>
+		<revision>1.0.1</revision>
 		<changelist>-SNAPSHOT</changelist>
+		<sha1/>
 		<!-- java and maven -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -37,7 +37,7 @@
 		<minimal-version.maven>3.6.3</minimal-version.maven>
 		<!-- plugins -->
 		<enforcer-plugin.version>3.0.0-M3</enforcer-plugin.version>
-		<flatten-plugin.version>1.2.5</flatten-plugin.version>
+		<flatten-plugin.version>1.2.7</flatten-plugin.version>
 		<compiler-plugin.version>3.8.1</compiler-plugin.version>
 		<resources-plugin.version>3.2.0</resources-plugin.version>
 		<surefire-plugin.version>2.22.2</surefire-plugin.version>
@@ -47,21 +47,21 @@
 		<clean-plugin.version>3.1.0</clean-plugin.version>
 		<jacoco-plugin.version>0.8.6</jacoco-plugin.version>
 		<javadoc-plugin.version>3.2.0</javadoc-plugin.version>
-		<source-plugin.version>3.2.0</source-plugin.version>
+		<source-plugin.version>3.2.1</source-plugin.version>
 		<site-plugin.version>3.9.1</site-plugin.version>
 		<docs-maven-skin.version>2.1.0</docs-maven-skin.version>
 		<info-reports-plugin.version>3.1.1</info-reports-plugin.version>
 		<!-- test -->
-		<junit-jupiter.version>5.7.0</junit-jupiter.version>
-		<mockito.version>3.7.0</mockito.version>
+		<junit-jupiter.version>5.7.1</junit-jupiter.version>
+		<mockito.version>3.9.0</mockito.version>
 		<hamcrest.version>2.2</hamcrest.version>
 		<!-- dependencies -->
 		<jetbrains-annotations.version>20.1.0</jetbrains-annotations.version>
 		<slf4j.version>1.7.30</slf4j.version>
-		<json.version>20201115</json.version>
-		<feign-core.version>11.0</feign-core.version>
-		<feign-slf4j.version>11.0</feign-slf4j.version>
-		<feign-java11.version>10.12</feign-java11.version>
+		<json.version>20210307</json.version>
+		<feign-core.version>11.1</feign-core.version>
+		<feign-slf4j.version>11.1</feign-slf4j.version>
+		<feign-java11.version>11.1</feign-java11.version>
 		<!-- other -->
 		<package.registry.url>https://gitlab.com/bot-by/what3words-api/-/packages</package.registry.url>
 	</properties>
