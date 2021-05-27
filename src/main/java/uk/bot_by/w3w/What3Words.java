@@ -46,6 +46,7 @@ public interface What3Words {
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#available-languages">what3words: Available languages</a>
 	 */
+	@NotNull
 	@RequestLine("GET /v3/available-languages")
 	Collection<Language> availableLanguages() throws FeignException, What3WordsException;
 
@@ -60,6 +61,7 @@ public interface What3Words {
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#available-languages">what3words: Available languages</a>
 	 */
+	@NotNull
 	@RequestLine("GET /v3/available-languages")
 	@Headers("X-Api-Key: {w3w-api-key}")
 	Collection<Language> availableLanguages(@NotNull @Param("w3w-api-key") String key) throws FeignException, What3WordsException;
@@ -76,6 +78,7 @@ public interface What3Words {
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">what3words: Convert to 3 word address</a>
 	 */
+	@NotNull
 	@RequestLine("GET /v3/convert-to-3wa")
 	SquaredAddress convertToAddress(@QueryMap Map<String, Object> queryParameters) throws FeignException, What3WordsException;
 
@@ -90,6 +93,7 @@ public interface What3Words {
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">what3words: Convert to 3 word address</a>
 	 */
+	@NotNull
 	@RequestLine("GET /v3/convert-to-3wa")
 	SquaredAddress convertToAddress(@QueryMap WordsRequest wordsRequest) throws FeignException, What3WordsException;
 
@@ -105,6 +109,7 @@ public interface What3Words {
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-3wa">what3words: Convert to 3 word address</a>
 	 */
+	@NotNull
 	@RequestLine("GET /v3/convert-to-3wa")
 	@Headers("X-Api-Key: {w3w-api-key}")
 	SquaredAddress convertToAddress(@NotNull @Param("w3w-api-key") String key, @QueryMap WordsRequest wordsRequest)
@@ -121,6 +126,7 @@ public interface What3Words {
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-coords">what3words: Convert to coordinates</a>
 	 */
+	@NotNull
 	@RequestLine("GET /v3/convert-to-coordinates")
 	SquaredAddress convertToCoordinates(@QueryMap Map<String, Object> queryParameters) throws FeignException, What3WordsException;
 
@@ -135,6 +141,7 @@ public interface What3Words {
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-coords">what3words: Convert to coordinates</a>
 	 */
+	@NotNull
 	@RequestLine("GET /v3/convert-to-coordinates")
 	SquaredAddress convertToCoordinates(@QueryMap CoordinatesRequest coordinatesRequest) throws FeignException, What3WordsException;
 
@@ -150,6 +157,7 @@ public interface What3Words {
 	 * @throws What3WordsException if <em>what3words</em> API returns error
 	 * @see <a href="https://developer.what3words.com/public-api/docs#convert-to-coords">what3words: Convert to coordinates</a>
 	 */
+	@NotNull
 	@RequestLine("GET /v3/convert-to-coordinates")
 	@Headers("X-Api-Key: {w3w-api-key}")
 	SquaredAddress convertToCoordinates(@Param("w3w-api-key") String key, @QueryMap CoordinatesRequest coordinatesRequest)

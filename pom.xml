@@ -45,15 +45,15 @@
 		<mockserver-plugin.version>5.11.2</mockserver-plugin.version>
 		<failsafe-plugin.version>2.22.2</failsafe-plugin.version>
 		<clean-plugin.version>3.1.0</clean-plugin.version>
-		<jacoco-plugin.version>0.8.6</jacoco-plugin.version>
-		<javadoc-plugin.version>3.2.0</javadoc-plugin.version>
+		<jacoco-plugin.version>0.8.7</jacoco-plugin.version>
+		<javadoc-plugin.version>3.3.0</javadoc-plugin.version>
 		<source-plugin.version>3.2.1</source-plugin.version>
 		<site-plugin.version>3.9.1</site-plugin.version>
 		<docs-maven-skin.version>2.1.0</docs-maven-skin.version>
-		<info-reports-plugin.version>3.1.1</info-reports-plugin.version>
+		<info-reports-plugin.version>3.1.2</info-reports-plugin.version>
 		<!-- test -->
-		<junit-jupiter.version>5.7.1</junit-jupiter.version>
-		<mockito.version>3.9.0</mockito.version>
+		<junit-jupiter.version>5.7.2</junit-jupiter.version>
+		<mockito.version>3.10.0</mockito.version>
 		<hamcrest.version>2.2</hamcrest.version>
 		<!-- dependencies -->
 		<jetbrains-annotations.version>20.1.0</jetbrains-annotations.version>
