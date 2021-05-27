@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Unreleased
+
+## 1.1.0 - 2021-05-27
 ### Changed
 -   All methods of What3Words return _not null value_.
 -   Update dependencies: jacoco, javadoc, info-reports, junit5, mockito.
