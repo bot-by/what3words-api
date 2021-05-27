@@ -18,6 +18,6 @@ Please add dependency to your project:
 <dependency>
   <groupId>uk.bot-by.3wa</groupId>
   <artifactId>what3words-api</artifactId>
-  <version>1.1.0</version>
+  <version>1.1.1</version>
 </dependency>
 ```
