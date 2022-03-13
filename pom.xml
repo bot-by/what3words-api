@@ -34,7 +34,7 @@
 		<propertiesEncoding>ISO-8859-1</propertiesEncoding>
 		<maven.compiler.release>11</maven.compiler.release>
 		<minimal-version.java>11</minimal-version.java>
-		<minimal-version.maven>3.8.5</minimal-version.maven>
+		<minimal-version.maven>3.8.4</minimal-version.maven>
 		<!-- plugins -->
 		<enforcer-plugin.version>3.0.0</enforcer-plugin.version>
 		<flatten-plugin.version>1.2.7</flatten-plugin.version>
