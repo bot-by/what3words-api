@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 1.1.2 - 2022-03-13
+### Changed
+-   Update dependencies
+
 ## 1.1.1 - 2021-05-27
 ### Changed
 -   All methods of What3Words return _not null value_.
