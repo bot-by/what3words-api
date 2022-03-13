@@ -512,7 +512,7 @@
 							<show>public</show>
 							<links>
 								<link>https://static.javadoc.io/org.json/json/${json.version}/</link>
-								<link>https://static.javadoc.io/io.github.openfeign/feign-core/${feign-core.version}/</link>
+								<link>https://static.javadoc.io/io.github.openfeign/feign-core/${feign.version}/</link>
 							</links>
 							<isOffline>false</isOffline>
 							<docfilessubdirs>true</docfilessubdirs>
