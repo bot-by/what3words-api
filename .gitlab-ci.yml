@@ -4,6 +4,9 @@ variables:
 
 image: maven:3-openjdk-11
 
+include:
+  - template: Security/SAST.gitlab-ci.yml
+
 cache:
   paths:
     - .m2/repository
@@ -33,8 +36,8 @@ test:
 
 sast:
   stage: test
-include:
-  - template: Security/SAST.gitlab-ci.yml
+  except:
+    - tags
 
 spotbugs-sast:
   variables:
