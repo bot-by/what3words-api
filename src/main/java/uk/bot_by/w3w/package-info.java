@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Witalij Berdinskich
+ * Copyright 2021,2022 Witalij Berdinskich
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,14 +19,15 @@
  * <p>
  * It is based on <em>what3words</em> API <strong>v3</strong>.
  * <h2>Usage</h2>
- * <p>Instantiate an instance of What3Words with <a href="https://github.com/OpenFeign/feign">Feign</a></p>
+ * <p>Instantiate an instance of What3Words with <a
+ * href="https://github.com/OpenFeign/feign">Feign</a></p>
  * <pre><code class="language-java">
  * api = Feign.builder()
  *            .client(new Http2Client())
  *            .decoder(new What3WordsDecoder())
  *            .errorDecoder(new What3WordsErrorDecoder())
- *            .requestInterceptor(new KeyInterceptor("abc-api-key"))
- *            .target(What3Words.class, "https://api.what3words.com/");
+ *            .requestInterceptor(new KeyInterceptor("qwerty-api-key"))
+ *            .target(What3Words.class, What3Words.W3W_API);
  * </code></pre>
  * <p>This is a minimal configuration and KeyInterceptor is optional:
  * you can put an API key in request data.</p>
@@ -45,7 +46,7 @@
  * Ukrainian words <em>///зрання.поїздка.зрізаний</em>.</p>
  * <p>The language is optional: if you do not add it then
  * what3words returns English words <em>///spring.tops.issued</em>.</p>
- * <h3>Convert 3 word address to coordinates</h3>
+ * <h3>Convert 3 word address into coordinates</h3>
  * <pre><code class="language-java">
  * CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder()
  *                                                           .words("filled.count.soap")
@@ -65,7 +66,8 @@
  * Collection&lt;Language&gt; languages = api.availableLanguages("xyz-api-key");
  * </code></pre>
  *
- * @see <a href="https://developer.what3words.com/public-api/docs"><em>what3words</em>: API Reference Docs</a>
+ * @see <a href="https://developer.what3words.com/public-api/docs"><em>what3words</em>: API
+ * Reference Docs</a>
  * @since 1.0.0
  */
 package uk.bot_by.w3w;

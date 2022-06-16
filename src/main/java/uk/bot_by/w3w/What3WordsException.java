@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Witalij Berdinskich
+ * Copyright 2021,2022 Witalij Berdinskich
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,36 +28,38 @@ package uk.bot_by.w3w;
  * }
  * </code></pre>
  *
- * @see <a href="https://developer.what3words.com/public-api/docs#error-handling"><em>what3words</em>: Error handling</a>
+ * @see <a
+ * href="https://developer.what3words.com/public-api/docs#error-handling"><em>what3words</em>: Error
+ * handling</a>
  * @since 1.0.0
  */
 public class What3WordsException extends RuntimeException {
 
-	private final String code;
-	private final int status;
+  private final String code;
+  private final int status;
 
-	public What3WordsException(int status, String code, String message) {
-		super(message);
-		this.code = code;
-		this.status = status;
-	}
+  public What3WordsException(int status, String code, String message) {
+    super(message);
+    this.code = code;
+    this.status = status;
+  }
 
-	/**
-	 * Error code like <em>InvalidKey</em>, <em>DuplicateParameter</em> etc.
-	 *
-	 * @return error code
-	 */
-	public String getCode() {
-		return code;
-	}
+  /**
+   * Error code like <em>InvalidKey</em>, <em>DuplicateParameter</em> etc.
+   *
+   * @return error code
+   */
+  public String getCode() {
+    return code;
+  }
 
-	/**
-	 * Error status like {@code 400}, {@code 401}, {@code 404} and so on.
-	 *
-	 * @return error status
-	 */
-	public int getStatus() {
-		return status;
-	}
+  /**
+   * Error status like {@code 400}, {@code 401}, {@code 404} and so on.
+   *
+   * @return error status
+   */
+  public int getStatus() {
+    return status;
+  }
 
 }

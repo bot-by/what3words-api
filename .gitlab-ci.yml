@@ -31,20 +31,19 @@ test:
   except:
     - tags
 
-snapshot:
-  stage: deploy
-  script:
-    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml deploy -DskipTests -ntp -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
-  only:
-    - branches
-  except:
-    - master
+sast:
+  stage: test
+include:
+  - template: Security/SAST.gitlab-ci.yml
 
+spotbugs-sast:
+  variables:
+    SAST_JAVA_VERSION: 11
 
 release:
   stage: deploy
   script:
-    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -Dchangelist= -ntp -Psources,javadocs -DaltDeploymentRepository=gitlab-maven::default::${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/maven
+    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -Dchangelist= -ntp -Psources,javadocs,sign-and-deploy
   only:
     - tags
 
