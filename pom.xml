@@ -58,7 +58,7 @@
 		<!-- dependencies -->
 		<jetbrains-annotations.version>23.0.0</jetbrains-annotations.version>
 		<slf4j.version>1.7.36</slf4j.version>
-		<json.version>20211205</json.version>
+		<json.version>20220320</json.version>
 		<feign.version>11.8</feign.version>
 		<!-- other -->
 		<package.registry.url>https://gitlab.com/bot-by/what3words-api/-/packages</package.registry.url>
