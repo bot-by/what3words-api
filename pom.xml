@@ -504,8 +504,8 @@
 							<javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
 							<show>public</show>
 							<links>
-								<link>https://static.javadoc.io/org.json/json/${json.version}/</link>
-								<link>https://static.javadoc.io/io.github.openfeign/feign-core/${feign.version}/</link>
+								<link>https://javadoc.io/doc/org.json/json/${json.version}/</link>
+								<link>https://javadoc.io/doc/io.github.openfeign/feign-core/${feign.version}/</link>
 							</links>
 							<isOffline>false</isOffline>
 							<docfilessubdirs>true</docfilessubdirs>
