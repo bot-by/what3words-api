@@ -68,7 +68,9 @@
 			</item>
 		</menu>
 		<menu name="Releases" inherit="bottom">
-			<item name="GitLab" href="${package.registry.url}"/>
+			<item name="GitLab" href="https://gitlab.com/bot-by/what3words-api/-/releases"/>
+			<item name="GitHub" href="https://github.com/bot-by/what3words-api/releases"/>
+			<item name="Maven Central" href="https://search.maven.org/search?q=a:what3words-api"/>
 		</menu>
 		<menu name="Icons" inherit="bottom">
 			<item name="GitLab" img="gitlab" href="${project.scm.url}"/>
