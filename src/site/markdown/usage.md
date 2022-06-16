@@ -8,7 +8,7 @@ api = Feign.builder()
            .decoder(new What3WordsDecoder())
            .errorDecoder(new What3WordsErrorDecoder())
            .requestInterceptor(new KeyInterceptor("abc-api-key"))
-           .target(What3Words.class, "https://api.what3words.com/");
+           .target(What3Words.class, What3Words.W3W_API);
 ```
 
 This is a minimal configuration and `KeyInterceptor` is optional:
@@ -33,7 +33,7 @@ to Ukrainian words _///зрання.поїздка.зрізаний_.
 The language is optional: if you do not add it
 then _what3words_ returns English words _///spring.tops.issued_.
 
-## Convert 3 word address to coordinates
+## Convert 3 word address into coordinates
 
 ```language-java
 CoordinatesRequest coordinatesRequest = CoordinatesRequest.builder()

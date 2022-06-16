@@ -1,5 +1,5 @@
 /*
- * Copyright 2021 Witalij Berdinskich
+ * Copyright 2021,2022 Witalij Berdinskich
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,37 +22,38 @@ import org.jetbrains.annotations.NotNull;
 /**
  * The key interceptor is used to set up the <em>what3words</em> API key in common way.
  * <p>
- * The interceptor adds the HTTP header {@code X-Api-Key} to each request.
- * But if the {@linkplain RequestTemplate request template} contains another header {@code X-Api-Key}
- * or request parameter {@code key} the interceptor does nothing.
+ * The interceptor adds the HTTP header {@code X-Api-Key} to each request. But if the
+ * {@linkplain RequestTemplate request template} contains another header {@code X-Api-Key} or
+ * request parameter {@code key} the interceptor does nothing.
  *
  * @since 1.0.0
  */
 public class KeyInterceptor implements RequestInterceptor {
 
-	private final String key;
+  private final String key;
 
-	public KeyInterceptor(@NotNull String key) {
-		this.key = key;
-	}
+  public KeyInterceptor(@NotNull String key) {
+    this.key = key;
+  }
 
-	/**
-	 * Add <em>what3words</em> API key to a request template.
-	 * <p>
-	 * If a request template has the header {@code X-Api-Key} or query parameter {@code key} it does nothing.
-	 *
-	 * @param template a request template
-	 */
-	@Override
-	public void apply(RequestTemplate template) {
-		if (!(template.headers().containsKey("X-Api-Key") || template.queries().containsKey("key"))) {
-			template.header("X-Api-Key", key);
-		}
-	}
+  /**
+   * Add <em>what3words</em> API key to a request template.
+   * <p>
+   * If a request template has the header {@code X-Api-Key} or query parameter {@code key} it does
+   * nothing.
+   *
+   * @param template a request template
+   */
+  @Override
+  public void apply(RequestTemplate template) {
+    if (!(template.headers().containsKey("X-Api-Key") || template.queries().containsKey("key"))) {
+      template.header("X-Api-Key", key);
+    }
+  }
 
-	@Override
-	public String toString() {
-		return getClass().getSimpleName() + "{ key hash=" + key.hashCode() + " }";
-	}
+  @Override
+  public String toString() {
+    return getClass().getSimpleName() + "{ key hash=" + key.hashCode() + " }";
+  }
 
 }
