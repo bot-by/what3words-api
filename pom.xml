@@ -94,7 +94,7 @@
     <source-plugin.version>3.2.1</source-plugin.version>
     <site-plugin.version>3.12.0</site-plugin.version>
     <docs-maven-skin.version>2.2.7</docs-maven-skin.version>
-    <info-reports-plugin.version>3.3.0</info-reports-plugin.version>
+    <info-reports-plugin.version>3.4.0</info-reports-plugin.version>
     <sign-plugin.version>1.0.1</sign-plugin.version>
     <deploy-plugin.version>2.8.2</deploy-plugin.version>
     <nexus-staging-plugin.version>1.6.13</nexus-staging-plugin.version>
