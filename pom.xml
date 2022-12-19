@@ -104,7 +104,7 @@
     <hamcrest.version>2.2</hamcrest.version>
     <!-- dependencies -->
     <jetbrains-annotations.version>23.0.0</jetbrains-annotations.version>
-    <slf4j.version>2.0.5</slf4j.version>
+    <slf4j.version>2.0.6</slf4j.version>
     <json.version>20220924</json.version>
     <feign.version>12.1</feign.version>
   </properties>
