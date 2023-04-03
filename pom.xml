@@ -89,7 +89,7 @@
     <jar-plugin.version>3.3.0</jar-plugin.version>
     <mockserver-plugin.version>5.15.0</mockserver-plugin.version>
     <failsafe-plugin.version>3.0.0</failsafe-plugin.version>
-    <jacoco-plugin.version>0.8.8</jacoco-plugin.version>
+    <jacoco-plugin.version>0.8.9</jacoco-plugin.version>
     <javadoc-plugin.version>3.5.0</javadoc-plugin.version>
     <source-plugin.version>3.2.1</source-plugin.version>
     <site-plugin.version>3.12.1</site-plugin.version>
