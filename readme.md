@@ -1,5 +1,9 @@
 # Unofficial Java wrapper for _[what3words.com][]_ API to convert 3 word addresses into coordinates and vice versa
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/09b4a1319ea84d3aa16732bd09e70523)](https://app.codacy.com/gl/bot-by/what3words-api/dashboard?utm_source=gl&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/09b4a1319ea84d3aa16732bd09e70523)](https://app.codacy.com/gl/bot-by/what3words-api/dashboard?utm_source=gl&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
+[![Java Version](https://img.shields.io/static/v1?label=java&message=11&color=blue&logo=java&logoColor=E23D28)](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
+
 I was fascinated by the idea of three-word addresses,
 which is the basis of the site _[what3words.com][]_.
 But I want to realise the library to another way
