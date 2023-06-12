@@ -20,19 +20,24 @@ stages:
 build:
   stage: build
   script:
-    - mvn $MAVEN_CLI_OPTS compile
+    - ./mvnw $MAVEN_CLI_OPTS compile
   except:
     - tags
 
 test:
   stage: test
   script:
-    - mvn $MAVEN_CLI_OPTS verify
+    - ./mvnw $MAVEN_CLI_OPTS verify
   artifacts:
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
         - target/failsafe-reports/TEST-*.xml
+
+sast:
+  stage: test
+  variables:
+    SAST_EXCLUDED_PATHS: jacoco-resources,prism.js
 
 coverage:
   stage: verify
@@ -49,15 +54,10 @@ codacy:
   rules:
     - if: $CODACY_PROJECT_TOKEN && $CI_COMMIT_TAG == null
 
-sast:
-  stage: test
-  variables:
-    SAST_EXCLUDED_PATHS: jacoco-resources,prism.js
-
 release:
   stage: deploy
   script:
-    - mvn $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -Dchangelist= -ntp -Psources,javadocs,sign-and-deploy
+    - ./mvnw $MAVEN_CLI_OPTS -s ci_settings.xml clean deploy -Dchangelist= -ntp -Psources,javadocs,sign-and-deploy
   only:
     - tags
 
@@ -65,7 +65,7 @@ pages:
   stage: deploy
   script:
     - cp changelog.md src/site/markdown
-    - mvn clean verify site -Dchangelist= -Pjavadocs
+    - ./mvnw clean verify site -Dchangelist= -Pjavadocs
     - mv target/site public
     - mv target/apidocs public
     - mv public/images/favicon.ico public
