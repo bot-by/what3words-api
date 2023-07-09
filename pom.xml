@@ -106,7 +106,7 @@
     <jetbrains-annotations.version>24.0.1</jetbrains-annotations.version>
     <slf4j.version>2.0.7</slf4j.version>
     <json.version>20230227</json.version>
-    <feign.version>12.3</feign.version>
+    <feign.version>12.4</feign.version>
   </properties>
 
   <dependencies>
